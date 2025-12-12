@@ -292,16 +292,50 @@ async function loadContent(path) {
         const renderer = new marked.Renderer();
 
         // Image Renderer
+        // Image & Video Renderer
         renderer.image = function (href, title, text) {
             if (typeof href === 'object' && href !== null) { title = href.title; text = href.text; href = href.href; }
             href = String(href || '');
+
             if (href && !href.startsWith('http') && !href.startsWith('data:')) {
+                // Auto-prefix 'images/' only if no path separator found
                 if (!href.includes('/')) href = 'images/' + href;
+
                 const safeBase = baseDir.endsWith('/') ? baseDir : baseDir + '/';
                 const safeHref = href.startsWith('/') ? href.slice(1) : href;
-                return `<img src="${safeBase}${safeHref}" alt="${text || ''}" title="${title || ''}" class="img-fluid">`;
+                const finalPath = safeBase + safeHref;
+
+                // Check for video extensions
+                if (/\.(mp4|webm|ogg|mov)$/i.test(finalPath)) {
+                    return `<video controls style="max-width: 100%; display: block; margin: 1rem auto;" title="${title || ''}">
+                                <source src="${finalPath}">
+                                Your browser does not support the video tag.
+                             </video>`;
+                }
+
+                return `<img src="${finalPath}" alt="${text || ''}" title="${title || ''}" class="img-fluid">`;
+            }
+
+            // External/Absolute Links
+            // Check for video extensions
+            if (/\.(mp4|webm|ogg|mov)$/i.test(href)) {
+                return `<video controls style="max-width: 100%; display: block; margin: 1rem auto;" title="${title || ''}">
+                           <source src="${href}">
+                           Your browser does not support the video tag.
+                        </video>`;
             }
             return `<img src="${href}" alt="${text || ''}" title="${title || ''}" class="img-fluid">`;
+        };
+
+        // Link Renderer (Fixes relative paths for docs/files)
+        renderer.link = function (href, title, text) {
+            href = String(href || '');
+            if (href && !href.startsWith('http') && !href.startsWith('data:') && !href.startsWith('#') && !href.startsWith('mailto:')) {
+                const safeBase = baseDir.endsWith('/') ? baseDir : baseDir + '/';
+                const safeHref = href.startsWith('/') ? href.slice(1) : href;
+                href = safeBase + safeHref;
+            }
+            return `<a href="${href}" title="${title || ''}" target="${href.startsWith('http') ? '_blank' : '_self'}">${text}</a>`;
         };
 
         // Code Renderer
