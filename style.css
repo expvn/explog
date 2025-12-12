@@ -241,7 +241,7 @@ body {
     height: 420px;
     /* banner height — adjust if desired */
     position: relative;
-    background: linear-gradient(180deg, var(--sky-400), rgba(255, 255, 255, 0));
+    /* background: linear-gradient(180deg, var(--sky-400), rgba(255, 255, 255, 0)); */
 }
 
 /* If hero-image-wrapper contains an inner "frame" div (common in sliders) target it too */
