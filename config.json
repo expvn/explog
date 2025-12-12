@@ -1,0 +1,667 @@
+{
+  "siteTitle": "Untitled Design & Photography Journal",
+  "logo": "assets/logo.png",
+  "hero": {
+    "title": "Sophia Mesabhi from Untitled Ventures on Sustainable and Profitable Growth & What We Can Learn From the Gumroad Mess",
+    "image": "assets/banner/slide1.png",
+    "category": "Design & Photography",
+    "author": "Frankie Sullivan",
+    "authorImage": "assets/avatar.png",
+    "date": "10 April 2025",
+    "link": "#/posts/git-github-cap-toc-2-cac-cau-lenh-co-ban/index.md",
+    "slides": [
+      {
+        "image": "assets/banner/slide1.png",
+        "link": "#/posts/git-github-cap-toc-2-cac-cau-lenh-co-ban/index.md"
+      },
+      {
+        "image": "assets/banner/slide2.png",
+        "link": "https://github.com"
+      }
+    ],
+    "images": [
+      "assets/banner/slide1.png",
+      "assets/banner/slide2.png"
+    ]
+  },
+  "home": {
+    "categories": [],
+    "limit": 6
+  },
+  "posts": [
+    {
+      "id": "17654614990840.0040719760063751",
+      "title": "[GIT/GITHUB CẤP TỐC #2] – GIT BASH: CÁC CÂU LỆNH CƠ BẢN",
+      "summary": "**Bước 1: Thiết lập thông tin cá nhân** Sau khi cài đặt, hãy cấu hình thông tin cá nhân của bạn. Chạy các lệnh sau trong dòng lệnh, thay thế thông tin...",
+      "image": "content/posts/git-github-cap-toc-2-cac-cau-lenh-co-ban/images/22-221456_git-branch.jpg",
+      "author": "Anonymous",
+      "authorImage": "assets/avatar.png",
+      "date": "25 Jul 2023",
+      "category": "game",
+      "path": "posts/git-github-cap-toc-2-cac-cau-lenh-co-ban/index.md"
+    },
+    {
+      "id": "17654614990850.9033194810036024",
+      "title": "[GIT/GITHUB CẤP TỐC #1] - GIỚI THIỆU VỀ GIT/GITHUB",
+      "summary": "Chào các bạn, Trong bài giới thiệu này, chúng ta sẽ khám phá một công cụ hữu ích và phổ biến trong lĩnh vực phát triển phần mềm - Git và GitHub. **Git...",
+      "image": "content/posts/git-github-cap-toc-1-gioi-thieu-ve-git-github/images/22-221456_git-branch.jpg",
+      "author": "Anonymous",
+      "authorImage": "assets/avatar.png",
+      "date": "23 Jul 2023",
+      "category": "game",
+      "path": "posts/git-github-cap-toc-1-gioi-thieu-ve-git-github/index.md"
+    },
+    {
+      "id": "17654614990680.9681849762718239",
+      "title": "[PYTHON CẤP TỐC #9] Lập trình hướng đối tượng (OOP) trong Python",
+      "summary": "**1\\. Lớp và Đối tượng** - Để tạo một lớp trong Python, bạn sử dụng từ khóa `class` và sau đó là tên lớp. Ví dụ: - Để tạo một đối tượng từ lớp, bạn sử...",
+      "image": "content/posts/python-cap-toc-9-lap-trinh-huong-doi-tuong-oop-trong-python/images/Python-la-gi.png",
+      "author": "Anonymous",
+      "authorImage": "assets/avatar.png",
+      "date": "26 Jun 2023",
+      "category": "develop",
+      "path": "posts/python-cap-toc-9-lap-trinh-huong-doi-tuong-oop-trong-python/index.md"
+    },
+    {
+      "id": "17654614990690.009670642608407665",
+      "title": "[PYTHON CẤP TỐC #8] Hàm và cách định nghĩa hàm trong Python",
+      "summary": "Trong bài này, EXPVN sẽ hướng dẫn bạn về hàm và cách định nghĩa hàm nhé. **1\\. Định nghĩa hàm** Để định nghĩa một hàm trong Python, bạn sử dụng từ khó...",
+      "image": "content/posts/python-cap-toc-8-ham-va-cach-dinh-nghia-ham-trong-python/images/Python-la-gi.png",
+      "author": "Anonymous",
+      "authorImage": "assets/avatar.png",
+      "date": "26 Jun 2023",
+      "category": "develop",
+      "path": "posts/python-cap-toc-8-ham-va-cach-dinh-nghia-ham-trong-python/index.md"
+    },
+    {
+      "id": "17654614990690.36482198945257627",
+      "title": "[PYTHON CẤP TỐC #7] Danh sách và cách xử lý danh sách trong Python",
+      "summary": "Trong bài này, EXPVN sẽ hướng dẫn các bạn về các danh sách và cách xử lý danh sách trong Python, bao gồm các ví dụ ngắn gọn và dễ hiểu: **1\\. Khởi tạo...",
+      "image": "content/posts/python-cap-toc-7-danh-sach-va-cach-xu-ly-danh-sach-trong-python/images/Python-la-gi.png",
+      "author": "Anonymous",
+      "authorImage": "assets/avatar.png",
+      "date": "26 Jun 2023",
+      "category": "develop",
+      "path": "posts/python-cap-toc-7-danh-sach-va-cach-xu-ly-danh-sach-trong-python/index.md"
+    },
+    {
+      "id": "17654614990700.2747781394478789",
+      "title": "[PYTHON CẤP TỐC #6] Chuỗi và xử lý chuỗi trong Python",
+      "summary": "Chuỗi (string) là một loại dữ liệu rất quan trọng trong Python, cho phép bạn làm việc với văn bản và thông tin liên quan đến văn bản. Trong phần này, ...",
+      "image": "content/posts/python-cap-toc-6-chuoi-va-xu-ly-chuoi-trong-python/images/Python-la-gi.png",
+      "author": "Anonymous",
+      "authorImage": "assets/avatar.png",
+      "date": "26 Jun 2023",
+      "category": "develop",
+      "path": "posts/python-cap-toc-6-chuoi-va-xu-ly-chuoi-trong-python/index.md"
+    },
+    {
+      "id": "17654614990710.30883554566560356",
+      "title": "[PYTHON CẤP TỐC #5] Vòng lặp trong Python",
+      "summary": "Trong Python, chúng ta sử dụng các vòng lặp để lặp lại một khối mã nhiều lần. Dưới đây là hướng dẫn chi tiết về các loại vòng lặp trong Python và ví d...",
+      "image": "content/posts/python-cap-toc-5-vong-lap-trong-python/images/Python-la-gi.png",
+      "author": "Anonymous",
+      "authorImage": "assets/avatar.png",
+      "date": "26 Jun 2023",
+      "category": "develop",
+      "path": "posts/python-cap-toc-5-vong-lap-trong-python/index.md"
+    },
+    {
+      "id": "17654614990730.35505986341904916",
+      "title": "[PYTHON CẤP TỐC #15] Bài tập ứng dụng",
+      "summary": "Dưới đây là 10 bài tập thực hành Python cơ bản, có tính ứng dụng thực tế và mức độ khó từ đơn giản đến phức tạp. Bạn có thể thử giải và kiểm tra đáp á...",
+      "image": "content/posts/python-cap-toc-15-bai-tap-ung-dung/images/Python-la-gi.png",
+      "author": "Anonymous",
+      "authorImage": "assets/avatar.png",
+      "date": "26 Jun 2023",
+      "category": "develop",
+      "path": "posts/python-cap-toc-15-bai-tap-ung-dung/index.md"
+    },
+    {
+      "id": "17654614990730.6294914328752161",
+      "title": "[PYTHON CẤP TỐC #14] Các thư viện thường dùng",
+      "summary": "1\\. **Thư viện `math`** - Mô tả: Thư viện `math` cung cấp các hàm và phép toán số học. - Ví dụ: **2\\. Thư viện `random`** - Mô tả: Thư viện `random` c...",
+      "image": "content/posts/python-cap-toc-14-cac-thu-vien-thuong-dung/images/Python-la-gi.png",
+      "author": "Anonymous",
+      "authorImage": "assets/avatar.png",
+      "date": "26 Jun 2023",
+      "category": "develop",
+      "path": "posts/python-cap-toc-14-cac-thu-vien-thuong-dung/index.md"
+    },
+    {
+      "id": "17654614990730.13218258045827558",
+      "title": "[PYTHON CẤP TỐC #13] Thư viện trong Python",
+      "summary": "Trước tiên, bạn cần tìm kiếm thư viện phù hợp với nhu cầu của mình. Có nhiều nguồn tài nguyên để tìm kiếm thư viện, bao gồm trang chủ PyPI (Python Pac...",
+      "image": "content/posts/python-cap-toc-13-thu-vien-trong-python/images/Python-la-gi.png",
+      "author": "Anonymous",
+      "authorImage": "assets/avatar.png",
+      "date": "26 Jun 2023",
+      "category": "develop",
+      "path": "posts/python-cap-toc-13-thu-vien-trong-python/index.md"
+    },
+    {
+      "id": "17654614990740.18948122134583723",
+      "title": "[PYTHON CẤP TỐC #12] Đọc và ghi tập tin trong Python",
+      "summary": "**1\\. Đọc tập tin** - Mở tập tin: Bạn có thể sử dụng hàm `open()` để mở một tập tin trong chế độ đọc. Ví dụ: - Đọc nội dung tập tin: Bạn có thể sử dụn...",
+      "image": "content/posts/python-cap-toc-12-doc-va-ghi-tap-tin-trong-python/images/Python-la-gi.png",
+      "author": "Anonymous",
+      "authorImage": "assets/avatar.png",
+      "date": "26 Jun 2023",
+      "category": "develop",
+      "path": "posts/python-cap-toc-12-doc-va-ghi-tap-tin-trong-python/index.md"
+    },
+    {
+      "id": "17654614990740.3556146968020989",
+      "title": "[PYTHON CẤP TỐC #11] Xử lý ngoại lệ trong Python",
+      "summary": "Xử lý ngoại lệ trong Python OOP là quá trình xử lý các tình huống bất thường xảy ra trong chương trình. Điều này giúp bạn kiểm soát và xử lý các lỗi v...",
+      "image": "content/posts/python-cap-toc-11-xu-ly-ngoai-le-trong-python/images/Python-la-gi.png",
+      "author": "Anonymous",
+      "authorImage": "assets/avatar.png",
+      "date": "26 Jun 2023",
+      "category": "develop",
+      "path": "posts/python-cap-toc-11-xu-ly-ngoai-le-trong-python/index.md"
+    },
+    {
+      "id": "17654614990750.3524976008142905",
+      "title": "[PYTHON CẤP TỐC #10] Phạm vi truy cập thuộc tính và phương thức trong Python OOP",
+      "summary": "Trong lập trình hướng đối tượng (OOP) trong Python, phạm vi truy cập thuộc tính và phương thức quyết định việc truy cập và sử dụng chúng từ bên trong ...",
+      "image": "content/posts/python-cap-toc-10-pham-vi-truy-cap-thuoc-tinh-va-phuong-thuc-trong-python-oop/images/Python-la-gi.png",
+      "author": "Anonymous",
+      "authorImage": "assets/avatar.png",
+      "date": "26 Jun 2023",
+      "category": "develop",
+      "path": "posts/python-cap-toc-10-pham-vi-truy-cap-thuoc-tinh-va-phuong-thuc-trong-python-oop/index.md"
+    },
+    {
+      "id": "17654614990670.01733098345488815",
+      "title": "Regular Expression: Các ký tự, ký hiệu, ví dụ đơn giản và bài tập",
+      "summary": "Danh sách các từ khóa và ký hiệu trong Regex: **1\\. Ký hiệu cơ bản** `.`: Khớp với bất kỳ ký tự nào trừ ký tự xuống dòng. Ví dụ: `\"a.b\"` khớp với \"aab...",
+      "image": "content/posts/regular-expression-cac-ky-tu-ky-hieu-vi-du-don-gian-va-bai-tap/images/coderpad-regex-the-complete-guide.jpg",
+      "author": "Anonymous",
+      "authorImage": "assets/avatar.png",
+      "date": "25 Jun 2023",
+      "category": "develop",
+      "path": "posts/regular-expression-cac-ky-tu-ky-hieu-vi-du-don-gian-va-bai-tap/index.md"
+    },
+    {
+      "id": "17654614990710.3230179976259149",
+      "title": "[PYTHON CẤP TỐC #4] Câu lệnh rẽ nhánh trong Python (if, elseif, else)",
+      "summary": "Trong Python, điều kiện và rẽ nhánh được thực hiện bằng cách sử dụng câu lệnh `if`, `elif` và `else`. Dưới đây là hướng dẫn chi tiết về các điều kiện ...",
+      "image": "content/posts/python-cap-toc-4-cau-lenh-re-nhanh-trong-python-if-elseif-else/images/Python-la-gi.png",
+      "author": "Anonymous",
+      "authorImage": "assets/avatar.png",
+      "date": "25 Jun 2023",
+      "category": "develop",
+      "path": "posts/python-cap-toc-4-cau-lenh-re-nhanh-trong-python-if-elseif-else/index.md"
+    },
+    {
+      "id": "17654614990710.48928038822465736",
+      "title": "[PYTHON CẤP TỐC #3] Các toán tử",
+      "summary": "Dưới đây là một hướng dẫn chi tiết về các toán tử trong Python cùng với ví dụ ngắn gọn và dễ hiểu cho mỗi toán tử: **1\\. Toán tử số học:** - Toán tử c...",
+      "image": "content/posts/python-cap-toc-3-cac-toan-tu/images/Python-la-gi.png",
+      "author": "Anonymous",
+      "authorImage": "assets/avatar.png",
+      "date": "25 Jun 2023",
+      "category": "develop",
+      "path": "posts/python-cap-toc-3-cac-toan-tu/index.md"
+    },
+    {
+      "id": "17654614990720.14606500164637393",
+      "title": "[PYTHON CẤP TỐC #2] Các kiểu dữ liệu và cách gán kiểu dữ liệu trong Python",
+      "summary": "**1\\. Các kiểu dữ liệu** Python hỗ trợ nhiều kiểu dữ liệu khác nhau, bao gồm các kiểu dữ liệu số học, chuỗi, danh sách, bộ, tập hợp và boolean. Dưới đ...",
+      "image": "content/posts/python-cap-toc-2-cac-kieu-du-lieu-trong-python/images/image-15-1024x619.png",
+      "author": "Anonymous",
+      "authorImage": "assets/avatar.png",
+      "date": "14 Jun 2023",
+      "category": "develop",
+      "path": "posts/python-cap-toc-2-cac-kieu-du-lieu-trong-python/index.md"
+    },
+    {
+      "id": "17654614990760.5510624107677513",
+      "title": "[PYTHON CẤP TỐC #1] - Cài đặt: Python & Visual Studio Code",
+      "summary": "EXPVN xin giới thiệu tới các bạn series học Python cơ bản cho EXPVN tự thực hiện, trong series này chúng ta lần lượt tìm hiểu các mục sau: 1. Cài đặt ...",
+      "image": "content/posts/python-cap-toc-1-cai-dat-python-visual-studio-code/images/image-1.png",
+      "author": "Anonymous",
+      "authorImage": "assets/avatar.png",
+      "date": "13 Jun 2023",
+      "category": "develop",
+      "path": "posts/python-cap-toc-1-cai-dat-python-visual-studio-code/index.md"
+    },
+    {
+      "id": "17654614990870.5668573301186559",
+      "title": "EXPVN Shop",
+      "summary": "**Bạn hãy bấm vào nền tảng mua sắm mà bạn quen thuộc để ủng hộ EXPVN nhé!** $1 $1 $1 $1 $1",
+      "image": "content/posts/expvn-shop/images/facebook-150x150.webp",
+      "author": "Anonymous",
+      "authorImage": "assets/avatar.png",
+      "date": "7 May 2023",
+      "category": "blog",
+      "path": "posts/expvn-shop/index.md"
+    },
+    {
+      "id": "17654614990790.2372943697517388",
+      "title": "[PC] EXPVN Youtube Downloader - Tải hàng loạt Youtube (mp3, mp4)",
+      "summary": "**EXPVN YOUTUBE DOWNLOADER** là ứng dụng đơn giản không sử dụng giao diện và chạy với chế độ dòng lệnh. EXPVN Youtube Downloader được EXPVN phát triển...",
+      "image": "content/posts/pc-expvn-youtube-downloader-tai-hang-loat-youtube-mp3-mp4/images/1-1024x462.png",
+      "author": "Anonymous",
+      "authorImage": "assets/avatar.png",
+      "date": "5 Apr 2023",
+      "category": "tool",
+      "path": "posts/pc-expvn-youtube-downloader-tai-hang-loat-youtube-mp3-mp4/index.md"
+    },
+    {
+      "id": "17654614990950.1698893998594796",
+      "title": "[ANDROID] 999 lá thư gửi cho chính mình",
+      "summary": "“999 lá thư gửi cho chính mình” là một ứng dụng cho phép bạn xem một bức thư ngẫu nhiên trong quyển sách cùng tên của tác giả văn học mạng Miêu Công T...",
+      "image": "content/posts/android-999-la-thu-gui-cho-chinh-minh/images/dabf4f944c5da6f3ba4e581dc5799ccf.jpg",
+      "author": "Anonymous",
+      "authorImage": "assets/avatar.png",
+      "date": "17 Aug 2022",
+      "category": "game",
+      "path": "posts/android-999-la-thu-gui-cho-chinh-minh/index.md"
+    },
+    {
+      "id": "17654614990810.7702812017553567",
+      "title": "Letters of Life - Privacy Policy",
+      "summary": "**Privacy Policy** expvn built the Letters of Life app as a Free app. This SERVICE is provided by expvn at no cost and is intended for use as is. This...",
+      "image": "content/posts/letters-of-life-privacy-policy/images/Privacy-06.png",
+      "author": "Anonymous",
+      "authorImage": "assets/avatar.png",
+      "date": "8 Aug 2022",
+      "category": "blog",
+      "path": "posts/letters-of-life-privacy-policy/index.md"
+    },
+    {
+      "id": "17654614990260.5888022605728187",
+      "title": "The Fox Run - Privacy Policy",
+      "summary": "expvn built the The Fox Run app as an Ad Supported app. This SERVICE is provided by expvn at no cost and is intended for use as is. This page is used ...",
+      "image": "content/posts/the-fox-run-privacy-policy/images/Privacy-06.png",
+      "author": "Anonymous",
+      "authorImage": "assets/avatar.png",
+      "date": "6 Aug 2022",
+      "category": "blog",
+      "path": "posts/the-fox-run-privacy-policy/index.md"
+    },
+    {
+      "id": "17654614990880.7812928952673001",
+      "title": "EXP Flashcard - Privacy Policy",
+      "summary": "EXPVN built the EXP Flashcards app as a Commercial app. This SERVICE is provided by EXPVN and is intended for use as is. This page is used to inform v...",
+      "image": "content/posts/exp-flashcard-privacy-policy/images/Privacy-06.png",
+      "author": "Anonymous",
+      "authorImage": "assets/avatar.png",
+      "date": "6 Aug 2022",
+      "category": "blog",
+      "path": "posts/exp-flashcard-privacy-policy/index.md"
+    },
+    {
+      "id": "17654614990940.7395840515815285",
+      "title": "[ANDROID] EXP Flashcards - học tiếng Anh",
+      "summary": "EXP Flashcards là ứng dụng học tiếng Anh có giao diện dễ nhìn và dễ dàng sử dụng. Gần 8000 từ vựng được chia ra theo các mục để phù hợp với mọi nhu cầ...",
+      "image": "content/posts/android-exp-flashcards-hoc-tieng-anh/images/EXP-Flashcards-Design-05.png",
+      "author": "Anonymous",
+      "authorImage": "assets/avatar.png",
+      "date": "6 Aug 2022",
+      "category": "game",
+      "path": "posts/android-exp-flashcards-hoc-tieng-anh/index.md"
+    },
+    {
+      "id": "17654614990930.8290461617731599",
+      "title": "[Android] Tarot - Choose your destiny (English version)",
+      "summary": "Bói bài tarot với 10 bộ bài cho bạn tùy ý lựa chọn. Tarot – Choose Your Destiny, là ứng dụng bói bài với 10 bộ bài gồm: 1. Deviant Moon Tarot Deck 2. ...",
+      "image": "content/posts/android-tarot-choose-your-destiny-english-version/images/Screenshot_20220722-141955_Tarot-Choose-your-destiny-146x300.jpg",
+      "author": "Anonymous",
+      "authorImage": "assets/avatar.png",
+      "date": "22 Jul 2022",
+      "category": "game",
+      "path": "posts/android-tarot-choose-your-destiny-english-version/index.md"
+    },
+    {
+      "id": "17654614990620.3837390784239023",
+      "title": "Tarot - Choose Your Destiny - Privacy Policy",
+      "summary": "EXPVN built the Tarot - Choose Your Destiny app as a Commercial app. This SERVICE is provided by EXPVN and is intended for use as is. This page is use...",
+      "image": "content/posts/tarot-choose-your-destiny-privacy-policy/images/Privacy-06.png",
+      "author": "Anonymous",
+      "authorImage": "assets/avatar.png",
+      "date": "16 Jul 2022",
+      "category": "blog",
+      "path": "posts/tarot-choose-your-destiny-privacy-policy/index.md"
+    },
+    {
+      "id": "17654614990930.13958944021032405",
+      "title": "Answers of Life - Privacy Policy",
+      "summary": "expvn built the Answers of Life app as a Commercial app. This SERVICE is provided by expvn and is intended for use as is. This page is used to inform ...",
+      "image": "content/posts/answers-of-life-privacy-policy/images/Privacy-06.png",
+      "author": "Anonymous",
+      "authorImage": "assets/avatar.png",
+      "date": "13 Jul 2022",
+      "category": "blog",
+      "path": "posts/answers-of-life-privacy-policy/index.md"
+    },
+    {
+      "id": "17654614990950.007847833989126807",
+      "title": "[Android] Answers of Life",
+      "summary": "Answers of Life là một ứng dụng đưa ra câu trả lời ngẫu nhiên cho tất cả câu hỏi của bạn. 1. Trước tiên, hãy mở ứng dụng lên, nhắm mắt và dành 10 - 15...",
+      "image": "content/posts/android-answers-of-life/images/Answers-of-Life-02.jpg",
+      "author": "Anonymous",
+      "authorImage": "assets/avatar.png",
+      "date": "13 Jul 2022",
+      "category": "game",
+      "path": "posts/android-answers-of-life/index.md"
+    },
+    {
+      "id": "17654614990940.8456869348864807",
+      "title": "[Android] Random Machine - Ứng dụng tạo kết quả ngẫu nhiên",
+      "summary": "Random Machine là ứng dụng miễn phí, giúp bạn dễ dàng tạo ra các kết quả ngẫu nhiên. Các tiện ích bên trong ứng dụng gồm: - **Random Number:** lấy ra ...",
+      "image": "content/posts/android-random-machine-ung-dung-tao-ket-qua-ngau-nhien/images/icon-01.png",
+      "author": "Anonymous",
+      "authorImage": "assets/avatar.png",
+      "date": "2 Jul 2022",
+      "category": "game",
+      "path": "posts/android-random-machine-ung-dung-tao-ket-qua-ngau-nhien/index.md"
+    },
+    {
+      "id": "17654614990670.810503196762768",
+      "title": "Random Machine - Privacy Policy",
+      "summary": "**Privacy Policy** EXPVN built the Random Machine app as an Ad Supported app. This SERVICE is provided by EXPVN at no cost and is intended for use as ...",
+      "image": "content/posts/random-machine-privacy-policy/images/Privacy-05.png",
+      "author": "Anonymous",
+      "authorImage": "assets/avatar.png",
+      "date": "1 Jul 2022",
+      "category": "blog",
+      "path": "posts/random-machine-privacy-policy/index.md"
+    },
+    {
+      "id": "17654614990900.8508796400317739",
+      "title": "[PC] Convert PDF to Image (Chuyển đổi PDF sang ảnh)",
+      "summary": "EXPVN - Pdf2Image là tiện ích nhỏ, miễn phí, giúp bạn chuyển đổi hàng loạt file PDF sang ảnh với định dạng .JPG **Hướng dẫn sử dụng:** 1 - Bạn copy cá...",
+      "image": "content/posts/convert-pdf-to-image-chuyen-doi-pdf-sang-anh/images/2022-06-24-15_38_05-EXPVN-Pdf2Image.png",
+      "author": "Anonymous",
+      "authorImage": "assets/avatar.png",
+      "date": "24 Jun 2022",
+      "category": "tool",
+      "path": "posts/convert-pdf-to-image-chuyen-doi-pdf-sang-anh/index.md"
+    },
+    {
+      "id": "17654614990780.9015666837277687",
+      "title": "[PC] promail@expvn.com - Ứng dụng gửi mail hàng loạt với tiêu đề, nội dung và file đính kèm khác nhau cho từng người nhận",
+      "summary": "https://www.youtube.com/watch?v=KmYvUYSmJC8 Hướng dẫn sử dụng promail@expvn.com Tải phần mềm tại đây: $1",
+      "image": "content/posts/pc-promailexpvn-com-ung-dung-gui-mail-hang-loat-voi-tieu-de-noi-dung-va-file-dinh-kem-khac-nhau-cho-tung-nguoi-nhan/images/quy-tac-su-dung-email-hieu-qua-va-chuyen-nghiep.jpg",
+      "author": "Anonymous",
+      "authorImage": "assets/avatar.png",
+      "date": "9 Apr 2022",
+      "category": "tool",
+      "path": "posts/pc-promailexpvn-com-ung-dung-gui-mail-hang-loat-voi-tieu-de-noi-dung-va-file-dinh-kem-khac-nhau-cho-tung-nguoi-nhan/index.md"
+    },
+    {
+      "id": "17654614990610.25202921493888697",
+      "title": "[Android] The fox run",
+      "summary": "The fox run là một trò chơi vui vẻ để giải trí sau những giờ làm việc và học tập căng thẳng. Trong trò chơi, bạn cố gắng đưa chú cáo của mình chạy lâu...",
+      "image": "content/posts/the-fox-run/images/1-1024x498.jpg",
+      "author": "Anonymous",
+      "authorImage": "assets/avatar.png",
+      "date": "13 Jul 2021",
+      "category": "game",
+      "path": "posts/the-fox-run/index.md"
+    },
+    {
+      "id": "17654614990900.8626063841868414",
+      "title": "[Android] Escape from the labyrinth - Video",
+      "summary": "https://www.youtube.com/watch?v=Qnv3qTb2vHM&lc=UgwTNdzb0tnG4jHzGNB4AaABAg Để thoát khỏi mê cung, chỉ kỹ năng thôi là chưa đủ. Bởi, trong trò chơi Esca...",
+      "image": "content/posts/escape-from-the-labyrinth/images/maxresdefault.jpg",
+      "author": "Anonymous",
+      "authorImage": "assets/avatar.png",
+      "date": "8 Jun 2021",
+      "category": "game",
+      "path": "posts/escape-from-the-labyrinth/index.md"
+    },
+    {
+      "id": "17654614990890.7671291369442765",
+      "title": "Escape from the labyrinth - Privacy Policy",
+      "summary": "EXP Games built the Escape from the labyrinth app as a Commercial app. This SERVICE is provided by EXP Games and is intended for use as is. This page ...",
+      "image": "content/posts/escape-from-the-labyrinth-privacy-policy/images/EscapeFromTheLabyrinthPrivacy-04.jpg",
+      "author": "Anonymous",
+      "authorImage": "assets/avatar.png",
+      "date": "6 Jun 2021",
+      "category": "blog",
+      "path": "posts/escape-from-the-labyrinth-privacy-policy/index.md"
+    },
+    {
+      "id": "17654614990860.4877502599132686",
+      "title": "Giới thiệu: các loại thuốc trong become a witch in another world",
+      "summary": "Trong become a witch in another world, thuốc đóng vai trò quan trọng và nó góp phần giúp nhân vật của bạn mạnh lên một cách vượt bậc. Cách sở hữu các ...",
+      "image": "content/posts/gioi-thieu-cac-loai-thuoc-trong-become-a-witch-in-another-world/images/40.-Thuoc-tang-mau-toi-da.png",
+      "author": "Anonymous",
+      "authorImage": "assets/avatar.png",
+      "date": "4 May 2021",
+      "category": "game",
+      "path": "posts/gioi-thieu-cac-loai-thuoc-trong-become-a-witch-in-another-world/index.md"
+    },
+    {
+      "id": "17654614990870.5546545995985536",
+      "title": "Giới thiệu: Bảng tu luyện",
+      "summary": "Trong Become a witch in another world, để nhân vật của bạn trở lên mạnh mẽ, ngoài việc luyện cấp, chế tạo trang bị thì một việc cũng quan trọng không ...",
+      "image": "content/posts/gioi-thieu-bang-tu-luyen/images/1.jpg",
+      "author": "Anonymous",
+      "authorImage": "assets/avatar.png",
+      "date": "4 May 2021",
+      "category": "game",
+      "path": "posts/gioi-thieu-bang-tu-luyen/index.md"
+    },
+    {
+      "id": "17654614990820.752025478101525",
+      "title": "Hướng dẫn: Xóa toàn bộ thuộc tính (dòng) của trang bị.",
+      "summary": "Trước khi đục lỗ hoặc khảm thuộc tính cho trang bị, bạn cần phải có một trang bị rỗng (không có dòng, thuộc tính). Và để làm điều đó, bạn cần chuẩn bị...",
+      "image": "content/posts/huong-dan-xoa-toan-bo-thuoc-tinh-dong-cua-trang-bi/images/movie_040.mp4_snapshot_00.17_2021.05.03_12.25.40-scaled.jpg",
+      "author": "Anonymous",
+      "authorImage": "assets/avatar.png",
+      "date": "3 May 2021",
+      "category": "game",
+      "path": "posts/huong-dan-xoa-toan-bo-thuoc-tinh-dong-cua-trang-bi/index.md"
+    },
+    {
+      "id": "17654614990830.9059692483133462",
+      "title": "Hướng dẫn: hút (tách) thuộc tính từ trang bị",
+      "summary": "Khi nhặt được trang bị mà có thuộc tính (dòng) mà bạn thích, tuy nhiên, trang bị đó chỉ có mỗi dòng đó là tốt thôi, còn lại thì dở quá. Bạn đừng vội b...",
+      "image": "content/posts/huong-dan-hut-tach-thuoc-tinh-tu-trang-bi/images/movie_041.mp4_snapshot_00.16_2021.05.03_12.35.01-scaled.jpg",
+      "author": "Anonymous",
+      "authorImage": "assets/avatar.png",
+      "date": "3 May 2021",
+      "category": "game",
+      "path": "posts/huong-dan-hut-tach-thuoc-tinh-tu-trang-bi/index.md"
+    },
+    {
+      "id": "17654614990830.8309951963986911",
+      "title": "Hướng dẫn: đục lỗ và khảm thuộc tính vào trang bị",
+      "summary": "Video dưới dây hướng dẫn chi tiết cách bạn đục lỗ cho trang bị và khảm đá thuộc tính vào trang bị đó. **_Lưu ý:_** trước đó, bạn cần phải chuẩn bị một...",
+      "image": "content/posts/huong-dan-duc-lo-va-kham-thuoc-tinh-vao-trang-bi/images/movie_042.mp4_snapshot_00.24_2021.05.03_12.39.40-scaled.jpg",
+      "author": "Anonymous",
+      "authorImage": "assets/avatar.png",
+      "date": "3 May 2021",
+      "category": "game",
+      "path": "posts/huong-dan-duc-lo-va-kham-thuoc-tinh-vao-trang-bi/index.md"
+    },
+    {
+      "id": "17654614990830.876302459751529",
+      "title": "Hướng dẫn: cách sử dụng bản đồ để di chuyển",
+      "summary": "Thế giới bên trong become a witch in another world không quá lớn nhưng việc di chuyển qua lại các nơi cũng sẽ tiêu tốn của bạn khá nhiều thời gian. Vì...",
+      "image": "content/posts/huong-dan-cach-su-dung-ban-do-de-di-chuyen/images/2021-05-03-22_01_38-Window-1024x453.jpg",
+      "author": "Anonymous",
+      "authorImage": "assets/avatar.png",
+      "date": "3 May 2021",
+      "category": "game",
+      "path": "posts/huong-dan-cach-su-dung-ban-do-de-di-chuyen/index.md"
+    },
+    {
+      "id": "17654614990850.6701822432702668",
+      "title": "Giới thiệu tính năng: Chế tạo trang bị",
+      "summary": "Become a witch in another world có chức năng chế tạo trang bị, giúp bạn sở hữu những trang bị mạnh mẽ theo ý muốn của mình. _Một trang bị được chế tạo...",
+      "image": "content/posts/gioi-thieu-tinh-nang-che-tao-trang-bi/images/Chee-tao-trang-bij-1024x498.png",
+      "author": "Anonymous",
+      "authorImage": "assets/avatar.png",
+      "date": "3 May 2021",
+      "category": "game",
+      "path": "posts/gioi-thieu-tinh-nang-che-tao-trang-bi/index.md"
+    },
+    {
+      "id": "17654614990860.9523569515474916",
+      "title": "Giới thiệu: các loại quái trong Become a witch in another world",
+      "summary": "Chomper Vị trí xuất hiện: Bìa rừng bóng tối Máu: 1.500 Tấn công: 50 Phòng thủ: 40 Gil: 2.000 EXP: 14.686 Spitter Vị trí xuất hiện: Bìa rừng bóng tối M...",
+      "image": "content/posts/gioi-thieu-cac-loai-quai-trong-become-a-witch-in-another-world/images/Bommer.png",
+      "author": "Anonymous",
+      "authorImage": "assets/avatar.png",
+      "date": "3 May 2021",
+      "category": "game",
+      "path": "posts/gioi-thieu-cac-loai-quai-trong-become-a-witch-in-another-world/index.md"
+    },
+    {
+      "id": "17654614990920.7044737468046894",
+      "title": "Become a witch in another world hỗ trợ bàn phím và tay cầm",
+      "summary": "Trò chơi Become a witch in another world có hỗ trợ chơi bằng tay cầm hoặc bàn phím. Lưu ý: việc hỗ trợ chỉ có: chức năng di chuyển, xoay camera và dùn...",
+      "image": "content/posts/become-a-witch-in-another-world-ho-tro-ban-phim-va-tay-cam/images/Cyber-sport-competitors-scaled.jpg",
+      "author": "Anonymous",
+      "authorImage": "assets/avatar.png",
+      "date": "3 May 2021",
+      "category": "game",
+      "path": "posts/become-a-witch-in-another-world-ho-tro-ban-phim-va-tay-cam/index.md"
+    },
+    {
+      "id": "17654614990850.42268294561960085",
+      "title": "[Android] Giới thiệu trò chơi: Become a witch in another world",
+      "summary": "Become a witch in another world - trở thành phù thủy ở thế giới khác. Với thế giới mở và cốt truyện nhẹ nhàng, chắc chắn sẽ đem đến cho bạn khoảng thờ...",
+      "image": "content/posts/gioi-thieu-tro-choi-become-a-witch-in-another-world/images/2021-05-02-11_45_17-Become-a-Witch-in-Another-World-5.-Jocasta-Village-Android-Unity-2020.3.2f-1024x576.png",
+      "author": "Anonymous",
+      "authorImage": "assets/avatar.png",
+      "date": "2 May 2021",
+      "category": "game",
+      "path": "posts/gioi-thieu-tro-choi-become-a-witch-in-another-world/index.md"
+    },
+    {
+      "id": "17654614990640.21171396759752636",
+      "title": "Speech to text - Privacy Policy",
+      "summary": "EXP Games built the SpeechToText app as an Ad Supported app. This SERVICE is provided by EXP Games at no cost and is intended for use as is. This page...",
+      "image": "content/posts/speech-to-text-privacy-policy/images/Privacy-03.png",
+      "author": "Anonymous",
+      "authorImage": "assets/avatar.png",
+      "date": "10 Mar 2021",
+      "category": "blog",
+      "path": "posts/speech-to-text-privacy-policy/index.md"
+    },
+    {
+      "id": "17654614990650.5209502708610605",
+      "title": "[Android] Speech to text - Nhập liệu bằng giọng nói",
+      "summary": "Speech to text là phần mềm hỗ trợ việc soạn thảo văn bản bằng giọng nói. Ứng dụng sử dụng cơ sở dữ liệu của Google, chính vì vậy có độ chính xác rất c...",
+      "image": "content/posts/speech-to-text-nhap-lieu-bang-giong-noi/images/Screenshot_20210310-152100_Speech-to-text-498x1024.jpg",
+      "author": "Anonymous",
+      "authorImage": "assets/avatar.png",
+      "date": "10 Mar 2021",
+      "category": "tool",
+      "path": "posts/speech-to-text-nhap-lieu-bang-giong-noi/index.md"
+    },
+    {
+      "id": "17654614990660.32278262163098925",
+      "title": "[Android] Spaceship - Phi thuyền không gian",
+      "summary": "Tải về: $1",
+      "image": "content/posts/spaceship-phi-thuyen-khong-gian/images/unnamed-1_result-1024x576.jpg",
+      "author": "Anonymous",
+      "authorImage": "assets/avatar.png",
+      "date": "3 Feb 2021",
+      "category": "game",
+      "path": "posts/spaceship-phi-thuyen-khong-gian/index.md"
+    },
+    {
+      "id": "17654614990760.041236861436469874",
+      "title": "Spaceship - Privacy Policy",
+      "summary": "**Privacy Policy** EXP Games built the Spaceship app as an Ad Supported app. This SERVICE is provided by EXP Games at no cost and is intended for use ...",
+      "image": "content/posts/privacy-policy/images/Privacy-01.png",
+      "author": "Anonymous",
+      "authorImage": "assets/avatar.png",
+      "date": "3 Feb 2021",
+      "category": "blog",
+      "path": "posts/privacy-policy/index.md"
+    },
+    {
+      "id": "17654614990920.5612280919415858",
+      "title": "Become a witch in another world - Privacy Policy",
+      "summary": "**Privacy Policy** EXP Games built the Become a witch in another world app as an Ad Supported app. This SERVICE is provided by EXP Games at no cost an...",
+      "image": "content/posts/become-a-witch-in-another-world-privacy-policy/images/Privacy-02.png",
+      "author": "Anonymous",
+      "authorImage": "assets/avatar.png",
+      "date": "3 Feb 2021",
+      "category": "game",
+      "path": "posts/become-a-witch-in-another-world-privacy-policy/index.md"
+    },
+    {
+      "id": "17654614990630.18540120767670942",
+      "title": "[PC] Tạo ebook dạng azw3, ePub bằng Calibre Book Edit",
+      "summary": "Nếu bạn đang sở hữu một máy đọc sách, hoặc muốn tạo sách điện tử và copy vào điện thoại, máy tính bảng để đọc mà công cần kết nối internet thì bài viế...",
+      "image": "content/posts/tao-ebook-dang-azw3-epub-bang-calibre-book-edit/images/bia-sach-da-duoc-chon.jpeg",
+      "author": "Anonymous",
+      "authorImage": "assets/avatar.png",
+      "date": "2 Feb 2021",
+      "category": "tool",
+      "path": "posts/tao-ebook-dang-azw3-epub-bang-calibre-book-edit/index.md"
+    },
+    {
+      "id": "17654614990770.189724053746545",
+      "title": "PHP Web Server cho Raspberry Pi",
+      "summary": "Nếu bạn đang sở hữu một máy tính Raspberry Pi và đang học PHP hoặc WordPress. Hãy biến chiếc Raspberry Pi của bạn thành một PHP Web Server. Rất đơn gi...",
+      "image": "content/posts/php-web-server-cho-raspberry-pi/images/php-web-server-cho-rasberry-1.png",
+      "author": "Anonymous",
+      "authorImage": "assets/avatar.png",
+      "date": "2 Feb 2021",
+      "category": "develop",
+      "path": "posts/php-web-server-cho-raspberry-pi/index.md"
+    },
+    {
+      "id": "17654614990780.6591729608484012",
+      "title": "[PC] Phần mềm tải truyện chữ GetTextFromHtml",
+      "summary": "Có những lúc bạn muốn tải những bộ truyện chữ hay trên mạng về để đọc trên máy đọc sách. Hoặc bạn muốn copy vào điện thoại để đọc offline. Nhưng truyệ...",
+      "image": "content/posts/phan-mem-tai-truyen-chu-gettextfromhtml/images/ebook.jpg",
+      "author": "Anonymous",
+      "authorImage": "assets/avatar.png",
+      "date": "2 Feb 2021",
+      "category": "tool",
+      "path": "posts/phan-mem-tai-truyen-chu-gettextfromhtml/index.md"
+    },
+    {
+      "id": "17654614990800.9558060387455032",
+      "title": "Nên học phần mềm nào của Adobe",
+      "summary": "Nên học phần mềm nào của Adobe? Câu hỏi này thường đến với những người bắt đầu tìm hiểu về con đường thiết kế. Thậm chí, một số người đã học xong, hay...",
+      "image": "content/posts/nen-hoc-phan-mem-nao-cua-adobe/images/adobe-after-effects-1.jpeg",
+      "author": "Anonymous",
+      "authorImage": "assets/avatar.png",
+      "date": "2 Feb 2021",
+      "category": "blog",
+      "path": "posts/nen-hoc-phan-mem-nao-cua-adobe/index.md"
+    },
+    {
+      "id": "17654614990910.12600328272896533",
+      "title": "Các lệnh cơ bản của Raspbian",
+      "summary": "Nếu đang sở hữu một máy tính raspberry có cài hệ điều hành Raspbian. Hẳn sẽ có lúc bạn cần tìm các lệnh cơ bản của Raspbian để phục vụ dự án của mình....",
+      "image": "content/posts/cac-lenh-co-ban-cua-raspbian/images/cac-cau-lenh-co-ban-cua-raspbian-raspberry.jpeg",
+      "author": "Anonymous",
+      "authorImage": "assets/avatar.png",
+      "date": "2 Feb 2021",
+      "category": "develop",
+      "path": "posts/cac-lenh-co-ban-cua-raspbian/index.md"
+    }
+  ],
+  "menu": [
+    {
+      "title": "BLOG",
+      "path": "category/blog"
+    },
+    {
+      "title": "GAME",
+      "path": "category/game"
+    },
+    {
+      "title": "TOOL",
+      "path": "category/tool"
+    },
+    {
+      "title": "DEVELOP",
+      "path": "category/develop"
+    }
+  ]
+}

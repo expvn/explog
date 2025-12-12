@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXPLog Journal</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Ionicons -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <!-- Marked.js -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.6/dist/purify.min.js"></script>
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Highlight.js -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script>
+    <link rel="icon" type="image/png" href="assets/logo.png">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#/" class="logo-area" style="text-decoration: none; color: inherit;">
+                <img src="assets/logo.png" alt="Logo" class="nav-logo">
+                <span class="nav-brand">EXPLog</span>
+            </a>
+
+            <div class="nav-links">
+                <a href="#/" class="nav-link">Home</a>
+                <a href="#" class="nav-link">Products <ion-icon name="chevron-down-outline"></ion-icon></a>
+                <a href="#" class="nav-link">Resources <ion-icon name="chevron-down-outline"></ion-icon></a>
+                <a href="#" class="nav-link">Pricing</a>
+            </div>
+
+            <div class="nav-actions">
+                <img src="assets/avatar.png" class="user-avatar" alt="User">
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main App Container -->
+    <main id="app">
+        <!-- Views will be injected here -->
+        <div id="home-view" class="view hidden">
+            <!-- Hero Section -->
+            <header class="hero" id="hero-section">
+                <!-- Injected via JS -->
+            </header>
+
+            <!-- Blog Grid Section -->
+            <section class="container blog-section">
+                <div class="section-header">
+                    <h2>Features</h2>
+                </div>
+                <div class="blog-grid" id="blog-grid">
+                    <!-- Posts injected via JS -->
+                </div>
+            </section>
+
+        </div>
+
+        <div id="article-view" class="view hidden">
+            <div class="container article-container">
+                <button onclick="window.history.back()" class="btn-back">
+                    <ion-icon name="arrow-back-outline"></ion-icon> Back
+                </button>
+                <div id="markdown-content" class="markdown-body">
+                    <!-- Markdown injected here -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-bottom">
+            <div class="logo-area">
+                <img src="assets/logo.png" alt="Logo" class="nav-logo">
+                <span>EXPLog CMS</span>
+            </div>
+            <p>&copy; 2025 EXPLog. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

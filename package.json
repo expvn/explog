@@ -1,0 +1,13 @@
+{
+    "name": "explog-cms",
+    "version": "1.0.0",
+    "description": "Lightweight file-based CMS",
+    "scripts": {
+        "build": "node scripts/generate-config.js",
+        "start": "npx http-server -p 8081 -c-1"
+    },
+    "dependencies": {
+        "glob": "^10.3.10",
+        "gray-matter": "^4.0.3"
+    }
+}
