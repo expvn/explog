@@ -320,8 +320,38 @@ async function handleRoute() {
         return;
     }
 
-    // 404
-    els.app.innerHTML = '<h1>404 - Not Found</h1>';
+    // 5. Direct page access: /page-name/ -> content/pages/page-name/index.html
+    // Pages starting with 'exp-' are standalone (redirect to full HTML page)
+    // Other pages are embedded in the article container
+    const pageName = parts[0].replace(/\/$/, ''); // Remove trailing slash if any
+
+    if (pageName && !pageName.includes('.')) {
+        // [FIX] Optimistic redirect for standalone pages to bypass SPA routing issues
+        if (pageName.startsWith('exp-')) {
+            window.location.href = `/content/pages/${pageName}/index.html`;
+            return;
+        }
+
+        const pageResult = await checkPageExists(pageName);
+        console.log('[DEBUG] Page exists:', pageResult.exists);
+
+        if (pageResult.exists) {
+            // Embed in article container
+            showArticle();
+            await loadStaticPage(pageName, pageResult.path);
+            return;
+        }
+    }
+
+    // 404 Error handling (don't overwrite app.innerHTML as it destroys views)
+    showArticle();
+    els.markdownContent.innerHTML = `
+        <div style="text-align:center; padding: 4rem;">
+            <h1>404 - Not Found</h1>
+            <p>The page <strong>${path}</strong> could not be found.</p>
+            <p><a href="/" onclick="event.preventDefault(); window.history.pushState({}, '', '/'); handleRoute();" style="color: var(--primary); text-decoration: underline;">Return to Home</a></p>
+        </div>
+    `;
 }
 
 function showHome() {
@@ -336,19 +366,83 @@ function showArticle() {
     window.scrollTo(0, 0);
 }
 
-async function loadStaticPage(pageName) {
+// Check if a page exists in content/pages
+async function checkPageExists(pageName) {
+    try {
+        // 1. Try index.html
+        let url = `/content/pages/${pageName}/index.html`;
+        console.log(`[DEBUG] Fetching: ${url}`);
+        let res = await fetch(url, { method: 'GET', cache: 'no-store' });
+
+        if (res.ok) {
+            let text = await res.text();
+            if (!text.includes('id="app"') || !text.includes('app.js')) {
+                return { exists: true, path: url, isIndex: true };
+            }
+            console.log('[DEBUG] index.html is SPA fallback. Trying view.html...');
+        }
+
+        // 2. Try view.html (fallback for embedded pages to avoid serving issues)
+        url = `/content/pages/${pageName}/view.html`;
+        console.log(`[DEBUG] Fetching: ${url}`);
+        res = await fetch(url, { method: 'GET', cache: 'no-store' });
+        console.log(`[DEBUG] Status: ${res.status}`);
+
+        if (res.ok) {
+            let text = await res.text();
+            console.log(`[DEBUG] Content snippet: ${text.substring(0, 50).replace(/\n/g, ' ')}...`);
+
+            if (!text.includes('id="app"') || !text.includes('app.js')) {
+                return { exists: true, path: url, isIndex: false };
+            }
+            console.log('[DEBUG] view.html is also SPA fallback?');
+        } else {
+            console.log('[DEBUG] view.html not found (404/error)');
+        }
+
+        // 3. Try page.txt (final fallback to bypass server HTML interception)
+        // We use .txt extension but content is HTML
+        url = `/content/pages/${pageName}/page.txt`;
+        console.log(`[DEBUG] Fetching: ${url}`);
+        res = await fetch(url, { method: 'GET', cache: 'no-store' });
+
+        if (res.ok) {
+            let text = await res.text();
+            // .txt files shouldn't be intercepted, but good to check
+            if (!text.includes('id="app"') || !text.includes('app.js')) {
+                return { exists: true, path: url, isIndex: false };
+            }
+        }
+
+        return { exists: false };
+    } catch (e) {
+        console.error('[DEBUG] Fetch error:', e);
+        return { exists: false };
+    }
+}
+
+async function loadStaticPage(pageName, customPath = null) {
     els.markdownContent.innerHTML = '<div class="loading">Loading...</div>';
 
     // Attempt to fetch content/pages/{pageName}/index.html OR content/pages/{pageName}/index.md
     // Requirements say: content/pages folder. "domain/page/tên-page (tên page là tên folder chứa page đó)"
-    // We assume index.html inside that folder
-    const pagePath = `/content/pages/${pageName}/index.html`;
+    // We assume index.html inside that folder, or custom path if provided
+    const pagePath = customPath || `/content/pages/${pageName}/index.html`;
 
     try {
         const res = await fetch(pagePath);
         if (!res.ok) throw new Error("Page not found");
         const html = await res.text();
         els.markdownContent.innerHTML = html;
+
+        // Execute scripts found in the HTML
+        const scripts = els.markdownContent.querySelectorAll('script');
+        scripts.forEach(oldScript => {
+            const newScript = document.createElement('script');
+            Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
+            newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+            oldScript.parentNode.replaceChild(newScript, oldScript);
+        });
     } catch (e) {
         console.error(e);
         els.markdownContent.innerHTML = `
