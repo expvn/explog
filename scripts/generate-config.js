@@ -36,7 +36,7 @@ function generateConfig() {
         }
 
         // Image Path Logic
-        let imagePath = 'assets/hero.png'; // Default fallback
+        let imagePath = ''; // No default fallback
 
         // 1. Check Frontmatter
         if (data.image) {
@@ -92,9 +92,11 @@ function generateConfig() {
             })(),
             image: imagePath,
             author: data.author || 'Anonymous',
-            authorImage: data.authorImage || 'assets/avatar.png',
+            // authorImage removed as requested
             date: data.date ? new Date(data.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }) : 'Unknown',
             category: data.category || 'Uncategorized',
+
+            tags: data.tags || [],
             path: normalizePath(relativePath)
         };
 
@@ -130,8 +132,9 @@ function generateConfig() {
 
     // Preserve existing hero or use default
     const heroConfig = currentConfig.hero || {
+        enabled: true,
         title: "Welcome to EXPLog",
-        image: "assets/hero.png",
+        image: "",
         category: "Featured",
         date: new Date().toLocaleDateString(),
         link: ""
@@ -139,18 +142,46 @@ function generateConfig() {
 
     // Attach slider images if found
     if (heroImages.length > 0) {
-        heroConfig.images = heroImages;
+        heroConfig.images = heroImages.map(img => img.startsWith('http') ? img : '/' + img);
         // Use first image as main fallback
-        heroConfig.image = heroImages[0];
+        heroConfig.image = heroConfig.images[0];
     }
 
-    // Generate Menu (Uppercase)
-    const menu = [
-        ...Array.from(categories).map(cat => ({
-            title: cat.toUpperCase(),
-            path: `category/${cat}`
-        }))
-    ];
+    // Ensure hero.image has leading slash
+    if (heroConfig.image && !heroConfig.image.startsWith('http') && !heroConfig.image.startsWith('/')) {
+        heroConfig.image = '/' + heroConfig.image;
+    }
+
+    // Remove stale authorImage if present
+    delete heroConfig.authorImage;
+
+    // Preserve enabled flag if it exists
+    if (currentConfig.hero && typeof currentConfig.hero.enabled !== 'undefined') {
+        heroConfig.enabled = currentConfig.hero.enabled;
+    }
+
+    // Generate Menu (Use existing or default if empty)
+    let menu = currentConfig.menu;
+    if (!menu || menu.length === 0) {
+        menu = [
+            ...Array.from(categories).map(cat => ({
+                title: cat.toUpperCase(),
+                path: `category/${cat}`
+            }))
+        ];
+    }
+
+    // Ensure menu paths have leading slash
+    menu = menu.map(item => ({
+        ...item,
+        path: item.path.startsWith('/') ? item.path.slice(1) : item.path // Normalize to NO leading slash for config, handled in app
+        // Actually, let's stick to what app.js expects.
+        // APP EXPECTS: <a href="/${item.path}">
+        // So item.path should NOT have a leading slash if we use the template `/${item.path}`.
+        // Wait, if item.path is `category/blog`, then href is `/category/blog`. This is correct.
+        // If item.path is `/category/blog`, then href is `//category/blog`.
+        // So let's ensure they DO NOT have a leading slash.
+    }));
 
     const newConfig = {
         ...currentConfig,
