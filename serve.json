@@ -1,10 +1,23 @@
 {
-    "public": ".",
-    "cleanUrls": false,
     "rewrites": [
         {
-            "source": "**",
-            "destination": "/index.html"
+            "source": "/content/**",
+            "destination": "/content/$1"
         }
-    ]
+    ],
+    "redirects": [],
+    "headers": [
+        {
+            "source": "/content/**/*.md",
+            "headers": [
+                {
+                    "key": "Content-Type",
+                    "value": "text/plain; charset=utf-8"
+                }
+            ]
+        }
+    ],
+    "trailingSlash": false,
+    "cleanUrls": false,
+    "directoryListing": false
 }

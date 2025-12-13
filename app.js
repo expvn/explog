@@ -25,7 +25,8 @@ async function init() {
 }
 
 async function loadConfig() {
-    const res = await fetch('config.json');
+    // Use absolute path to ensure config loads correctly from any URL
+    const res = await fetch('/config.json');
     appState.config = await res.json();
     renderNavBar();
 }
@@ -312,9 +313,14 @@ async function handleRoute() {
     if (parts[0] === 'posts') {
         showArticle();
         // Config paths are like: posts/slug/index.md
-        // URL is: posts/slug
-        // We match by folder structure
-        const postSlug = parts[1];
+        // URL is: posts/slug or posts/slug/
+        // Filter out empty parts from trailing slashes
+        const cleanParts = parts.filter(p => p !== '');
+        const postSlug = cleanParts[1];
+        if (!postSlug) {
+            els.markdownContent.innerHTML = '<div style="text-align:center; padding: 4rem;"><h1>Post Not Found</h1><p>No post slug provided.</p></div>';
+            return;
+        }
         const postConfigPath = `posts/${postSlug}/index.md`;
         await loadContent(postConfigPath);
         return;
@@ -515,6 +521,12 @@ async function loadContent(path) {
         const res = await fetch(`/content/${path}`);
         if (!res.ok) throw new Error(`Fetch failed: ${res.statusText}`);
         const text = await res.text();
+
+        // Check if we accidentally got HTML instead of markdown (serve --single issue)
+        if (text.trim().startsWith('<!DOCTYPE') || text.trim().startsWith('<html')) {
+            throw new Error('Server returned HTML instead of markdown. Please ensure server is configured correctly.');
+        }
+
         const cleanMarkdown = removeFrontmatter(text);
 
         // Calculate base directory (with leading slash for absolute paths)
@@ -555,11 +567,31 @@ async function loadContent(path) {
 
         // Link Renderer
         renderer.link = function (href, title, text) {
+            // Handle marked.js object format (newer versions pass an object)
+            if (typeof href === 'object' && href !== null) {
+                title = href.title;
+                text = href.text;
+                href = href.href;
+            }
             href = String(href || '');
+            text = String(text || '');
+
+            // Convert internal links from old domain to local paths
+            // e.g., https://expvn.com/post-slug/ -> /posts/post-slug
+            if (href.startsWith('https://expvn.com/') || href.startsWith('http://expvn.com/')) {
+                let slug = href.replace(/^https?:\/\/expvn\.com\//, '');
+                // Remove trailing slash from slug
+                slug = slug.replace(/\/$/, '');
+                href = '/posts/' + slug;
+            }
+
             if (href && !href.startsWith('http') && !href.startsWith('data:') && !href.startsWith('#') && !href.startsWith('mailto:')) {
-                const safeBase = baseDir.endsWith('/') ? baseDir : baseDir + '/';
-                const safeHref = href.startsWith('/') ? href.slice(1) : href;
-                href = safeBase + safeHref;
+                // Don't modify paths that already start with /posts/
+                if (!href.startsWith('/posts/')) {
+                    const safeBase = baseDir.endsWith('/') ? baseDir : baseDir + '/';
+                    const safeHref = href.startsWith('/') ? href.slice(1) : href;
+                    href = safeBase + safeHref;
+                }
             }
             return `<a href="${href}" title="${title || ''}" target="${href.startsWith('http') ? '_blank' : '_self'}">${text}</a>`;
         };
