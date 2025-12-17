@@ -1231,7 +1231,7 @@ async function loadContent(path) {
 
         const renderer = new marked.Renderer();
 
-        // Image & Video Renderer
+        // Image & Video Renderer - with lightbox support for images
         renderer.image = function (href, title, text) {
             if (typeof href === 'object' && href !== null) { title = href.title; text = href.text; href = href.href; }
             href = String(href || '');
@@ -1243,24 +1243,30 @@ async function loadContent(path) {
                 const finalPath = safeBase + safeHref;
 
                 if (/\.(mp4|webm|ogg|mov)$/i.test(finalPath)) {
-                    return `<video controls style="max-width: 100%; display: block; margin: 1rem auto;" title="${title || ''}">
+                    return `
+                        <div class="video-container" style="position: relative; width: 100%; margin: 1.5rem 0; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.15);">
+                            <video controls style="width: 100%; display: block;" preload="metadata">
                                 <source src="${finalPath}">
                                 Your browser does not support the video tag.
-                             </video>`;
+                            </video>
+                        </div>`;
                 }
-                return `<img src="${finalPath}" alt="${text || ''}" title="${title || ''}" class="img-fluid">`;
+                return `<img src="${finalPath}" alt="${text || ''}" title="${title || ''}" class="img-fluid article-img" style="cursor: zoom-in;">`;
             }
 
             if (/\.(mp4|webm|ogg|mov)$/i.test(href)) {
-                return `<video controls style="max-width: 100%; display: block; margin: 1rem auto;" title="${title || ''}">
-                           <source src="${href}">
-                           Your browser does not support the video tag.
-                        </video>`;
+                return `
+                    <div class="video-container" style="position: relative; width: 100%; margin: 1.5rem 0; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.15);">
+                        <video controls style="width: 100%; display: block;" preload="metadata">
+                            <source src="${href}">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>`;
             }
-            return `<img src="${href}" alt="${text || ''}" title="${title || ''}" class="img-fluid">`;
+            return `<img src="${href}" alt="${text || ''}" title="${title || ''}" class="img-fluid article-img" style="cursor: zoom-in;">`;
         };
 
-        // Link Renderer
+        // Link Renderer - with YouTube and video embedding
         renderer.link = function (href, title, text) {
             // Handle marked.js object format (newer versions pass an object)
             if (typeof href === 'object' && href !== null) {
@@ -1270,6 +1276,33 @@ async function loadContent(path) {
             }
             href = String(href || '');
             text = String(text || '');
+
+            // Check for YouTube links - embed as iframe
+            const youtubeMatch = href.match(/(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+            if (youtubeMatch) {
+                const videoId = youtubeMatch[1];
+                return `
+                    <div class="video-container" style="position: relative; width: 100%; padding-bottom: 56.25%; margin: 1.5rem 0; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.15);">
+                        <iframe 
+                            src="https://www.youtube.com/embed/${videoId}?rel=0" 
+                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen
+                            title="${title || text || 'YouTube Video'}"
+                        ></iframe>
+                    </div>`;
+            }
+
+            // Check for video file links (.mp4, .webm, .ogg, .mov)
+            if (/\.(mp4|webm|ogg|mov)(\?.*)?$/i.test(href)) {
+                return `
+                    <div class="video-container" style="position: relative; width: 100%; margin: 1.5rem 0; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.15);">
+                        <video controls style="width: 100%; display: block;" preload="metadata">
+                            <source src="${href}">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>`;
+            }
 
             // Convert internal links from old domain to local paths
             // e.g., https://expvn.com/post-slug/ -> /posts/post-slug
@@ -1355,7 +1388,32 @@ async function loadContent(path) {
         ` : '';
 
         els.markdownContent.innerHTML = postHeader + htmlContent + navSection + relatedSection;
-        new ClipboardJS('.btn-copy');
+
+        // Initialize ClipboardJS with feedback
+        const clipboard = new ClipboardJS('.btn-copy');
+        clipboard.on('success', function (e) {
+            const btn = e.trigger;
+            const originalText = btn.textContent;
+            btn.textContent = '✓ Copied!';
+            btn.style.background = 'var(--primary)';
+            btn.style.color = 'white';
+            setTimeout(() => {
+                btn.textContent = originalText;
+                btn.style.background = '';
+                btn.style.color = '';
+            }, 2000);
+            e.clearSelection();
+        });
+        clipboard.on('error', function (e) {
+            const btn = e.trigger;
+            btn.textContent = '✗ Failed';
+            setTimeout(() => {
+                btn.textContent = 'Copy';
+            }, 2000);
+        });
+
+        // Initialize image lightbox for article images
+        initImageLightbox();
 
     } catch (e) {
         console.error(e);
@@ -1499,6 +1557,224 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+// ==========================================================================
+// IMAGE LIGHTBOX FUNCTIONALITY
+// ==========================================================================
+
+function initImageLightbox() {
+    const images = document.querySelectorAll('.markdown-body .article-img');
+
+    images.forEach(img => {
+        img.addEventListener('click', (e) => {
+            e.preventDefault();
+            openLightbox(img.src, img.alt);
+        });
+    });
+}
+
+function openLightbox(src, alt) {
+    // Create lightbox elements
+    const lightbox = document.createElement('div');
+    lightbox.id = 'image-lightbox';
+    lightbox.className = 'lightbox-overlay';
+
+    // State for zoom and pan
+    let scale = 1;
+    let translateX = 0;
+    let translateY = 0;
+    let isDragging = false;
+    let startX, startY;
+
+    lightbox.innerHTML = `
+        <div class="lightbox-backdrop"></div>
+        <div class="lightbox-content">
+            <div class="lightbox-controls">
+                <button class="lightbox-btn" id="zoom-out" title="Thu nhỏ">
+                    <ion-icon name="remove-outline"></ion-icon>
+                </button>
+                <span class="lightbox-zoom-level">100%</span>
+                <button class="lightbox-btn" id="zoom-in" title="Phóng to">
+                    <ion-icon name="add-outline"></ion-icon>
+                </button>
+                <button class="lightbox-btn" id="zoom-reset" title="Reset">
+                    <ion-icon name="scan-outline"></ion-icon>
+                </button>
+                <button class="lightbox-btn lightbox-close" id="lightbox-close" title="Đóng">
+                    <ion-icon name="close-outline"></ion-icon>
+                </button>
+            </div>
+            <div class="lightbox-image-container">
+                <img src="${src}" alt="${alt || ''}" class="lightbox-image" draggable="false">
+            </div>
+            <p class="lightbox-caption">${alt || ''}</p>
+        </div>
+    `;
+
+    document.body.appendChild(lightbox);
+    document.body.style.overflow = 'hidden';
+
+    // Get elements
+    const img = lightbox.querySelector('.lightbox-image');
+    const zoomLevel = lightbox.querySelector('.lightbox-zoom-level');
+    const container = lightbox.querySelector('.lightbox-image-container');
+
+    function updateTransform() {
+        img.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
+        zoomLevel.textContent = Math.round(scale * 100) + '%';
+    }
+
+    function zoom(delta, centerX, centerY) {
+        const oldScale = scale;
+        scale = Math.min(Math.max(0.5, scale + delta), 5);
+
+        // Adjust translation to zoom toward the center point
+        if (centerX !== undefined && centerY !== undefined) {
+            const rect = container.getBoundingClientRect();
+            const offsetX = centerX - rect.width / 2;
+            const offsetY = centerY - rect.height / 2;
+
+            translateX -= offsetX * (scale / oldScale - 1);
+            translateY -= offsetY * (scale / oldScale - 1);
+        }
+
+        updateTransform();
+    }
+
+    function resetZoom() {
+        scale = 1;
+        translateX = 0;
+        translateY = 0;
+        updateTransform();
+    }
+
+    // Zoom buttons
+    lightbox.querySelector('#zoom-in').addEventListener('click', (e) => {
+        e.stopPropagation();
+        zoom(0.25);
+    });
+
+    lightbox.querySelector('#zoom-out').addEventListener('click', (e) => {
+        e.stopPropagation();
+        zoom(-0.25);
+    });
+
+    lightbox.querySelector('#zoom-reset').addEventListener('click', (e) => {
+        e.stopPropagation();
+        resetZoom();
+    });
+
+    // Close button
+    lightbox.querySelector('#lightbox-close').addEventListener('click', closeLightbox);
+    lightbox.querySelector('.lightbox-backdrop').addEventListener('click', closeLightbox);
+
+    // Mouse wheel zoom
+    container.addEventListener('wheel', (e) => {
+        e.preventDefault();
+        const delta = e.deltaY > 0 ? -0.15 : 0.15;
+        const rect = container.getBoundingClientRect();
+        zoom(delta, e.clientX - rect.left, e.clientY - rect.top);
+    });
+
+    // Pan with mouse drag
+    img.addEventListener('mousedown', (e) => {
+        if (scale > 1) {
+            isDragging = true;
+            startX = e.clientX - translateX;
+            startY = e.clientY - translateY;
+            img.style.cursor = 'grabbing';
+        }
+    });
+
+    document.addEventListener('mousemove', (e) => {
+        if (isDragging) {
+            translateX = e.clientX - startX;
+            translateY = e.clientY - startY;
+            updateTransform();
+        }
+    });
+
+    document.addEventListener('mouseup', () => {
+        isDragging = false;
+        img.style.cursor = scale > 1 ? 'grab' : 'zoom-out';
+    });
+
+    // Touch support for pinch zoom
+    let initialDistance = 0;
+    let initialScale = 1;
+
+    container.addEventListener('touchstart', (e) => {
+        if (e.touches.length === 2) {
+            initialDistance = Math.hypot(
+                e.touches[0].clientX - e.touches[1].clientX,
+                e.touches[0].clientY - e.touches[1].clientY
+            );
+            initialScale = scale;
+        } else if (e.touches.length === 1 && scale > 1) {
+            isDragging = true;
+            startX = e.touches[0].clientX - translateX;
+            startY = e.touches[0].clientY - translateY;
+        }
+    });
+
+    container.addEventListener('touchmove', (e) => {
+        if (e.touches.length === 2) {
+            e.preventDefault();
+            const currentDistance = Math.hypot(
+                e.touches[0].clientX - e.touches[1].clientX,
+                e.touches[0].clientY - e.touches[1].clientY
+            );
+            scale = Math.min(Math.max(0.5, initialScale * (currentDistance / initialDistance)), 5);
+            updateTransform();
+        } else if (e.touches.length === 1 && isDragging) {
+            translateX = e.touches[0].clientX - startX;
+            translateY = e.touches[0].clientY - startY;
+            updateTransform();
+        }
+    });
+
+    container.addEventListener('touchend', () => {
+        isDragging = false;
+    });
+
+    // Keyboard shortcuts
+    function handleKeydown(e) {
+        if (e.key === 'Escape') {
+            closeLightbox();
+        } else if (e.key === '+' || e.key === '=') {
+            zoom(0.25);
+        } else if (e.key === '-') {
+            zoom(-0.25);
+        } else if (e.key === '0') {
+            resetZoom();
+        }
+    }
+    document.addEventListener('keydown', handleKeydown);
+
+    // Double click to toggle zoom
+    img.addEventListener('dblclick', () => {
+        if (scale === 1) {
+            scale = 2;
+        } else {
+            resetZoom();
+        }
+        updateTransform();
+    });
+
+    function closeLightbox() {
+        document.removeEventListener('keydown', handleKeydown);
+        lightbox.classList.add('closing');
+        setTimeout(() => {
+            lightbox.remove();
+            document.body.style.overflow = '';
+        }, 200);
+    }
+
+    // Animate in
+    requestAnimationFrame(() => {
+        lightbox.classList.add('active');
+    });
+}
 
 init();
 
