@@ -3,616 +3,616 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
     <!-- Homepage -->
     <url>
-        <loc>https://example.com/</loc>
+        <loc>https://expvn.com/</loc>
         <lastmod>2025-12-17</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
 
     <url>
-        <loc>https://example.com/category/blog</loc>
+        <loc>https://expvn.com/category/blog</loc>
         <lastmod>2025-12-17</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://example.com/category/game</loc>
+        <loc>https://expvn.com/category/game</loc>
         <lastmod>2025-12-17</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://example.com/category/tool</loc>
+        <loc>https://expvn.com/category/tool</loc>
         <lastmod>2025-12-17</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://example.com/category/develop</loc>
+        <loc>https://expvn.com/category/develop</loc>
         <lastmod>2025-12-17</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://example.com/posts/git-github-cap-toc-2-cac-cau-lenh-co-ban</loc>
+        <loc>https://expvn.com/posts/git-github-cap-toc-2-cac-cau-lenh-co-ban</loc>
         <lastmod>2023-07-25</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
         <image:image>
-            <image:loc>https://example.com/content/posts/git-github-cap-toc-2-cac-cau-lenh-co-ban/images/22-221456_git-branch.jpg</image:loc>
+            <image:loc>https://expvn.com/content/posts/git-github-cap-toc-2-cac-cau-lenh-co-ban/images/22-221456_git-branch.jpg</image:loc>
             <image:title>[GIT/GITHUB CẤP TỐC #2] – GIT BASH: CÁC CÂU LỆNH CƠ BẢN</image:title>
         </image:image>
     </url>
     <url>
-        <loc>https://example.com/posts/git-github-cap-toc-1-gioi-thieu-ve-git-github</loc>
+        <loc>https://expvn.com/posts/git-github-cap-toc-1-gioi-thieu-ve-git-github</loc>
         <lastmod>2023-07-23</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
         <image:image>
-            <image:loc>https://example.com/content/posts/git-github-cap-toc-1-gioi-thieu-ve-git-github/images/22-221456_git-branch.jpg</image:loc>
+            <image:loc>https://expvn.com/content/posts/git-github-cap-toc-1-gioi-thieu-ve-git-github/images/22-221456_git-branch.jpg</image:loc>
             <image:title>[GIT/GITHUB CẤP TỐC #1] - GIỚI THIỆU VỀ GIT/GITHUB</image:title>
         </image:image>
     </url>
     <url>
-        <loc>https://example.com/posts/python-cap-toc-9-lap-trinh-huong-doi-tuong-oop-trong-python</loc>
+        <loc>https://expvn.com/posts/python-cap-toc-9-lap-trinh-huong-doi-tuong-oop-trong-python</loc>
         <lastmod>2023-06-26</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
         <image:image>
-            <image:loc>https://example.com/content/posts/python-cap-toc-9-lap-trinh-huong-doi-tuong-oop-trong-python/images/Python-la-gi.png</image:loc>
+            <image:loc>https://expvn.com/content/posts/python-cap-toc-9-lap-trinh-huong-doi-tuong-oop-trong-python/images/Python-la-gi.png</image:loc>
             <image:title>[PYTHON CẤP TỐC #9] Lập trình hướng đối tượng (OOP) trong Python</image:title>
         </image:image>
     </url>
     <url>
-        <loc>https://example.com/posts/python-cap-toc-8-ham-va-cach-dinh-nghia-ham-trong-python</loc>
+        <loc>https://expvn.com/posts/python-cap-toc-8-ham-va-cach-dinh-nghia-ham-trong-python</loc>
         <lastmod>2023-06-26</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
         <image:image>
-            <image:loc>https://example.com/content/posts/python-cap-toc-8-ham-va-cach-dinh-nghia-ham-trong-python/images/Python-la-gi.png</image:loc>
+            <image:loc>https://expvn.com/content/posts/python-cap-toc-8-ham-va-cach-dinh-nghia-ham-trong-python/images/Python-la-gi.png</image:loc>
             <image:title>[PYTHON CẤP TỐC #8] Hàm và cách định nghĩa hàm trong Python</image:title>
         </image:image>
     </url>
     <url>
-        <loc>https://example.com/posts/python-cap-toc-7-danh-sach-va-cach-xu-ly-danh-sach-trong-python</loc>
+        <loc>https://expvn.com/posts/python-cap-toc-7-danh-sach-va-cach-xu-ly-danh-sach-trong-python</loc>
         <lastmod>2023-06-26</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
         <image:image>
-            <image:loc>https://example.com/content/posts/python-cap-toc-7-danh-sach-va-cach-xu-ly-danh-sach-trong-python/images/Python-la-gi.png</image:loc>
+            <image:loc>https://expvn.com/content/posts/python-cap-toc-7-danh-sach-va-cach-xu-ly-danh-sach-trong-python/images/Python-la-gi.png</image:loc>
             <image:title>[PYTHON CẤP TỐC #7] Danh sách và cách xử lý danh sách trong Python</image:title>
         </image:image>
     </url>
     <url>
-        <loc>https://example.com/posts/python-cap-toc-6-chuoi-va-xu-ly-chuoi-trong-python</loc>
+        <loc>https://expvn.com/posts/python-cap-toc-6-chuoi-va-xu-ly-chuoi-trong-python</loc>
         <lastmod>2023-06-26</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
         <image:image>
-            <image:loc>https://example.com/content/posts/python-cap-toc-6-chuoi-va-xu-ly-chuoi-trong-python/images/Python-la-gi.png</image:loc>
+            <image:loc>https://expvn.com/content/posts/python-cap-toc-6-chuoi-va-xu-ly-chuoi-trong-python/images/Python-la-gi.png</image:loc>
             <image:title>[PYTHON CẤP TỐC #6] Chuỗi và xử lý chuỗi trong Python</image:title>
         </image:image>
     </url>
     <url>
-        <loc>https://example.com/posts/python-cap-toc-5-vong-lap-trong-python</loc>
+        <loc>https://expvn.com/posts/python-cap-toc-5-vong-lap-trong-python</loc>
         <lastmod>2023-06-26</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
         <image:image>
-            <image:loc>https://example.com/content/posts/python-cap-toc-5-vong-lap-trong-python/images/Python-la-gi.png</image:loc>
+            <image:loc>https://expvn.com/content/posts/python-cap-toc-5-vong-lap-trong-python/images/Python-la-gi.png</image:loc>
             <image:title>[PYTHON CẤP TỐC #5] Vòng lặp trong Python</image:title>
         </image:image>
     </url>
     <url>
-        <loc>https://example.com/posts/python-cap-toc-15-bai-tap-ung-dung</loc>
+        <loc>https://expvn.com/posts/python-cap-toc-15-bai-tap-ung-dung</loc>
         <lastmod>2023-06-26</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
         <image:image>
-            <image:loc>https://example.com/content/posts/python-cap-toc-15-bai-tap-ung-dung/images/Python-la-gi.png</image:loc>
+            <image:loc>https://expvn.com/content/posts/python-cap-toc-15-bai-tap-ung-dung/images/Python-la-gi.png</image:loc>
             <image:title>[PYTHON CẤP TỐC #15] Bài tập ứng dụng</image:title>
         </image:image>
     </url>
     <url>
-        <loc>https://example.com/posts/python-cap-toc-14-cac-thu-vien-thuong-dung</loc>
+        <loc>https://expvn.com/posts/python-cap-toc-14-cac-thu-vien-thuong-dung</loc>
         <lastmod>2023-06-26</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
         <image:image>
-            <image:loc>https://example.com/content/posts/python-cap-toc-14-cac-thu-vien-thuong-dung/images/Python-la-gi.png</image:loc>
+            <image:loc>https://expvn.com/content/posts/python-cap-toc-14-cac-thu-vien-thuong-dung/images/Python-la-gi.png</image:loc>
             <image:title>[PYTHON CẤP TỐC #14] Các thư viện thường dùng</image:title>
         </image:image>
     </url>
     <url>
-        <loc>https://example.com/posts/python-cap-toc-13-thu-vien-trong-python</loc>
+        <loc>https://expvn.com/posts/python-cap-toc-13-thu-vien-trong-python</loc>
         <lastmod>2023-06-26</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
         <image:image>
-            <image:loc>https://example.com/content/posts/python-cap-toc-13-thu-vien-trong-python/images/Python-la-gi.png</image:loc>
+            <image:loc>https://expvn.com/content/posts/python-cap-toc-13-thu-vien-trong-python/images/Python-la-gi.png</image:loc>
             <image:title>[PYTHON CẤP TỐC #13] Thư viện trong Python</image:title>
         </image:image>
     </url>
     <url>
-        <loc>https://example.com/posts/python-cap-toc-12-doc-va-ghi-tap-tin-trong-python</loc>
+        <loc>https://expvn.com/posts/python-cap-toc-12-doc-va-ghi-tap-tin-trong-python</loc>
         <lastmod>2023-06-26</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
         <image:image>
-            <image:loc>https://example.com/content/posts/python-cap-toc-12-doc-va-ghi-tap-tin-trong-python/images/Python-la-gi.png</image:loc>
+            <image:loc>https://expvn.com/content/posts/python-cap-toc-12-doc-va-ghi-tap-tin-trong-python/images/Python-la-gi.png</image:loc>
             <image:title>[PYTHON CẤP TỐC #12] Đọc và ghi tập tin trong Python</image:title>
         </image:image>
     </url>
     <url>
-        <loc>https://example.com/posts/python-cap-toc-11-xu-ly-ngoai-le-trong-python</loc>
+        <loc>https://expvn.com/posts/python-cap-toc-11-xu-ly-ngoai-le-trong-python</loc>
         <lastmod>2023-06-26</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
         <image:image>
-            <image:loc>https://example.com/content/posts/python-cap-toc-11-xu-ly-ngoai-le-trong-python/images/Python-la-gi.png</image:loc>
+            <image:loc>https://expvn.com/content/posts/python-cap-toc-11-xu-ly-ngoai-le-trong-python/images/Python-la-gi.png</image:loc>
             <image:title>[PYTHON CẤP TỐC #11] Xử lý ngoại lệ trong Python</image:title>
         </image:image>
     </url>
     <url>
-        <loc>https://example.com/posts/python-cap-toc-10-pham-vi-truy-cap-thuoc-tinh-va-phuong-thuc-trong-python-oop</loc>
+        <loc>https://expvn.com/posts/python-cap-toc-10-pham-vi-truy-cap-thuoc-tinh-va-phuong-thuc-trong-python-oop</loc>
         <lastmod>2023-06-26</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
         <image:image>
-            <image:loc>https://example.com/content/posts/python-cap-toc-10-pham-vi-truy-cap-thuoc-tinh-va-phuong-thuc-trong-python-oop/images/Python-la-gi.png</image:loc>
+            <image:loc>https://expvn.com/content/posts/python-cap-toc-10-pham-vi-truy-cap-thuoc-tinh-va-phuong-thuc-trong-python-oop/images/Python-la-gi.png</image:loc>
             <image:title>[PYTHON CẤP TỐC #10] Phạm vi truy cập thuộc tính và phương thức trong Python OOP</image:title>
         </image:image>
     </url>
     <url>
-        <loc>https://example.com/posts/regular-expression-cac-ky-tu-ky-hieu-vi-du-don-gian-va-bai-tap</loc>
+        <loc>https://expvn.com/posts/regular-expression-cac-ky-tu-ky-hieu-vi-du-don-gian-va-bai-tap</loc>
         <lastmod>2023-06-25</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
         <image:image>
-            <image:loc>https://example.com/content/posts/regular-expression-cac-ky-tu-ky-hieu-vi-du-don-gian-va-bai-tap/images/coderpad-regex-the-complete-guide.jpg</image:loc>
+            <image:loc>https://expvn.com/content/posts/regular-expression-cac-ky-tu-ky-hieu-vi-du-don-gian-va-bai-tap/images/coderpad-regex-the-complete-guide.jpg</image:loc>
             <image:title>Regular Expression: Các ký tự, ký hiệu, ví dụ đơn giản và bài tập</image:title>
         </image:image>
     </url>
     <url>
-        <loc>https://example.com/posts/python-cap-toc-4-cau-lenh-re-nhanh-trong-python-if-elseif-else</loc>
+        <loc>https://expvn.com/posts/python-cap-toc-4-cau-lenh-re-nhanh-trong-python-if-elseif-else</loc>
         <lastmod>2023-06-25</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
         <image:image>
-            <image:loc>https://example.com/content/posts/python-cap-toc-4-cau-lenh-re-nhanh-trong-python-if-elseif-else/images/Python-la-gi.png</image:loc>
+            <image:loc>https://expvn.com/content/posts/python-cap-toc-4-cau-lenh-re-nhanh-trong-python-if-elseif-else/images/Python-la-gi.png</image:loc>
             <image:title>[PYTHON CẤP TỐC #4] Câu lệnh rẽ nhánh trong Python (if, elseif, else)</image:title>
         </image:image>
     </url>
     <url>
-        <loc>https://example.com/posts/python-cap-toc-3-cac-toan-tu</loc>
+        <loc>https://expvn.com/posts/python-cap-toc-3-cac-toan-tu</loc>
         <lastmod>2023-06-25</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
         <image:image>
-            <image:loc>https://example.com/content/posts/python-cap-toc-3-cac-toan-tu/images/Python-la-gi.png</image:loc>
+            <image:loc>https://expvn.com/content/posts/python-cap-toc-3-cac-toan-tu/images/Python-la-gi.png</image:loc>
             <image:title>[PYTHON CẤP TỐC #3] Các toán tử</image:title>
         </image:image>
     </url>
     <url>
-        <loc>https://example.com/posts/python-cap-toc-2-cac-kieu-du-lieu-trong-python</loc>
+        <loc>https://expvn.com/posts/python-cap-toc-2-cac-kieu-du-lieu-trong-python</loc>
         <lastmod>2023-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
         <image:image>
-            <image:loc>https://example.com/content/posts/python-cap-toc-2-cac-kieu-du-lieu-trong-python/images/image-15-1024x619.png</image:loc>
+            <image:loc>https://expvn.com/content/posts/python-cap-toc-2-cac-kieu-du-lieu-trong-python/images/image-15-1024x619.png</image:loc>
             <image:title>[PYTHON CẤP TỐC #2] Các kiểu dữ liệu và cách gán kiểu dữ liệu trong Python</image:title>
         </image:image>
     </url>
     <url>
-        <loc>https://example.com/posts/python-cap-toc-1-cai-dat-python-visual-studio-code</loc>
+        <loc>https://expvn.com/posts/python-cap-toc-1-cai-dat-python-visual-studio-code</loc>
         <lastmod>2023-06-13</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
         <image:image>
-            <image:loc>https://example.com/content/posts/python-cap-toc-1-cai-dat-python-visual-studio-code/images/image-1.png</image:loc>
+            <image:loc>https://expvn.com/content/posts/python-cap-toc-1-cai-dat-python-visual-studio-code/images/image-1.png</image:loc>
             <image:title>[PYTHON CẤP TỐC #1] - Cài đặt: Python &amp; Visual Studio Code</image:title>
         </image:image>
     </url>
     <url>
-        <loc>https://example.com/posts/expvn-shop</loc>
+        <loc>https://expvn.com/posts/expvn-shop</loc>
         <lastmod>2023-05-07</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
         <image:image>
-            <image:loc>https://example.com/content/posts/expvn-shop/images/facebook-150x150.webp</image:loc>
+            <image:loc>https://expvn.com/content/posts/expvn-shop/images/facebook-150x150.webp</image:loc>
             <image:title>EXPVN Shop</image:title>
         </image:image>
     </url>
     <url>
-        <loc>https://example.com/posts/pc-expvn-youtube-downloader-tai-hang-loat-youtube-mp3-mp4</loc>
+        <loc>https://expvn.com/posts/pc-expvn-youtube-downloader-tai-hang-loat-youtube-mp3-mp4</loc>
         <lastmod>2023-04-05</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
         <image:image>
-            <image:loc>https://example.com/content/posts/pc-expvn-youtube-downloader-tai-hang-loat-youtube-mp3-mp4/images/1-1024x462.png</image:loc>
+            <image:loc>https://expvn.com/content/posts/pc-expvn-youtube-downloader-tai-hang-loat-youtube-mp3-mp4/images/1-1024x462.png</image:loc>
             <image:title>[PC] EXPVN Youtube Downloader - Tải hàng loạt Youtube (mp3, mp4)</image:title>
         </image:image>
     </url>
     <url>
-        <loc>https://example.com/posts/android-999-la-thu-gui-cho-chinh-minh</loc>
+        <loc>https://expvn.com/posts/android-999-la-thu-gui-cho-chinh-minh</loc>
         <lastmod>2022-08-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
         <image:image>
-            <image:loc>https://example.com/content/posts/android-999-la-thu-gui-cho-chinh-minh/images/dabf4f944c5da6f3ba4e581dc5799ccf.jpg</image:loc>
+            <image:loc>https://expvn.com/content/posts/android-999-la-thu-gui-cho-chinh-minh/images/dabf4f944c5da6f3ba4e581dc5799ccf.jpg</image:loc>
             <image:title>[ANDROID] 999 lá thư gửi cho chính mình</image:title>
         </image:image>
     </url>
     <url>
-        <loc>https://example.com/posts/letters-of-life-privacy-policy</loc>
+        <loc>https://expvn.com/posts/letters-of-life-privacy-policy</loc>
         <lastmod>2022-08-08</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
         <image:image>
-            <image:loc>https://example.com/content/posts/letters-of-life-privacy-policy/images/Privacy-06.png</image:loc>
+            <image:loc>https://expvn.com/content/posts/letters-of-life-privacy-policy/images/Privacy-06.png</image:loc>
             <image:title>Letters of Life - Privacy Policy</image:title>
         </image:image>
     </url>
     <url>
-        <loc>https://example.com/posts/the-fox-run-privacy-policy</loc>
+        <loc>https://expvn.com/posts/the-fox-run-privacy-policy</loc>
         <lastmod>2022-08-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
         <image:image>
-            <image:loc>https://example.com/content/posts/the-fox-run-privacy-policy/images/Privacy-06.png</image:loc>
+            <image:loc>https://expvn.com/content/posts/the-fox-run-privacy-policy/images/Privacy-06.png</image:loc>
             <image:title>The Fox Run - Privacy Policy</image:title>
         </image:image>
     </url>
     <url>
-        <loc>https://example.com/posts/exp-flashcard-privacy-policy</loc>
+        <loc>https://expvn.com/posts/exp-flashcard-privacy-policy</loc>
         <lastmod>2022-08-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
         <image:image>
-            <image:loc>https://example.com/content/posts/exp-flashcard-privacy-policy/images/Privacy-06.png</image:loc>
+            <image:loc>https://expvn.com/content/posts/exp-flashcard-privacy-policy/images/Privacy-06.png</image:loc>
             <image:title>EXP Flashcard - Privacy Policy</image:title>
         </image:image>
     </url>
     <url>
-        <loc>https://example.com/posts/android-exp-flashcards-hoc-tieng-anh</loc>
+        <loc>https://expvn.com/posts/android-exp-flashcards-hoc-tieng-anh</loc>
         <lastmod>2022-08-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
         <image:image>
-            <image:loc>https://example.com/content/posts/android-exp-flashcards-hoc-tieng-anh/images/EXP-Flashcards-Design-05.png</image:loc>
+            <image:loc>https://expvn.com/content/posts/android-exp-flashcards-hoc-tieng-anh/images/EXP-Flashcards-Design-05.png</image:loc>
             <image:title>[ANDROID] EXP Flashcards - học tiếng Anh</image:title>
         </image:image>
     </url>
     <url>
-        <loc>https://example.com/posts/android-tarot-choose-your-destiny-english-version</loc>
+        <loc>https://expvn.com/posts/android-tarot-choose-your-destiny-english-version</loc>
         <lastmod>2022-07-22</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
         <image:image>
-            <image:loc>https://example.com/content/posts/android-tarot-choose-your-destiny-english-version/images/Screenshot_20220722-141955_Tarot-Choose-your-destiny-146x300.jpg</image:loc>
+            <image:loc>https://expvn.com/content/posts/android-tarot-choose-your-destiny-english-version/images/Screenshot_20220722-141955_Tarot-Choose-your-destiny-146x300.jpg</image:loc>
             <image:title>[Android] Tarot - Choose your destiny (English version)</image:title>
         </image:image>
     </url>
     <url>
-        <loc>https://example.com/posts/tarot-choose-your-destiny-privacy-policy</loc>
+        <loc>https://expvn.com/posts/tarot-choose-your-destiny-privacy-policy</loc>
         <lastmod>2022-07-16</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
         <image:image>
-            <image:loc>https://example.com/content/posts/tarot-choose-your-destiny-privacy-policy/images/Privacy-06.png</image:loc>
+            <image:loc>https://expvn.com/content/posts/tarot-choose-your-destiny-privacy-policy/images/Privacy-06.png</image:loc>
             <image:title>Tarot - Choose Your Destiny - Privacy Policy</image:title>
         </image:image>
     </url>
     <url>
-        <loc>https://example.com/posts/answers-of-life-privacy-policy</loc>
+        <loc>https://expvn.com/posts/answers-of-life-privacy-policy</loc>
         <lastmod>2022-07-13</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
         <image:image>
-            <image:loc>https://example.com/content/posts/answers-of-life-privacy-policy/images/Privacy-06.png</image:loc>
+            <image:loc>https://expvn.com/content/posts/answers-of-life-privacy-policy/images/Privacy-06.png</image:loc>
             <image:title>Answers of Life - Privacy Policy</image:title>
         </image:image>
     </url>
     <url>
-        <loc>https://example.com/posts/android-answers-of-life</loc>
+        <loc>https://expvn.com/posts/android-answers-of-life</loc>
         <lastmod>2022-07-13</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
         <image:image>
-            <image:loc>https://example.com/content/posts/android-answers-of-life/images/Answers-of-Life-02.jpg</image:loc>
+            <image:loc>https://expvn.com/content/posts/android-answers-of-life/images/Answers-of-Life-02.jpg</image:loc>
             <image:title>[Android] Answers of Life</image:title>
         </image:image>
     </url>
     <url>
-        <loc>https://example.com/posts/android-random-machine-ung-dung-tao-ket-qua-ngau-nhien</loc>
+        <loc>https://expvn.com/posts/android-random-machine-ung-dung-tao-ket-qua-ngau-nhien</loc>
         <lastmod>2022-07-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
         <image:image>
-            <image:loc>https://example.com/content/posts/android-random-machine-ung-dung-tao-ket-qua-ngau-nhien/images/icon-01.png</image:loc>
+            <image:loc>https://expvn.com/content/posts/android-random-machine-ung-dung-tao-ket-qua-ngau-nhien/images/icon-01.png</image:loc>
             <image:title>[Android] Random Machine - Ứng dụng tạo kết quả ngẫu nhiên</image:title>
         </image:image>
     </url>
     <url>
-        <loc>https://example.com/posts/random-machine-privacy-policy</loc>
+        <loc>https://expvn.com/posts/random-machine-privacy-policy</loc>
         <lastmod>2022-07-01</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
         <image:image>
-            <image:loc>https://example.com/content/posts/random-machine-privacy-policy/images/Privacy-05.png</image:loc>
+            <image:loc>https://expvn.com/content/posts/random-machine-privacy-policy/images/Privacy-05.png</image:loc>
             <image:title>Random Machine - Privacy Policy</image:title>
         </image:image>
     </url>
     <url>
-        <loc>https://example.com/posts/convert-pdf-to-image-chuyen-doi-pdf-sang-anh</loc>
+        <loc>https://expvn.com/posts/convert-pdf-to-image-chuyen-doi-pdf-sang-anh</loc>
         <lastmod>2022-06-24</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
         <image:image>
-            <image:loc>https://example.com/content/posts/convert-pdf-to-image-chuyen-doi-pdf-sang-anh/images/2022-06-24-15_38_05-EXPVN-Pdf2Image.png</image:loc>
+            <image:loc>https://expvn.com/content/posts/convert-pdf-to-image-chuyen-doi-pdf-sang-anh/images/2022-06-24-15_38_05-EXPVN-Pdf2Image.png</image:loc>
             <image:title>[PC] Convert PDF to Image (Chuyển đổi PDF sang ảnh)</image:title>
         </image:image>
     </url>
     <url>
-        <loc>https://example.com/posts/pc-promailexpvn-com-ung-dung-gui-mail-hang-loat-voi-tieu-de-noi-dung-va-file-dinh-kem-khac-nhau-cho-tung-nguoi-nhan</loc>
+        <loc>https://expvn.com/posts/pc-promailexpvn-com-ung-dung-gui-mail-hang-loat-voi-tieu-de-noi-dung-va-file-dinh-kem-khac-nhau-cho-tung-nguoi-nhan</loc>
         <lastmod>2022-04-09</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
         <image:image>
-            <image:loc>https://example.com/content/posts/pc-promailexpvn-com-ung-dung-gui-mail-hang-loat-voi-tieu-de-noi-dung-va-file-dinh-kem-khac-nhau-cho-tung-nguoi-nhan/images/quy-tac-su-dung-email-hieu-qua-va-chuyen-nghiep.jpg</image:loc>
+            <image:loc>https://expvn.com/content/posts/pc-promailexpvn-com-ung-dung-gui-mail-hang-loat-voi-tieu-de-noi-dung-va-file-dinh-kem-khac-nhau-cho-tung-nguoi-nhan/images/quy-tac-su-dung-email-hieu-qua-va-chuyen-nghiep.jpg</image:loc>
             <image:title>[PC] promail@expvn.com - Ứng dụng gửi mail hàng loạt với tiêu đề, nội dung và file đính kèm khác nhau cho từng người nhận</image:title>
         </image:image>
     </url>
     <url>
-        <loc>https://example.com/posts/the-fox-run</loc>
+        <loc>https://expvn.com/posts/the-fox-run</loc>
         <lastmod>2021-07-13</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
         <image:image>
-            <image:loc>https://example.com/content/posts/the-fox-run/images/1-1024x498.jpg</image:loc>
+            <image:loc>https://expvn.com/content/posts/the-fox-run/images/1-1024x498.jpg</image:loc>
             <image:title>[Android] The fox run</image:title>
         </image:image>
     </url>
     <url>
-        <loc>https://example.com/posts/escape-from-the-labyrinth</loc>
+        <loc>https://expvn.com/posts/escape-from-the-labyrinth</loc>
         <lastmod>2021-06-08</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
         <image:image>
-            <image:loc>https://example.com/content/posts/escape-from-the-labyrinth/images/maxresdefault.jpg</image:loc>
+            <image:loc>https://expvn.com/content/posts/escape-from-the-labyrinth/images/maxresdefault.jpg</image:loc>
             <image:title>[Android] Escape from the labyrinth - Video</image:title>
         </image:image>
     </url>
     <url>
-        <loc>https://example.com/posts/escape-from-the-labyrinth-privacy-policy</loc>
+        <loc>https://expvn.com/posts/escape-from-the-labyrinth-privacy-policy</loc>
         <lastmod>2021-06-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
         <image:image>
-            <image:loc>https://example.com/content/posts/escape-from-the-labyrinth-privacy-policy/images/EscapeFromTheLabyrinthPrivacy-04.jpg</image:loc>
+            <image:loc>https://expvn.com/content/posts/escape-from-the-labyrinth-privacy-policy/images/EscapeFromTheLabyrinthPrivacy-04.jpg</image:loc>
             <image:title>Escape from the labyrinth - Privacy Policy</image:title>
         </image:image>
     </url>
     <url>
-        <loc>https://example.com/posts/gioi-thieu-cac-loai-thuoc-trong-become-a-witch-in-another-world</loc>
+        <loc>https://expvn.com/posts/gioi-thieu-cac-loai-thuoc-trong-become-a-witch-in-another-world</loc>
         <lastmod>2021-05-04</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
         <image:image>
-            <image:loc>https://example.com/content/posts/gioi-thieu-cac-loai-thuoc-trong-become-a-witch-in-another-world/images/40.-Thuoc-tang-mau-toi-da.png</image:loc>
+            <image:loc>https://expvn.com/content/posts/gioi-thieu-cac-loai-thuoc-trong-become-a-witch-in-another-world/images/40.-Thuoc-tang-mau-toi-da.png</image:loc>
             <image:title>Giới thiệu: các loại thuốc trong become a witch in another world</image:title>
         </image:image>
     </url>
     <url>
-        <loc>https://example.com/posts/gioi-thieu-bang-tu-luyen</loc>
+        <loc>https://expvn.com/posts/gioi-thieu-bang-tu-luyen</loc>
         <lastmod>2021-05-04</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
         <image:image>
-            <image:loc>https://example.com/content/posts/gioi-thieu-bang-tu-luyen/images/1.jpg</image:loc>
+            <image:loc>https://expvn.com/content/posts/gioi-thieu-bang-tu-luyen/images/1.jpg</image:loc>
             <image:title>Giới thiệu: Bảng tu luyện</image:title>
         </image:image>
     </url>
     <url>
-        <loc>https://example.com/posts/huong-dan-xoa-toan-bo-thuoc-tinh-dong-cua-trang-bi</loc>
+        <loc>https://expvn.com/posts/huong-dan-xoa-toan-bo-thuoc-tinh-dong-cua-trang-bi</loc>
         <lastmod>2021-05-03</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
         <image:image>
-            <image:loc>https://example.com/content/posts/huong-dan-xoa-toan-bo-thuoc-tinh-dong-cua-trang-bi/images/movie_040.mp4_snapshot_00.17_2021.05.03_12.25.40-scaled.jpg</image:loc>
+            <image:loc>https://expvn.com/content/posts/huong-dan-xoa-toan-bo-thuoc-tinh-dong-cua-trang-bi/images/movie_040.mp4_snapshot_00.17_2021.05.03_12.25.40-scaled.jpg</image:loc>
             <image:title>Hướng dẫn: Xóa toàn bộ thuộc tính (dòng) của trang bị.</image:title>
         </image:image>
     </url>
     <url>
-        <loc>https://example.com/posts/huong-dan-hut-tach-thuoc-tinh-tu-trang-bi</loc>
+        <loc>https://expvn.com/posts/huong-dan-hut-tach-thuoc-tinh-tu-trang-bi</loc>
         <lastmod>2021-05-03</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
         <image:image>
-            <image:loc>https://example.com/content/posts/huong-dan-hut-tach-thuoc-tinh-tu-trang-bi/images/movie_041.mp4_snapshot_00.16_2021.05.03_12.35.01-scaled.jpg</image:loc>
+            <image:loc>https://expvn.com/content/posts/huong-dan-hut-tach-thuoc-tinh-tu-trang-bi/images/movie_041.mp4_snapshot_00.16_2021.05.03_12.35.01-scaled.jpg</image:loc>
             <image:title>Hướng dẫn: hút (tách) thuộc tính từ trang bị</image:title>
         </image:image>
     </url>
     <url>
-        <loc>https://example.com/posts/huong-dan-duc-lo-va-kham-thuoc-tinh-vao-trang-bi</loc>
+        <loc>https://expvn.com/posts/huong-dan-duc-lo-va-kham-thuoc-tinh-vao-trang-bi</loc>
         <lastmod>2021-05-03</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
         <image:image>
-            <image:loc>https://example.com/content/posts/huong-dan-duc-lo-va-kham-thuoc-tinh-vao-trang-bi/images/movie_042.mp4_snapshot_00.24_2021.05.03_12.39.40-scaled.jpg</image:loc>
+            <image:loc>https://expvn.com/content/posts/huong-dan-duc-lo-va-kham-thuoc-tinh-vao-trang-bi/images/movie_042.mp4_snapshot_00.24_2021.05.03_12.39.40-scaled.jpg</image:loc>
             <image:title>Hướng dẫn: đục lỗ và khảm thuộc tính vào trang bị</image:title>
         </image:image>
     </url>
     <url>
-        <loc>https://example.com/posts/huong-dan-cach-su-dung-ban-do-de-di-chuyen</loc>
+        <loc>https://expvn.com/posts/huong-dan-cach-su-dung-ban-do-de-di-chuyen</loc>
         <lastmod>2021-05-03</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
         <image:image>
-            <image:loc>https://example.com/content/posts/huong-dan-cach-su-dung-ban-do-de-di-chuyen/images/2021-05-03-22_01_38-Window-1024x453.jpg</image:loc>
+            <image:loc>https://expvn.com/content/posts/huong-dan-cach-su-dung-ban-do-de-di-chuyen/images/2021-05-03-22_01_38-Window-1024x453.jpg</image:loc>
             <image:title>Hướng dẫn: cách sử dụng bản đồ để di chuyển</image:title>
         </image:image>
     </url>
     <url>
-        <loc>https://example.com/posts/gioi-thieu-tinh-nang-che-tao-trang-bi</loc>
+        <loc>https://expvn.com/posts/gioi-thieu-tinh-nang-che-tao-trang-bi</loc>
         <lastmod>2021-05-03</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
         <image:image>
-            <image:loc>https://example.com/content/posts/gioi-thieu-tinh-nang-che-tao-trang-bi/images/Chee-tao-trang-bij-1024x498.png</image:loc>
+            <image:loc>https://expvn.com/content/posts/gioi-thieu-tinh-nang-che-tao-trang-bi/images/Chee-tao-trang-bij-1024x498.png</image:loc>
             <image:title>Giới thiệu tính năng: Chế tạo trang bị</image:title>
         </image:image>
     </url>
     <url>
-        <loc>https://example.com/posts/gioi-thieu-cac-loai-quai-trong-become-a-witch-in-another-world</loc>
+        <loc>https://expvn.com/posts/gioi-thieu-cac-loai-quai-trong-become-a-witch-in-another-world</loc>
         <lastmod>2021-05-03</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
         <image:image>
-            <image:loc>https://example.com/content/posts/gioi-thieu-cac-loai-quai-trong-become-a-witch-in-another-world/images/Bommer.png</image:loc>
+            <image:loc>https://expvn.com/content/posts/gioi-thieu-cac-loai-quai-trong-become-a-witch-in-another-world/images/Bommer.png</image:loc>
             <image:title>Giới thiệu: các loại quái trong Become a witch in another world</image:title>
         </image:image>
     </url>
     <url>
-        <loc>https://example.com/posts/become-a-witch-in-another-world-ho-tro-ban-phim-va-tay-cam</loc>
+        <loc>https://expvn.com/posts/become-a-witch-in-another-world-ho-tro-ban-phim-va-tay-cam</loc>
         <lastmod>2021-05-03</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
         <image:image>
-            <image:loc>https://example.com/content/posts/become-a-witch-in-another-world-ho-tro-ban-phim-va-tay-cam/images/Cyber-sport-competitors-scaled.jpg</image:loc>
+            <image:loc>https://expvn.com/content/posts/become-a-witch-in-another-world-ho-tro-ban-phim-va-tay-cam/images/Cyber-sport-competitors-scaled.jpg</image:loc>
             <image:title>Become a witch in another world hỗ trợ bàn phím và tay cầm</image:title>
         </image:image>
     </url>
     <url>
-        <loc>https://example.com/posts/gioi-thieu-tro-choi-become-a-witch-in-another-world</loc>
+        <loc>https://expvn.com/posts/gioi-thieu-tro-choi-become-a-witch-in-another-world</loc>
         <lastmod>2021-05-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
         <image:image>
-            <image:loc>https://example.com/content/posts/gioi-thieu-tro-choi-become-a-witch-in-another-world/images/2021-05-02-11_45_17-Become-a-Witch-in-Another-World-5.-Jocasta-Village-Android-Unity-2020.3.2f-1024x576.png</image:loc>
+            <image:loc>https://expvn.com/content/posts/gioi-thieu-tro-choi-become-a-witch-in-another-world/images/2021-05-02-11_45_17-Become-a-Witch-in-Another-World-5.-Jocasta-Village-Android-Unity-2020.3.2f-1024x576.png</image:loc>
             <image:title>[Android] Giới thiệu trò chơi: Become a witch in another world</image:title>
         </image:image>
     </url>
     <url>
-        <loc>https://example.com/posts/speech-to-text-privacy-policy</loc>
+        <loc>https://expvn.com/posts/speech-to-text-privacy-policy</loc>
         <lastmod>2021-03-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
         <image:image>
-            <image:loc>https://example.com/content/posts/speech-to-text-privacy-policy/images/Privacy-03.png</image:loc>
+            <image:loc>https://expvn.com/content/posts/speech-to-text-privacy-policy/images/Privacy-03.png</image:loc>
             <image:title>Speech to text - Privacy Policy</image:title>
         </image:image>
     </url>
     <url>
-        <loc>https://example.com/posts/speech-to-text-nhap-lieu-bang-giong-noi</loc>
+        <loc>https://expvn.com/posts/speech-to-text-nhap-lieu-bang-giong-noi</loc>
         <lastmod>2021-03-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
         <image:image>
-            <image:loc>https://example.com/content/posts/speech-to-text-nhap-lieu-bang-giong-noi/images/Screenshot_20210310-152100_Speech-to-text-498x1024.jpg</image:loc>
+            <image:loc>https://expvn.com/content/posts/speech-to-text-nhap-lieu-bang-giong-noi/images/Screenshot_20210310-152100_Speech-to-text-498x1024.jpg</image:loc>
             <image:title>[Android] Speech to text - Nhập liệu bằng giọng nói</image:title>
         </image:image>
     </url>
     <url>
-        <loc>https://example.com/posts/spaceship-phi-thuyen-khong-gian</loc>
+        <loc>https://expvn.com/posts/spaceship-phi-thuyen-khong-gian</loc>
         <lastmod>2021-02-03</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
         <image:image>
-            <image:loc>https://example.com/content/posts/spaceship-phi-thuyen-khong-gian/images/unnamed-1_result-1024x576.jpg</image:loc>
+            <image:loc>https://expvn.com/content/posts/spaceship-phi-thuyen-khong-gian/images/unnamed-1_result-1024x576.jpg</image:loc>
             <image:title>[Android] Spaceship - Phi thuyền không gian</image:title>
         </image:image>
     </url>
     <url>
-        <loc>https://example.com/posts/privacy-policy</loc>
+        <loc>https://expvn.com/posts/privacy-policy</loc>
         <lastmod>2021-02-03</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
         <image:image>
-            <image:loc>https://example.com/content/posts/privacy-policy/images/Privacy-01.png</image:loc>
+            <image:loc>https://expvn.com/content/posts/privacy-policy/images/Privacy-01.png</image:loc>
             <image:title>Spaceship - Privacy Policy</image:title>
         </image:image>
     </url>
     <url>
-        <loc>https://example.com/posts/become-a-witch-in-another-world-privacy-policy</loc>
+        <loc>https://expvn.com/posts/become-a-witch-in-another-world-privacy-policy</loc>
         <lastmod>2021-02-03</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
         <image:image>
-            <image:loc>https://example.com/content/posts/become-a-witch-in-another-world-privacy-policy/images/Privacy-02.png</image:loc>
+            <image:loc>https://expvn.com/content/posts/become-a-witch-in-another-world-privacy-policy/images/Privacy-02.png</image:loc>
             <image:title>Become a witch in another world - Privacy Policy</image:title>
         </image:image>
     </url>
     <url>
-        <loc>https://example.com/posts/tao-ebook-dang-azw3-epub-bang-calibre-book-edit</loc>
+        <loc>https://expvn.com/posts/tao-ebook-dang-azw3-epub-bang-calibre-book-edit</loc>
         <lastmod>2021-02-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
         <image:image>
-            <image:loc>https://example.com/content/posts/tao-ebook-dang-azw3-epub-bang-calibre-book-edit/images/bia-sach-da-duoc-chon.jpeg</image:loc>
+            <image:loc>https://expvn.com/content/posts/tao-ebook-dang-azw3-epub-bang-calibre-book-edit/images/bia-sach-da-duoc-chon.jpeg</image:loc>
             <image:title>[PC] Tạo ebook dạng azw3, ePub bằng Calibre Book Edit</image:title>
         </image:image>
     </url>
     <url>
-        <loc>https://example.com/posts/php-web-server-cho-raspberry-pi</loc>
+        <loc>https://expvn.com/posts/php-web-server-cho-raspberry-pi</loc>
         <lastmod>2021-02-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
         <image:image>
-            <image:loc>https://example.com/content/posts/php-web-server-cho-raspberry-pi/images/php-web-server-cho-rasberry-1.png</image:loc>
+            <image:loc>https://expvn.com/content/posts/php-web-server-cho-raspberry-pi/images/php-web-server-cho-rasberry-1.png</image:loc>
             <image:title>PHP Web Server cho Raspberry Pi</image:title>
         </image:image>
     </url>
     <url>
-        <loc>https://example.com/posts/phan-mem-tai-truyen-chu-gettextfromhtml</loc>
+        <loc>https://expvn.com/posts/phan-mem-tai-truyen-chu-gettextfromhtml</loc>
         <lastmod>2021-02-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
         <image:image>
-            <image:loc>https://example.com/content/posts/phan-mem-tai-truyen-chu-gettextfromhtml/images/ebook.jpg</image:loc>
+            <image:loc>https://expvn.com/content/posts/phan-mem-tai-truyen-chu-gettextfromhtml/images/ebook.jpg</image:loc>
             <image:title>[PC] Phần mềm tải truyện chữ GetTextFromHtml</image:title>
         </image:image>
     </url>
     <url>
-        <loc>https://example.com/posts/nen-hoc-phan-mem-nao-cua-adobe</loc>
+        <loc>https://expvn.com/posts/nen-hoc-phan-mem-nao-cua-adobe</loc>
         <lastmod>2021-02-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
         <image:image>
-            <image:loc>https://example.com/content/posts/nen-hoc-phan-mem-nao-cua-adobe/images/adobe-after-effects-1.jpeg</image:loc>
+            <image:loc>https://expvn.com/content/posts/nen-hoc-phan-mem-nao-cua-adobe/images/adobe-after-effects-1.jpeg</image:loc>
             <image:title>Nên học phần mềm nào của Adobe</image:title>
         </image:image>
     </url>
     <url>
-        <loc>https://example.com/posts/cac-lenh-co-ban-cua-raspbian</loc>
+        <loc>https://expvn.com/posts/cac-lenh-co-ban-cua-raspbian</loc>
         <lastmod>2021-02-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
         <image:image>
-            <image:loc>https://example.com/content/posts/cac-lenh-co-ban-cua-raspbian/images/cac-cau-lenh-co-ban-cua-raspbian-raspberry.jpeg</image:loc>
+            <image:loc>https://expvn.com/content/posts/cac-lenh-co-ban-cua-raspbian/images/cac-cau-lenh-co-ban-cua-raspbian-raspberry.jpeg</image:loc>
             <image:title>Các lệnh cơ bản của Raspbian</image:title>
         </image:image>
     </url>
     <url>
-        <loc>https://example.com/test-page</loc>
+        <loc>https://expvn.com/test-page</loc>
         <lastmod>2025-12-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://example.com/test-webgl</loc>
+        <loc>https://expvn.com/test-webgl</loc>
         <lastmod>2025-12-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://example.com/pages/landing</loc>
+        <loc>https://expvn.com/pages/landing</loc>
         <lastmod>2025-12-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://example.com/pages/spacesurvival</loc>
+        <loc>https://expvn.com/pages/spacesurvival</loc>
         <lastmod>2025-12-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>

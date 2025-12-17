@@ -4,7 +4,7 @@
   "totalPosts": 21,
   "posts": [
     {
-      "id": "17659540473960.8494936916690445",
+      "id": "17659545376480.008956464341018266",
       "title": "[GIT/GITHUB CẤP TỐC #2] – GIT BASH: CÁC CÂU LỆNH CƠ BẢN",
       "slug": "git-github-cap-toc-2-cac-cau-lenh-co-ban",
       "summary": "**Bước 1: Thiết lập thông tin cá nhân** Sau khi cài đặt, hãy cấu hình thông tin cá nhân của bạn. Chạy các lệnh sau trong dòng lệnh, thay thế thông tin...",
@@ -17,7 +17,7 @@
       "path": "posts/git-github-cap-toc-2-cac-cau-lenh-co-ban/index.md"
     },
     {
-      "id": "17659540473970.683945415362815",
+      "id": "17659545376500.13602152082340724",
       "title": "[GIT/GITHUB CẤP TỐC #1] - GIỚI THIỆU VỀ GIT/GITHUB",
       "slug": "git-github-cap-toc-1-gioi-thieu-ve-git-github",
       "summary": "Chào các bạn, Trong bài giới thiệu này, chúng ta sẽ khám phá một công cụ hữu ích và phổ biến trong lĩnh vực phát triển phần mềm - Git và GitHub. **Git...",
@@ -30,7 +30,7 @@
       "path": "posts/git-github-cap-toc-1-gioi-thieu-ve-git-github/index.md"
     },
     {
-      "id": "17659540474030.6586951486992025",
+      "id": "17659545376760.16291014499977918",
       "title": "[ANDROID] 999 lá thư gửi cho chính mình",
       "slug": "android-999-la-thu-gui-cho-chinh-minh",
       "summary": "“999 lá thư gửi cho chính mình” là một ứng dụng cho phép bạn xem một bức thư ngẫu nhiên trong quyển sách cùng tên của tác giả văn học mạng Miêu Công T...",
@@ -43,7 +43,7 @@
       "path": "posts/android-999-la-thu-gui-cho-chinh-minh/index.md"
     },
     {
-      "id": "17659540474030.6216636877096567",
+      "id": "17659545376750.35245418689470553",
       "title": "[ANDROID] EXP Flashcards - học tiếng Anh",
       "slug": "android-exp-flashcards-hoc-tieng-anh",
       "summary": "EXP Flashcards là ứng dụng học tiếng Anh có giao diện dễ nhìn và dễ dàng sử dụng. Gần 8000 từ vựng được chia ra theo các mục để phù hợp với mọi nhu cầ...",
@@ -56,7 +56,7 @@
       "path": "posts/android-exp-flashcards-hoc-tieng-anh/index.md"
     },
     {
-      "id": "17659540474020.6700618068971309",
+      "id": "17659545376720.5998597946253821",
       "title": "[Android] Tarot - Choose your destiny (English version)",
       "slug": "android-tarot-choose-your-destiny-english-version",
       "summary": "Bói bài tarot với 10 bộ bài cho bạn tùy ý lựa chọn. Tarot – Choose Your Destiny, là ứng dụng bói bài với 10 bộ bài gồm: 1. Deviant Moon Tarot Deck 2. ...",
@@ -69,7 +69,7 @@
       "path": "posts/android-tarot-choose-your-destiny-english-version/index.md"
     },
     {
-      "id": "17659540474030.32562565954223976",
+      "id": "17659545376760.17170365964243173",
       "title": "[Android] Answers of Life",
       "slug": "android-answers-of-life",
       "summary": "Answers of Life là một ứng dụng đưa ra câu trả lời ngẫu nhiên cho tất cả câu hỏi của bạn. 1. Trước tiên, hãy mở ứng dụng lên, nhắm mắt và dành 10 - 15...",
@@ -82,7 +82,7 @@
       "path": "posts/android-answers-of-life/index.md"
     },
     {
-      "id": "17659540474020.80964947474525",
+      "id": "17659545376730.7526358238276845",
       "title": "[Android] Random Machine - Ứng dụng tạo kết quả ngẫu nhiên",
       "slug": "android-random-machine-ung-dung-tao-ket-qua-ngau-nhien",
       "summary": "Random Machine là ứng dụng miễn phí, giúp bạn dễ dàng tạo ra các kết quả ngẫu nhiên. Các tiện ích bên trong ứng dụng gồm: - **Random Number:** lấy ra ...",
@@ -101,7 +101,7 @@
       "path": "posts/android-random-machine-ung-dung-tao-ket-qua-ngau-nhien/index.md"
     },
     {
-      "id": "17659540473600.3538719474418315",
+      "id": "17659545375850.6109227507269114",
       "title": "[Android] The fox run",
       "slug": "the-fox-run",
       "summary": "The fox run là một trò chơi vui vẻ để giải trí sau những giờ làm việc và học tập căng thẳng. Trong trò chơi, bạn cố gắng đưa chú cáo của mình chạy lâu...",
@@ -121,7 +121,7 @@
       "path": "posts/the-fox-run/index.md"
     },
     {
-      "id": "17659540474000.6344678857548021",
+      "id": "17659545376630.3798843383227064",
       "title": "[Android] Escape from the labyrinth - Video",
       "slug": "escape-from-the-labyrinth",
       "summary": "https://www.youtube.com/watch?v=Qnv3qTb2vHM&lc=UgwTNdzb0tnG4jHzGNB4AaABAg Để thoát khỏi mê cung, chỉ kỹ năng thôi là chưa đủ. Bởi, trong trò chơi Esca...",
@@ -142,7 +142,7 @@
       "path": "posts/escape-from-the-labyrinth/index.md"
     },
     {
-      "id": "17659540473980.4626998069307674",
+      "id": "17659545376550.8476371532894535",
       "title": "Giới thiệu: các loại thuốc trong become a witch in another world",
       "slug": "gioi-thieu-cac-loai-thuoc-trong-become-a-witch-in-another-world",
       "summary": "Trong become a witch in another world, thuốc đóng vai trò quan trọng và nó góp phần giúp nhân vật của bạn mạnh lên một cách vượt bậc. Cách sở hữu các ...",
@@ -162,7 +162,7 @@
       "path": "posts/gioi-thieu-cac-loai-thuoc-trong-become-a-witch-in-another-world/index.md"
     },
     {
-      "id": "17659540473990.5226843503300466",
+      "id": "17659545376580.7850229594965666",
       "title": "Giới thiệu: Bảng tu luyện",
       "slug": "gioi-thieu-bang-tu-luyen",
       "summary": "Trong Become a witch in another world, để nhân vật của bạn trở lên mạnh mẽ, ngoài việc luyện cấp, chế tạo trang bị thì một việc cũng quan trọng không ...",
@@ -182,7 +182,7 @@
       "path": "posts/gioi-thieu-bang-tu-luyen/index.md"
     },
     {
-      "id": "17659540473950.798955661307436",
+      "id": "17659545376430.5724079083345635",
       "title": "Hướng dẫn: Xóa toàn bộ thuộc tính (dòng) của trang bị.",
       "slug": "huong-dan-xoa-toan-bo-thuoc-tinh-dong-cua-trang-bi",
       "summary": "Trước khi đục lỗ hoặc khảm thuộc tính cho trang bị, bạn cần phải có một trang bị rỗng (không có dòng, thuộc tính). Và để làm điều đó, bạn cần chuẩn bị...",
@@ -203,7 +203,7 @@
       "path": "posts/huong-dan-xoa-toan-bo-thuoc-tinh-dong-cua-trang-bi/index.md"
     },
     {
-      "id": "17659540473950.03423792060276598",
+      "id": "17659545376440.29629223272381267",
       "title": "Hướng dẫn: hút (tách) thuộc tính từ trang bị",
       "slug": "huong-dan-hut-tach-thuoc-tinh-tu-trang-bi",
       "summary": "Khi nhặt được trang bị mà có thuộc tính (dòng) mà bạn thích, tuy nhiên, trang bị đó chỉ có mỗi dòng đó là tốt thôi, còn lại thì dở quá. Bạn đừng vội b...",
@@ -224,7 +224,7 @@
       "path": "posts/huong-dan-hut-tach-thuoc-tinh-tu-trang-bi/index.md"
     },
     {
-      "id": "17659540473960.7792201057037673",
+      "id": "17659545376460.3197585980147045",
       "title": "Hướng dẫn: đục lỗ và khảm thuộc tính vào trang bị",
       "slug": "huong-dan-duc-lo-va-kham-thuoc-tinh-vao-trang-bi",
       "summary": "Video dưới dây hướng dẫn chi tiết cách bạn đục lỗ cho trang bị và khảm đá thuộc tính vào trang bị đó. **_Lưu ý:_** trước đó, bạn cần phải chuẩn bị một...",
@@ -245,7 +245,7 @@
       "path": "posts/huong-dan-duc-lo-va-kham-thuoc-tinh-vao-trang-bi/index.md"
     },
     {
-      "id": "17659540473960.5544821332655769",
+      "id": "17659545376470.09042657033616897",
       "title": "Hướng dẫn: cách sử dụng bản đồ để di chuyển",
       "slug": "huong-dan-cach-su-dung-ban-do-de-di-chuyen",
       "summary": "Thế giới bên trong become a witch in another world không quá lớn nhưng việc di chuyển qua lại các nơi cũng sẽ tiêu tốn của bạn khá nhiều thời gian. Vì...",
@@ -266,7 +266,7 @@
       "path": "posts/huong-dan-cach-su-dung-ban-do-de-di-chuyen/index.md"
     },
     {
-      "id": "17659540473980.9395502303765525",
+      "id": "17659545376540.5254858974603424",
       "title": "Giới thiệu tính năng: Chế tạo trang bị",
       "slug": "gioi-thieu-tinh-nang-che-tao-trang-bi",
       "summary": "Become a witch in another world có chức năng chế tạo trang bị, giúp bạn sở hữu những trang bị mạnh mẽ theo ý muốn của mình. _Một trang bị được chế tạo...",
@@ -286,7 +286,7 @@
       "path": "posts/gioi-thieu-tinh-nang-che-tao-trang-bi/index.md"
     },
     {
-      "id": "17659540473980.9252262609929858",
+      "id": "17659545376570.9408439018944508",
       "title": "Giới thiệu: các loại quái trong Become a witch in another world",
       "slug": "gioi-thieu-cac-loai-quai-trong-become-a-witch-in-another-world",
       "summary": "Chomper Vị trí xuất hiện: Bìa rừng bóng tối Máu: 1.500 Tấn công: 50 Phòng thủ: 40 Gil: 2.000 EXP: 14.686 Spitter Vị trí xuất hiện: Bìa rừng bóng tối M...",
@@ -308,7 +308,7 @@
       "path": "posts/gioi-thieu-cac-loai-quai-trong-become-a-witch-in-another-world/index.md"
     },
     {
-      "id": "17659540474010.08422858554609769",
+      "id": "17659545376690.5320113477782008",
       "title": "Become a witch in another world hỗ trợ bàn phím và tay cầm",
       "slug": "become-a-witch-in-another-world-ho-tro-ban-phim-va-tay-cam",
       "summary": "Trò chơi Become a witch in another world có hỗ trợ chơi bằng tay cầm hoặc bàn phím. Lưu ý: việc hỗ trợ chỉ có: chức năng di chuyển, xoay camera và dùn...",
@@ -331,7 +331,7 @@
       "path": "posts/become-a-witch-in-another-world-ho-tro-ban-phim-va-tay-cam/index.md"
     },
     {
-      "id": "17659540473970.7954743792278031",
+      "id": "17659545376520.563855372719372",
       "title": "[Android] Giới thiệu trò chơi: Become a witch in another world",
       "slug": "gioi-thieu-tro-choi-become-a-witch-in-another-world",
       "summary": "Become a witch in another world - trở thành phù thủy ở thế giới khác. Với thế giới mở và cốt truyện nhẹ nhàng, chắc chắn sẽ đem đến cho bạn khoảng thờ...",
@@ -352,7 +352,7 @@
       "path": "posts/gioi-thieu-tro-choi-become-a-witch-in-another-world/index.md"
     },
     {
-      "id": "17659540473670.03682038278122912",
+      "id": "17659545375960.028770802979261156",
       "title": "[Android] Spaceship - Phi thuyền không gian",
       "slug": "spaceship-phi-thuyen-khong-gian",
       "summary": "Tải về: $1",
@@ -365,7 +365,7 @@
       "path": "posts/spaceship-phi-thuyen-khong-gian/index.md"
     },
     {
-      "id": "17659540474010.06004581985183033",
+      "id": "17659545376670.8501986961488887",
       "title": "Become a witch in another world - Privacy Policy",
       "slug": "become-a-witch-in-another-world-privacy-policy",
       "summary": "**Privacy Policy** EXP Games built the Become a witch in another world app as an Ad Supported app. This SERVICE is provided by EXP Games at no cost an...",

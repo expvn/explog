@@ -340,6 +340,9 @@ function generateConfig() {
 
     // ========== 12. ROBOTS.TXT ==========
     generateRobotsTxt(siteConfig);
+
+    // ========== 13. UPDATE INDEX.HTML ==========
+    updateIndexHtml(siteConfig);
 }
 
 // Generate sitemap.xml for SEO
@@ -472,6 +475,83 @@ function escapeXml(str) {
         .replace(/>/g, '&gt;')
         .replace(/"/g, '&quot;')
         .replace(/'/g, '&apos;');
+}
+
+// Update index.html with site config values (to prevent flash of default content)
+function updateIndexHtml(siteConfig) {
+    const indexPath = path.join(__dirname, '../index.html');
+
+    if (!fs.existsSync(indexPath)) {
+        console.log('Warning: index.html not found, skipping update');
+        return;
+    }
+
+    let html = fs.readFileSync(indexPath, 'utf8');
+
+    const siteTitle = siteConfig.siteTitle || 'My Website';
+    const siteName = siteConfig.siteName || siteConfig.siteTitle || 'My Site';
+    const siteUrl = siteConfig.siteUrl || 'https://example.com';
+    const description = siteConfig.description || 'A lightweight file-based CMS';
+    const keywords = siteConfig.keywords || 'blog, cms, markdown';
+    const author = siteConfig.author || 'Your Name';
+    const logo = siteConfig.logo || 'assets/logo.png';
+    const copyright = siteConfig.footer?.copyright || `© ${new Date().getFullYear()} ${siteName}. All rights reserved.`;
+
+    // Update title tag
+    html = html.replace(/<title>[^<]*<\/title>/, `<title>${siteTitle}</title>`);
+
+    // Update meta tags
+    html = html.replace(/<meta name="title" content="[^"]*">/, `<meta name="title" content="${siteTitle}">`);
+    html = html.replace(/<meta name="description"[^>]*content="[^"]*">/, `<meta name="description"\n        content="${description}">`);
+    html = html.replace(/<meta name="keywords" content="[^"]*">/, `<meta name="keywords" content="${keywords}">`);
+    html = html.replace(/<meta name="author" content="[^"]*">/, `<meta name="author" content="${author}">`);
+
+    // Update canonical URL
+    html = html.replace(/<link rel="canonical" href="[^"]*">/, `<link rel="canonical" href="${siteUrl}/">`);
+
+    // Update Open Graph tags
+    html = html.replace(/<meta property="og:url" content="[^"]*">/, `<meta property="og:url" content="${siteUrl}/">`);
+    html = html.replace(/<meta property="og:title" content="[^"]*">/, `<meta property="og:title" content="${siteTitle}">`);
+    html = html.replace(/<meta property="og:description"[^>]*content="[^"]*">/, `<meta property="og:description"\n        content="${description}">`);
+    html = html.replace(/<meta property="og:image" content="[^"]*">/, `<meta property="og:image" content="${siteUrl}/${logo}">`);
+    html = html.replace(/<meta property="og:site_name" content="[^"]*">/, `<meta property="og:site_name" content="${siteName}">`);
+
+    // Update Twitter Cards
+    html = html.replace(/<meta name="twitter:url" content="[^"]*">/, `<meta name="twitter:url" content="${siteUrl}/">`);
+    html = html.replace(/<meta name="twitter:title" content="[^"]*">/, `<meta name="twitter:title" content="${siteTitle}">`);
+    html = html.replace(/<meta name="twitter:description"[^>]*content="[^"]*">/, `<meta name="twitter:description"\n        content="${description}">`);
+    html = html.replace(/<meta name="twitter:image" content="[^"]*">/, `<meta name="twitter:image" content="${siteUrl}/${logo}">`);
+
+    // Update JSON-LD structured data
+    const jsonLd = {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": siteName,
+        "url": `${siteUrl}/`,
+        "description": description,
+        "publisher": {
+            "@type": "Organization",
+            "name": siteName,
+            "logo": {
+                "@type": "ImageObject",
+                "url": `${siteUrl}/${logo}`
+            }
+        }
+    };
+    html = html.replace(
+        /<script type="application\/ld\+json" id="structured-data">[\s\S]*?<\/script>/,
+        `<script type="application/ld+json" id="structured-data">\n    ${JSON.stringify(jsonLd, null, 8).split('\n').join('\n    ')}\n    </script>`
+    );
+
+    // Update navbar site name
+    html = html.replace(/(<span class="nav-brand ms-2" id="nav-site-name">)[^<]*(<\/span>)/, `$1${siteName}$2`);
+
+    // Update footer site name and copyright
+    html = html.replace(/(<span class="fw-bold text-white" id="footer-site-name">)[^<]*(<\/span>)/, `$1${siteName}$2`);
+    html = html.replace(/(<p class="mb-0 text-white-50" id="footer-copyright">)[^<]*(<\/p>)/, `$1${copyright}$2`);
+
+    fs.writeFileSync(indexPath, html);
+    console.log('Updated: index.html (injected site config)');
 }
 
 generateConfig();

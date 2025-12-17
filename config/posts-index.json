@@ -1,6 +1,6 @@
 [
   {
-    "id": "17659540473960.8494936916690445",
+    "id": "17659545376480.008956464341018266",
     "title": "[GIT/GITHUB CẤP TỐC #2] – GIT BASH: CÁC CÂU LỆNH CƠ BẢN",
     "slug": "git-github-cap-toc-2-cac-cau-lenh-co-ban",
     "date": "25 Jul 2023",
@@ -8,7 +8,7 @@
     "image": "content/posts/git-github-cap-toc-2-cac-cau-lenh-co-ban/images/22-221456_git-branch.jpg"
   },
   {
-    "id": "17659540473970.683945415362815",
+    "id": "17659545376500.13602152082340724",
     "title": "[GIT/GITHUB CẤP TỐC #1] - GIỚI THIỆU VỀ GIT/GITHUB",
     "slug": "git-github-cap-toc-1-gioi-thieu-ve-git-github",
     "date": "23 Jul 2023",
@@ -16,7 +16,7 @@
     "image": "content/posts/git-github-cap-toc-1-gioi-thieu-ve-git-github/images/22-221456_git-branch.jpg"
   },
   {
-    "id": "17659540473730.180784407730872",
+    "id": "17659545376030.6537140575081568",
     "title": "[PYTHON CẤP TỐC #9] Lập trình hướng đối tượng (OOP) trong Python",
     "slug": "python-cap-toc-9-lap-trinh-huong-doi-tuong-oop-trong-python",
     "date": "26 Jun 2023",
@@ -24,7 +24,7 @@
     "image": "content/posts/python-cap-toc-9-lap-trinh-huong-doi-tuong-oop-trong-python/images/Python-la-gi.png"
   },
   {
-    "id": "17659540473750.8643968733418504",
+    "id": "17659545376040.9807422938145915",
     "title": "[PYTHON CẤP TỐC #8] Hàm và cách định nghĩa hàm trong Python",
     "slug": "python-cap-toc-8-ham-va-cach-dinh-nghia-ham-trong-python",
     "date": "26 Jun 2023",
@@ -32,7 +32,7 @@
     "image": "content/posts/python-cap-toc-8-ham-va-cach-dinh-nghia-ham-trong-python/images/Python-la-gi.png"
   },
   {
-    "id": "17659540473760.9102531792757241",
+    "id": "17659545376060.31609500043047045",
     "title": "[PYTHON CẤP TỐC #7] Danh sách và cách xử lý danh sách trong Python",
     "slug": "python-cap-toc-7-danh-sach-va-cach-xu-ly-danh-sach-trong-python",
     "date": "26 Jun 2023",
@@ -40,7 +40,7 @@
     "image": "content/posts/python-cap-toc-7-danh-sach-va-cach-xu-ly-danh-sach-trong-python/images/Python-la-gi.png"
   },
   {
-    "id": "17659540473770.05876973051059986",
+    "id": "17659545376080.8152660705661978",
     "title": "[PYTHON CẤP TỐC #6] Chuỗi và xử lý chuỗi trong Python",
     "slug": "python-cap-toc-6-chuoi-va-xu-ly-chuoi-trong-python",
     "date": "26 Jun 2023",
@@ -48,7 +48,7 @@
     "image": "content/posts/python-cap-toc-6-chuoi-va-xu-ly-chuoi-trong-python/images/Python-la-gi.png"
   },
   {
-    "id": "17659540473780.3485685285239144",
+    "id": "17659545376100.47069131961624333",
     "title": "[PYTHON CẤP TỐC #5] Vòng lặp trong Python",
     "slug": "python-cap-toc-5-vong-lap-trong-python",
     "date": "26 Jun 2023",
@@ -56,7 +56,7 @@
     "image": "content/posts/python-cap-toc-5-vong-lap-trong-python/images/Python-la-gi.png"
   },
   {
-    "id": "17659540473840.10651871599923945",
+    "id": "17659545376170.38137759800734383",
     "title": "[PYTHON CẤP TỐC #15] Bài tập ứng dụng",
     "slug": "python-cap-toc-15-bai-tap-ung-dung",
     "date": "26 Jun 2023",
@@ -64,7 +64,7 @@
     "image": "content/posts/python-cap-toc-15-bai-tap-ung-dung/images/Python-la-gi.png"
   },
   {
-    "id": "17659540473850.7061206635408777",
+    "id": "17659545376190.6781040336035534",
     "title": "[PYTHON CẤP TỐC #14] Các thư viện thường dùng",
     "slug": "python-cap-toc-14-cac-thu-vien-thuong-dung",
     "date": "26 Jun 2023",
@@ -72,7 +72,7 @@
     "image": "content/posts/python-cap-toc-14-cac-thu-vien-thuong-dung/images/Python-la-gi.png"
   },
   {
-    "id": "17659540473860.11906202974583313",
+    "id": "17659545376210.0637757612461346",
     "title": "[PYTHON CẤP TỐC #13] Thư viện trong Python",
     "slug": "python-cap-toc-13-thu-vien-trong-python",
     "date": "26 Jun 2023",
@@ -80,7 +80,7 @@
     "image": "content/posts/python-cap-toc-13-thu-vien-trong-python/images/Python-la-gi.png"
   },
   {
-    "id": "17659540473870.22506982978839551",
+    "id": "17659545376230.08411665645570465",
     "title": "[PYTHON CẤP TỐC #12] Đọc và ghi tập tin trong Python",
     "slug": "python-cap-toc-12-doc-va-ghi-tap-tin-trong-python",
     "date": "26 Jun 2023",
@@ -88,7 +88,7 @@
     "image": "content/posts/python-cap-toc-12-doc-va-ghi-tap-tin-trong-python/images/Python-la-gi.png"
   },
   {
-    "id": "17659540473890.0791118385464803",
+    "id": "17659545376240.3036462405597189",
     "title": "[PYTHON CẤP TỐC #11] Xử lý ngoại lệ trong Python",
     "slug": "python-cap-toc-11-xu-ly-ngoai-le-trong-python",
     "date": "26 Jun 2023",
@@ -96,7 +96,7 @@
     "image": "content/posts/python-cap-toc-11-xu-ly-ngoai-le-trong-python/images/Python-la-gi.png"
   },
   {
-    "id": "17659540473900.2811899679409712",
+    "id": "17659545376260.38366558869289047",
     "title": "[PYTHON CẤP TỐC #10] Phạm vi truy cập thuộc tính và phương thức trong Python OOP",
     "slug": "python-cap-toc-10-pham-vi-truy-cap-thuoc-tinh-va-phuong-thuc-trong-python-oop",
     "date": "26 Jun 2023",
@@ -104,7 +104,7 @@
     "image": "content/posts/python-cap-toc-10-pham-vi-truy-cap-thuoc-tinh-va-phuong-thuc-trong-python-oop/images/Python-la-gi.png"
   },
   {
-    "id": "17659540473680.8623270240188718",
+    "id": "17659545375970.6453998592812319",
     "title": "Regular Expression: Các ký tự, ký hiệu, ví dụ đơn giản và bài tập",
     "slug": "regular-expression-cac-ky-tu-ky-hieu-vi-du-don-gian-va-bai-tap",
     "date": "25 Jun 2023",
@@ -112,7 +112,7 @@
     "image": "content/posts/regular-expression-cac-ky-tu-ky-hieu-vi-du-don-gian-va-bai-tap/images/coderpad-regex-the-complete-guide.jpg"
   },
   {
-    "id": "17659540473800.6440763412143005",
+    "id": "17659545376120.5781261011911242",
     "title": "[PYTHON CẤP TỐC #4] Câu lệnh rẽ nhánh trong Python (if, elseif, else)",
     "slug": "python-cap-toc-4-cau-lenh-re-nhanh-trong-python-if-elseif-else",
     "date": "25 Jun 2023",
@@ -120,7 +120,7 @@
     "image": "content/posts/python-cap-toc-4-cau-lenh-re-nhanh-trong-python-if-elseif-else/images/Python-la-gi.png"
   },
   {
-    "id": "17659540473810.02508783140683346",
+    "id": "17659545376130.426657140848381",
     "title": "[PYTHON CẤP TỐC #3] Các toán tử",
     "slug": "python-cap-toc-3-cac-toan-tu",
     "date": "25 Jun 2023",
@@ -128,7 +128,7 @@
     "image": "content/posts/python-cap-toc-3-cac-toan-tu/images/Python-la-gi.png"
   },
   {
-    "id": "17659540473830.8670799133663796",
+    "id": "17659545376150.15612183455698592",
     "title": "[PYTHON CẤP TỐC #2] Các kiểu dữ liệu và cách gán kiểu dữ liệu trong Python",
     "slug": "python-cap-toc-2-cac-kieu-du-lieu-trong-python",
     "date": "14 Jun 2023",
@@ -136,7 +136,7 @@
     "image": "content/posts/python-cap-toc-2-cac-kieu-du-lieu-trong-python/images/image-15-1024x619.png"
   },
   {
-    "id": "17659540473910.15380507190151305",
+    "id": "17659545376270.9138157099440513",
     "title": "[PYTHON CẤP TỐC #1] - Cài đặt: Python & Visual Studio Code",
     "slug": "python-cap-toc-1-cai-dat-python-visual-studio-code",
     "date": "13 Jun 2023",
@@ -144,7 +144,7 @@
     "image": "content/posts/python-cap-toc-1-cai-dat-python-visual-studio-code/images/image-1.png"
   },
   {
-    "id": "17659540473990.66580984154953",
+    "id": "17659545376590.01009717338047833",
     "title": "EXPVN Shop",
     "slug": "expvn-shop",
     "date": "7 May 2023",
@@ -152,7 +152,7 @@
     "image": "content/posts/expvn-shop/images/facebook-150x150.webp"
   },
   {
-    "id": "17659540473940.021425571673924337",
+    "id": "17659545376370.9904861971991332",
     "title": "[PC] EXPVN Youtube Downloader - Tải hàng loạt Youtube (mp3, mp4)",
     "slug": "pc-expvn-youtube-downloader-tai-hang-loat-youtube-mp3-mp4",
     "date": "5 Apr 2023",
@@ -160,7 +160,7 @@
     "image": "content/posts/pc-expvn-youtube-downloader-tai-hang-loat-youtube-mp3-mp4/images/1-1024x462.png"
   },
   {
-    "id": "17659540474030.6586951486992025",
+    "id": "17659545376760.16291014499977918",
     "title": "[ANDROID] 999 lá thư gửi cho chính mình",
     "slug": "android-999-la-thu-gui-cho-chinh-minh",
     "date": "17 Aug 2022",
@@ -168,7 +168,7 @@
     "image": "content/posts/android-999-la-thu-gui-cho-chinh-minh/images/dabf4f944c5da6f3ba4e581dc5799ccf.jpg"
   },
   {
-    "id": "17659540473950.7301253172743118",
+    "id": "17659545376410.7406816334616245",
     "title": "Letters of Life - Privacy Policy",
     "slug": "letters-of-life-privacy-policy",
     "date": "8 Aug 2022",
@@ -176,7 +176,7 @@
     "image": "content/posts/letters-of-life-privacy-policy/images/Privacy-06.png"
   },
   {
-    "id": "17659540472540.009750946348640266",
+    "id": "17659545374860.9343090114166113",
     "title": "The Fox Run - Privacy Policy",
     "slug": "the-fox-run-privacy-policy",
     "date": "6 Aug 2022",
@@ -184,7 +184,7 @@
     "image": "content/posts/the-fox-run-privacy-policy/images/Privacy-06.png"
   },
   {
-    "id": "17659540473990.8012423378568736",
+    "id": "17659545376600.47626920955073526",
     "title": "EXP Flashcard - Privacy Policy",
     "slug": "exp-flashcard-privacy-policy",
     "date": "6 Aug 2022",
@@ -192,7 +192,7 @@
     "image": "content/posts/exp-flashcard-privacy-policy/images/Privacy-06.png"
   },
   {
-    "id": "17659540474030.6216636877096567",
+    "id": "17659545376750.35245418689470553",
     "title": "[ANDROID] EXP Flashcards - học tiếng Anh",
     "slug": "android-exp-flashcards-hoc-tieng-anh",
     "date": "6 Aug 2022",
@@ -200,7 +200,7 @@
     "image": "content/posts/android-exp-flashcards-hoc-tieng-anh/images/EXP-Flashcards-Design-05.png"
   },
   {
-    "id": "17659540474020.6700618068971309",
+    "id": "17659545376720.5998597946253821",
     "title": "[Android] Tarot - Choose your destiny (English version)",
     "slug": "android-tarot-choose-your-destiny-english-version",
     "date": "22 Jul 2022",
@@ -208,7 +208,7 @@
     "image": "content/posts/android-tarot-choose-your-destiny-english-version/images/Screenshot_20220722-141955_Tarot-Choose-your-destiny-146x300.jpg"
   },
   {
-    "id": "17659540473610.5020057970742502",
+    "id": "17659545375870.3530489398014909",
     "title": "Tarot - Choose Your Destiny - Privacy Policy",
     "slug": "tarot-choose-your-destiny-privacy-policy",
     "date": "16 Jul 2022",
@@ -216,7 +216,7 @@
     "image": "content/posts/tarot-choose-your-destiny-privacy-policy/images/Privacy-06.png"
   },
   {
-    "id": "17659540474020.4196306996233198",
+    "id": "17659545376700.7409268525556407",
     "title": "Answers of Life - Privacy Policy",
     "slug": "answers-of-life-privacy-policy",
     "date": "13 Jul 2022",
@@ -224,7 +224,7 @@
     "image": "content/posts/answers-of-life-privacy-policy/images/Privacy-06.png"
   },
   {
-    "id": "17659540474030.32562565954223976",
+    "id": "17659545376760.17170365964243173",
     "title": "[Android] Answers of Life",
     "slug": "android-answers-of-life",
     "date": "13 Jul 2022",
@@ -232,7 +232,7 @@
     "image": "content/posts/android-answers-of-life/images/Answers-of-Life-02.jpg"
   },
   {
-    "id": "17659540474020.80964947474525",
+    "id": "17659545376730.7526358238276845",
     "title": "[Android] Random Machine - Ứng dụng tạo kết quả ngẫu nhiên",
     "slug": "android-random-machine-ung-dung-tao-ket-qua-ngau-nhien",
     "date": "2 Jul 2022",
@@ -240,7 +240,7 @@
     "image": "content/posts/android-random-machine-ung-dung-tao-ket-qua-ngau-nhien/images/icon-01.png"
   },
   {
-    "id": "17659540473710.46064145874796203",
+    "id": "17659545376010.978857201035414",
     "title": "Random Machine - Privacy Policy",
     "slug": "random-machine-privacy-policy",
     "date": "1 Jul 2022",
@@ -248,7 +248,7 @@
     "image": "content/posts/random-machine-privacy-policy/images/Privacy-05.png"
   },
   {
-    "id": "17659540474000.35920118877485896",
+    "id": "17659545376650.7199931205547357",
     "title": "[PC] Convert PDF to Image (Chuyển đổi PDF sang ảnh)",
     "slug": "convert-pdf-to-image-chuyen-doi-pdf-sang-anh",
     "date": "24 Jun 2022",
@@ -256,7 +256,7 @@
     "image": "content/posts/convert-pdf-to-image-chuyen-doi-pdf-sang-anh/images/2022-06-24-15_38_05-EXPVN-Pdf2Image.png"
   },
   {
-    "id": "17659540473930.534129790366961",
+    "id": "17659545376350.9210884006541459",
     "title": "[PC] promail@expvn.com - Ứng dụng gửi mail hàng loạt với tiêu đề, nội dung và file đính kèm khác nhau cho từng người nhận",
     "slug": "pc-promailexpvn-com-ung-dung-gui-mail-hang-loat-voi-tieu-de-noi-dung-va-file-dinh-kem-khac-nhau-cho-tung-nguoi-nhan",
     "date": "9 Apr 2022",
@@ -264,7 +264,7 @@
     "image": "content/posts/pc-promailexpvn-com-ung-dung-gui-mail-hang-loat-voi-tieu-de-noi-dung-va-file-dinh-kem-khac-nhau-cho-tung-nguoi-nhan/images/quy-tac-su-dung-email-hieu-qua-va-chuyen-nghiep.jpg"
   },
   {
-    "id": "17659540473600.3538719474418315",
+    "id": "17659545375850.6109227507269114",
     "title": "[Android] The fox run",
     "slug": "the-fox-run",
     "date": "13 Jul 2021",
@@ -272,7 +272,7 @@
     "image": "content/posts/the-fox-run/images/1-1024x498.jpg"
   },
   {
-    "id": "17659540474000.6344678857548021",
+    "id": "17659545376630.3798843383227064",
     "title": "[Android] Escape from the labyrinth - Video",
     "slug": "escape-from-the-labyrinth",
     "date": "8 Jun 2021",
@@ -280,7 +280,7 @@
     "image": "content/posts/escape-from-the-labyrinth/images/maxresdefault.jpg"
   },
   {
-    "id": "17659540474000.05720167317533564",
+    "id": "17659545376620.8281468970093323",
     "title": "Escape from the labyrinth - Privacy Policy",
     "slug": "escape-from-the-labyrinth-privacy-policy",
     "date": "6 Jun 2021",
@@ -288,7 +288,7 @@
     "image": "content/posts/escape-from-the-labyrinth-privacy-policy/images/EscapeFromTheLabyrinthPrivacy-04.jpg"
   },
   {
-    "id": "17659540473980.4626998069307674",
+    "id": "17659545376550.8476371532894535",
     "title": "Giới thiệu: các loại thuốc trong become a witch in another world",
     "slug": "gioi-thieu-cac-loai-thuoc-trong-become-a-witch-in-another-world",
     "date": "4 May 2021",
@@ -296,7 +296,7 @@
     "image": "content/posts/gioi-thieu-cac-loai-thuoc-trong-become-a-witch-in-another-world/images/40.-Thuoc-tang-mau-toi-da.png"
   },
   {
-    "id": "17659540473990.5226843503300466",
+    "id": "17659545376580.7850229594965666",
     "title": "Giới thiệu: Bảng tu luyện",
     "slug": "gioi-thieu-bang-tu-luyen",
     "date": "4 May 2021",
@@ -304,7 +304,7 @@
     "image": "content/posts/gioi-thieu-bang-tu-luyen/images/1.jpg"
   },
   {
-    "id": "17659540473950.798955661307436",
+    "id": "17659545376430.5724079083345635",
     "title": "Hướng dẫn: Xóa toàn bộ thuộc tính (dòng) của trang bị.",
     "slug": "huong-dan-xoa-toan-bo-thuoc-tinh-dong-cua-trang-bi",
     "date": "3 May 2021",
@@ -312,7 +312,7 @@
     "image": "content/posts/huong-dan-xoa-toan-bo-thuoc-tinh-dong-cua-trang-bi/images/movie_040.mp4_snapshot_00.17_2021.05.03_12.25.40-scaled.jpg"
   },
   {
-    "id": "17659540473950.03423792060276598",
+    "id": "17659545376440.29629223272381267",
     "title": "Hướng dẫn: hút (tách) thuộc tính từ trang bị",
     "slug": "huong-dan-hut-tach-thuoc-tinh-tu-trang-bi",
     "date": "3 May 2021",
@@ -320,7 +320,7 @@
     "image": "content/posts/huong-dan-hut-tach-thuoc-tinh-tu-trang-bi/images/movie_041.mp4_snapshot_00.16_2021.05.03_12.35.01-scaled.jpg"
   },
   {
-    "id": "17659540473960.7792201057037673",
+    "id": "17659545376460.3197585980147045",
     "title": "Hướng dẫn: đục lỗ và khảm thuộc tính vào trang bị",
     "slug": "huong-dan-duc-lo-va-kham-thuoc-tinh-vao-trang-bi",
     "date": "3 May 2021",
@@ -328,7 +328,7 @@
     "image": "content/posts/huong-dan-duc-lo-va-kham-thuoc-tinh-vao-trang-bi/images/movie_042.mp4_snapshot_00.24_2021.05.03_12.39.40-scaled.jpg"
   },
   {
-    "id": "17659540473960.5544821332655769",
+    "id": "17659545376470.09042657033616897",
     "title": "Hướng dẫn: cách sử dụng bản đồ để di chuyển",
     "slug": "huong-dan-cach-su-dung-ban-do-de-di-chuyen",
     "date": "3 May 2021",
@@ -336,7 +336,7 @@
     "image": "content/posts/huong-dan-cach-su-dung-ban-do-de-di-chuyen/images/2021-05-03-22_01_38-Window-1024x453.jpg"
   },
   {
-    "id": "17659540473980.9395502303765525",
+    "id": "17659545376540.5254858974603424",
     "title": "Giới thiệu tính năng: Chế tạo trang bị",
     "slug": "gioi-thieu-tinh-nang-che-tao-trang-bi",
     "date": "3 May 2021",
@@ -344,7 +344,7 @@
     "image": "content/posts/gioi-thieu-tinh-nang-che-tao-trang-bi/images/Chee-tao-trang-bij-1024x498.png"
   },
   {
-    "id": "17659540473980.9252262609929858",
+    "id": "17659545376570.9408439018944508",
     "title": "Giới thiệu: các loại quái trong Become a witch in another world",
     "slug": "gioi-thieu-cac-loai-quai-trong-become-a-witch-in-another-world",
     "date": "3 May 2021",
@@ -352,7 +352,7 @@
     "image": "content/posts/gioi-thieu-cac-loai-quai-trong-become-a-witch-in-another-world/images/Bommer.png"
   },
   {
-    "id": "17659540474010.08422858554609769",
+    "id": "17659545376690.5320113477782008",
     "title": "Become a witch in another world hỗ trợ bàn phím và tay cầm",
     "slug": "become-a-witch-in-another-world-ho-tro-ban-phim-va-tay-cam",
     "date": "3 May 2021",
@@ -360,7 +360,7 @@
     "image": "content/posts/become-a-witch-in-another-world-ho-tro-ban-phim-va-tay-cam/images/Cyber-sport-competitors-scaled.jpg"
   },
   {
-    "id": "17659540473970.7954743792278031",
+    "id": "17659545376520.563855372719372",
     "title": "[Android] Giới thiệu trò chơi: Become a witch in another world",
     "slug": "gioi-thieu-tro-choi-become-a-witch-in-another-world",
     "date": "2 May 2021",
@@ -368,7 +368,7 @@
     "image": "content/posts/gioi-thieu-tro-choi-become-a-witch-in-another-world/images/2021-05-02-11_45_17-Become-a-Witch-in-Another-World-5.-Jocasta-Village-Android-Unity-2020.3.2f-1024x576.png"
   },
   {
-    "id": "17659540473650.259304064565667",
+    "id": "17659545375920.21073509674881163",
     "title": "Speech to text - Privacy Policy",
     "slug": "speech-to-text-privacy-policy",
     "date": "10 Mar 2021",
@@ -376,7 +376,7 @@
     "image": "content/posts/speech-to-text-privacy-policy/images/Privacy-03.png"
   },
   {
-    "id": "17659540473660.5425284117881508",
+    "id": "17659545375950.8061422754215237",
     "title": "[Android] Speech to text - Nhập liệu bằng giọng nói",
     "slug": "speech-to-text-nhap-lieu-bang-giong-noi",
     "date": "10 Mar 2021",
@@ -384,7 +384,7 @@
     "image": "content/posts/speech-to-text-nhap-lieu-bang-giong-noi/images/Screenshot_20210310-152100_Speech-to-text-498x1024.jpg"
   },
   {
-    "id": "17659540473670.03682038278122912",
+    "id": "17659545375960.028770802979261156",
     "title": "[Android] Spaceship - Phi thuyền không gian",
     "slug": "spaceship-phi-thuyen-khong-gian",
     "date": "3 Feb 2021",
@@ -392,7 +392,7 @@
     "image": "content/posts/spaceship-phi-thuyen-khong-gian/images/unnamed-1_result-1024x576.jpg"
   },
   {
-    "id": "17659540473910.8636142898871463",
+    "id": "17659545376290.941689310033232",
     "title": "Spaceship - Privacy Policy",
     "slug": "privacy-policy",
     "date": "3 Feb 2021",
@@ -400,7 +400,7 @@
     "image": "content/posts/privacy-policy/images/Privacy-01.png"
   },
   {
-    "id": "17659540474010.06004581985183033",
+    "id": "17659545376670.8501986961488887",
     "title": "Become a witch in another world - Privacy Policy",
     "slug": "become-a-witch-in-another-world-privacy-policy",
     "date": "3 Feb 2021",
@@ -408,7 +408,7 @@
     "image": "content/posts/become-a-witch-in-another-world-privacy-policy/images/Privacy-02.png"
   },
   {
-    "id": "17659540473630.8921090655294889",
+    "id": "17659545375900.4443385264681641",
     "title": "[PC] Tạo ebook dạng azw3, ePub bằng Calibre Book Edit",
     "slug": "tao-ebook-dang-azw3-epub-bang-calibre-book-edit",
     "date": "2 Feb 2021",
@@ -416,7 +416,7 @@
     "image": "content/posts/tao-ebook-dang-azw3-epub-bang-calibre-book-edit/images/bia-sach-da-duoc-chon.jpeg"
   },
   {
-    "id": "17659540473920.8245328857428604",
+    "id": "17659545376310.04435063323719468",
     "title": "PHP Web Server cho Raspberry Pi",
     "slug": "php-web-server-cho-raspberry-pi",
     "date": "2 Feb 2021",
@@ -424,7 +424,7 @@
     "image": "content/posts/php-web-server-cho-raspberry-pi/images/php-web-server-cho-rasberry-1.png"
   },
   {
-    "id": "17659540473930.20729616054471767",
+    "id": "17659545376340.39970011827766994",
     "title": "[PC] Phần mềm tải truyện chữ GetTextFromHtml",
     "slug": "phan-mem-tai-truyen-chu-gettextfromhtml",
     "date": "2 Feb 2021",
@@ -432,7 +432,7 @@
     "image": "content/posts/phan-mem-tai-truyen-chu-gettextfromhtml/images/ebook.jpg"
   },
   {
-    "id": "17659540473940.6729021228448534",
+    "id": "17659545376390.6258310929016457",
     "title": "Nên học phần mềm nào của Adobe",
     "slug": "nen-hoc-phan-mem-nao-cua-adobe",
     "date": "2 Feb 2021",
@@ -440,7 +440,7 @@
     "image": "content/posts/nen-hoc-phan-mem-nao-cua-adobe/images/adobe-after-effects-1.jpeg"
   },
   {
-    "id": "17659540474010.5504292796548861",
+    "id": "17659545376660.9548354360178272",
     "title": "Các lệnh cơ bản của Raspbian",
     "slug": "cac-lenh-co-ban-cua-raspbian",
     "date": "2 Feb 2021",
