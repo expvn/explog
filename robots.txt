@@ -1,5 +1,5 @@
-# Robots.txt for https://expvn.com
-# Generated automatically by EXPVN CMS
+# Robots.txt for https://example.com
+# Generated automatically by My Site CMS
 
 User-agent: *
 Allow: /
@@ -10,7 +10,7 @@ Disallow: /scripts/
 Disallow: /node_modules/
 
 # Sitemap location
-Sitemap: https://expvn.com/sitemap.xml
+Sitemap: https://example.com/sitemap.xml
 
 # Crawl delay (optional, be nice to bots)
 Crawl-delay: 1

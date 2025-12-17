@@ -15,8 +15,13 @@ const appState = {
 
 // ============= SEO MANAGER =============
 const SEO = {
-    baseUrl: 'https://expvn.com',
-    defaultImage: '/assets/logo.png',
+    // Get base URL from site config (loaded after init)
+    get baseUrl() {
+        return appState.config?.site?.siteUrl || 'https://example.com';
+    },
+    get defaultImage() {
+        return '/' + (appState.config?.site?.logo || 'assets/logo.png');
+    },
 
     // Update all meta tags for a page
     updateMeta(options) {
@@ -293,10 +298,34 @@ async function loadConfig() {
     appState.loadedCategories = {}; // Cache for category posts
     appState.currentPage = 1;
 
+    // Apply site-wide config (navbar, footer, etc.)
+    applySiteConfig(site);
+
     // Only load page 1 for initial homepage render
     await loadPostsPage(1);
 
     renderNavBar();
+}
+
+// Apply site configuration to UI elements
+function applySiteConfig(site) {
+    // Update navbar brand
+    const navSiteName = document.getElementById('nav-site-name');
+    if (navSiteName) navSiteName.textContent = site.siteName || site.siteTitle || 'My Site';
+
+    // Update footer
+    const footerSiteName = document.getElementById('footer-site-name');
+    if (footerSiteName) footerSiteName.textContent = site.siteName || site.siteTitle || 'My Site';
+
+    const footerCopyright = document.getElementById('footer-copyright');
+    if (footerCopyright && site.footer?.copyright) {
+        footerCopyright.textContent = site.footer.copyright;
+    }
+
+    // Update document title if on homepage
+    if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
+        document.title = site.siteTitle || 'My Website';
+    }
 }
 
 // Load a specific page of posts (lazy loading)

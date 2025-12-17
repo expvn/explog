@@ -1,8 +1,21 @@
 {
   "siteTitle": "EXPVN",
+  "siteName": "EXPVN",
+  "siteUrl": "https://expvn.com",
   "logo": "assets/logo.png",
-  "description": "Blog về game, công nghệ và lập trình",
+  "favicon": "assets/logo.png",
+  "description": "Blog game, công nghệ và lập trình",
+  "keywords": "blog, game, development, technology, lập trình game",
   "author": "EXPVN",
   "language": "vi",
-  "postsPerPage": 20
+  "postsPerPage": 20,
+  "footer": {
+    "copyright": "©2025 EXPVN. All rights reserved.",
+    "showLogo": true
+  },
+  "social": {
+    "github": "https://github.com/expvn",
+    "twitter": "",
+    "facebook": ""
+  }
 }

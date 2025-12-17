@@ -200,17 +200,42 @@ npm run build
 
 ## ⚙️ Cấu hình
 
-### Thông tin Website (`config/site.json`)
+### 🎯 Cá nhân hóa Website (`config/site.json`)
+
+Đây là file duy nhất bạn cần chỉnh sửa để cá nhân hóa CMS:
+
 ```json
 {
   "siteTitle": "Tên Website",
+  "siteName": "Tên ngắn (navbar/footer)",
+  "siteUrl": "https://your-domain.com",
   "logo": "assets/logo.png",
-  "description": "Mô tả website",
+  "favicon": "assets/logo.png",
+  "description": "Mô tả website của bạn",
+  "keywords": "từ khóa, seo, tìm kiếm",
   "author": "Tên tác giả",
   "language": "vi",
-  "postsPerPage": 20
+  "postsPerPage": 20,
+  "footer": {
+    "copyright": "© 2025 Tên Website. All rights reserved.",
+    "showLogo": true
+  },
+  "social": {
+    "github": "https://github.com/username",
+    "twitter": "",
+    "facebook": ""
+  }
 }
 ```
+
+| Trường | Mô tả |
+|--------|-------|
+| `siteTitle` | Tên đầy đủ của website (hiển thị trong title) |
+| `siteName` | Tên ngắn (hiển thị trong navbar và footer) |
+| `siteUrl` | Domain website (dùng cho SEO, sitemap) |
+| `description` | Mô tả website (SEO) |
+| `keywords` | Từ khóa (SEO) |
+| `footer.copyright` | Text copyright ở footer |
 
 ### Trang chủ (`config/home.json`)
 ```json

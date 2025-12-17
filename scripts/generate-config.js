@@ -127,16 +127,38 @@ function generateConfig() {
     }
 
     // ========== 1. SITE.JSON ==========
+    // Read existing site config
+    const siteConfigPath = path.join(CONFIG_DIR, 'site.json');
+    let existingSite = {};
+    if (fs.existsSync(siteConfigPath)) {
+        existingSite = JSON.parse(fs.readFileSync(siteConfigPath, 'utf8'));
+    } else if (currentConfig) {
+        existingSite = currentConfig;
+    }
+
     const siteConfig = {
-        siteTitle: currentConfig.siteTitle || "EXPLog",
-        logo: currentConfig.logo || "assets/logo.png",
-        description: currentConfig.description || "A lightweight file-based CMS",
-        author: currentConfig.author || "EXPVN",
-        language: currentConfig.language || "vi",
-        postsPerPage: POSTS_PER_PAGE
+        siteTitle: existingSite.siteTitle || "My Website",
+        siteName: existingSite.siteName || "My Site",
+        siteUrl: existingSite.siteUrl || "https://example.com",
+        logo: existingSite.logo || "assets/logo.png",
+        favicon: existingSite.favicon || "assets/logo.png",
+        description: existingSite.description || "A lightweight file-based CMS",
+        keywords: existingSite.keywords || "blog, cms, markdown",
+        author: existingSite.author || "Your Name",
+        language: existingSite.language || "vi",
+        postsPerPage: POSTS_PER_PAGE,
+        footer: existingSite.footer || {
+            copyright: "© 2025 My Website. All rights reserved.",
+            showLogo: true
+        },
+        social: existingSite.social || {
+            github: "",
+            twitter: "",
+            facebook: ""
+        }
     };
     fs.writeFileSync(
-        path.join(CONFIG_DIR, 'site.json'),
+        siteConfigPath,
         JSON.stringify(siteConfig, null, 2)
     );
     console.log('Generated: config/site.json');
@@ -163,7 +185,7 @@ function generateConfig() {
     // Build hero config - slides is the main source of images/links
     const heroConfig = {
         enabled: existingHero.enabled !== undefined ? existingHero.enabled : true,
-        title: existingHero.title || "Welcome to EXPLog",
+        title: existingHero.title || "Welcome to My Website",
         category: existingHero.category || "Featured",
         author: existingHero.author || "Anonymous",
         date: existingHero.date || new Date().toLocaleDateString(),
@@ -314,15 +336,15 @@ function generateConfig() {
     console.log(`   Categories: ${categories.size}, Tags: ${tags.size}`);
 
     // ========== 11. SITEMAP.XML ==========
-    generateSitemap(posts, categories);
+    generateSitemap(posts, categories, siteConfig);
 
     // ========== 12. ROBOTS.TXT ==========
-    generateRobotsTxt();
+    generateRobotsTxt(siteConfig);
 }
 
 // Generate sitemap.xml for SEO
-function generateSitemap(posts, categories) {
-    const BASE_URL = 'https://expvn.com';
+function generateSitemap(posts, categories, siteConfig) {
+    const BASE_URL = siteConfig.siteUrl || 'https://example.com';
     const today = new Date().toISOString().split('T')[0];
 
     let sitemap = `<?xml version="1.0" encoding="UTF-8"?>
@@ -415,11 +437,12 @@ function generateSitemap(posts, categories) {
 }
 
 // Generate robots.txt
-function generateRobotsTxt() {
-    const BASE_URL = 'https://expvn.com';
+function generateRobotsTxt(siteConfig) {
+    const BASE_URL = siteConfig.siteUrl || 'https://example.com';
+    const siteName = siteConfig.siteName || 'My Website';
 
     const robotsTxt = `# Robots.txt for ${BASE_URL}
-# Generated automatically by EXPVN CMS
+# Generated automatically by ${siteName} CMS
 
 User-agent: *
 Allow: /

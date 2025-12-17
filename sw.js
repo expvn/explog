@@ -1,7 +1,7 @@
-// Service Worker for EXPVN - Caching for faster page loads
-const CACHE_NAME = 'expvn-cache-v1';
-const STATIC_CACHE_NAME = 'expvn-static-v1';
-const DYNAMIC_CACHE_NAME = 'expvn-dynamic-v1';
+// Service Worker - Caching for faster page loads
+const CACHE_NAME = 'cms-cache-v1';
+const STATIC_CACHE_NAME = 'cms-static-v1';
+const DYNAMIC_CACHE_NAME = 'cms-dynamic-v1';
 
 // Static assets to pre-cache (shell)
 const PRECACHE_ASSETS = [
@@ -80,7 +80,7 @@ self.addEventListener('activate', event => {
                 cacheNames.map(cacheName => {
                     if (cacheName !== STATIC_CACHE_NAME &&
                         cacheName !== DYNAMIC_CACHE_NAME &&
-                        cacheName.startsWith('expvn-')) {
+                        cacheName.startsWith('cms-')) {
                         console.log('[SW] Deleting old cache:', cacheName);
                         return caches.delete(cacheName);
                     }
@@ -225,7 +225,7 @@ self.addEventListener('message', event => {
             caches.keys().then(cacheNames => {
                 return Promise.all(
                     cacheNames.map(cacheName => {
-                        if (cacheName.startsWith('expvn-')) {
+                        if (cacheName.startsWith('cms-')) {
                             return caches.delete(cacheName);
                         }
                     })
