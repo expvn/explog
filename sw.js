@@ -1,7 +1,7 @@
 // Service Worker - Caching for faster page loads
-const CACHE_NAME = 'cms-cache-v1';
-const STATIC_CACHE_NAME = 'cms-static-v1';
-const DYNAMIC_CACHE_NAME = 'cms-dynamic-v1';
+const CACHE_NAME = 'cms-cache-v2';
+const STATIC_CACHE_NAME = 'cms-static-v2';
+const DYNAMIC_CACHE_NAME = 'cms-dynamic-v2';
 
 // Static assets to pre-cache (shell)
 const PRECACHE_ASSETS = [
