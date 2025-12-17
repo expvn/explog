@@ -128,7 +128,7 @@ explog/
 
 ```bash
 # Clone repository
-git clone https://github.com/your-username/explog.git
+git clone https://github.com/expvn/explog.git
 cd explog
 
 # Cài đặt dependencies
