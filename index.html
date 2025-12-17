@@ -45,9 +45,29 @@
                 <ul class="navbar-nav ms-auto nav-links">
                     <!-- Menu items injected via JS -->
                 </ul>
+                <!-- Search Icon -->
+                <button class="search-toggle-btn" onclick="toggleSearch()" aria-label="Search">
+                    <ion-icon name="search-outline"></ion-icon>
+                </button>
             </div>
         </div>
     </nav>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" class="search-overlay hidden">
+        <div class="search-container">
+            <div class="search-header">
+                <input type="text" id="search-input" placeholder="Tìm kiếm bài viết..." autocomplete="off">
+                <button class="search-close-btn" onclick="toggleSearch()">
+                    <ion-icon name="close-outline"></ion-icon>
+                </button>
+            </div>
+            <div id="search-results" class="search-results">
+                <!-- Results will be injected here -->
+            </div>
+        </div>
+    </div>
+
 
     <!-- Main App Container -->
     <main id="app">

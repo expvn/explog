@@ -4,19 +4,36 @@ const glob = require('glob');
 const matter = require('gray-matter');
 
 const CONTENT_DIR = path.join(__dirname, '../content/posts');
-const CONFIG_PATH = path.join(__dirname, '../config.json');
+const CONFIG_DIR = path.join(__dirname, '../config');
+const OLD_CONFIG_PATH = path.join(__dirname, '../config.json');
+
+// Posts per page for pagination
+const POSTS_PER_PAGE = 20;
 
 // Helper to normalize path separators to forward slashes (for URL usage)
 const normalizePath = (p) => p.split(path.sep).join('/');
 
+// Ensure config directory exists
+function ensureConfigDir() {
+    if (!fs.existsSync(CONFIG_DIR)) {
+        fs.mkdirSync(CONFIG_DIR, { recursive: true });
+    }
+    const postsDir = path.join(CONFIG_DIR, 'posts');
+    if (!fs.existsSync(postsDir)) {
+        fs.mkdirSync(postsDir, { recursive: true });
+    }
+}
+
 function generateConfig() {
     console.log('Scanning content...');
+    ensureConfigDir();
 
     // Find all .md files in content/posts
     const files = glob.sync(`${CONTENT_DIR}/**/*.md`);
 
     const posts = [];
     const categories = new Set();
+    const tags = new Set();
 
     files.forEach(filePath => {
         const content = fs.readFileSync(filePath, 'utf8');
@@ -25,9 +42,9 @@ function generateConfig() {
 
         // Relative path from 'content/' folder for fetching
         const absoluteContentPath = path.join(__dirname, '../content');
-        const relativePath = path.relative(absoluteContentPath, filePath); // posts/slug/index.md
-        const postDirRelative = path.dirname(relativePath); // posts/slug
-        const postDirAbsolute = path.dirname(filePath); // c:/.../content/posts/slug
+        const relativePath = path.relative(absoluteContentPath, filePath);
+        const postDirRelative = path.dirname(relativePath);
+        const postDirAbsolute = path.dirname(filePath);
 
         // Basic Validation
         if (!data.title) {
@@ -36,29 +53,22 @@ function generateConfig() {
         }
 
         // Image Path Logic
-        let imagePath = ''; // No default fallback
+        let imagePath = '';
 
-        // 1. Check Frontmatter
         if (data.image) {
             if (data.image.startsWith('http')) {
                 imagePath = data.image;
             } else {
                 imagePath = `content/${normalizePath(path.join(postDirRelative, data.image))}`;
             }
-        }
-        // 2. Auto-discovery in images/ or attachments/
-        else {
+        } else {
             let foundImage = null;
-
-            // Check 'images'
             let mediaDir = path.join(postDirAbsolute, 'images');
             if (fs.existsSync(mediaDir)) {
                 const dirFiles = fs.readdirSync(mediaDir);
                 const img = dirFiles.find(f => /\.(jpg|jpeg|png|webp|gif)$/i.test(f));
                 if (img) foundImage = path.join(mediaDir, img);
             }
-
-            // Check 'attachments'
             if (!foundImage) {
                 mediaDir = path.join(postDirAbsolute, 'attachments');
                 if (fs.existsSync(mediaDir)) {
@@ -67,35 +77,35 @@ function generateConfig() {
                     if (img) foundImage = path.join(mediaDir, img);
                 }
             }
-
             if (foundImage) {
                 const relativeImgPath = path.relative(absoluteContentPath, foundImage);
                 imagePath = `content/${normalizePath(relativeImgPath)}`;
             }
         }
 
+        // Extract slug from path
+        const slug = normalizePath(postDirRelative).replace('posts/', '');
+
         const post = {
             id: data.id || Date.now().toString() + Math.random().toString(),
             title: data.title,
+            slug: slug,
             summary: data.summary || (() => {
-                // Auto-generate summary from content
                 if (!parsed.content) return '';
-                // Simple markdown strip: remove headers, images, etc.
                 const plainText = parsed.content
-                    .replace(/^#+\s+/gm, '') // Remove headers
-                    .replace(/!\[.*?\]\(.*?\)/g, '') // Remove images
-                    .replace(/\[.*?\]\(.*?\)/g, '$1') // Remove links
-                    .replace(/`{3}[\s\S]*?`{3}/g, '') // Remove code blocks
-                    .replace(/\s+/g, ' ') // Collapse whitespace
+                    .replace(/^#+\s+/gm, '')
+                    .replace(/!\[.*?\]\(.*?\)/g, '')
+                    .replace(/\[.*?\]\(.*?\)/g, '$1')
+                    .replace(/`{3}[\s\S]*?`{3}/g, '')
+                    .replace(/\s+/g, ' ')
                     .trim();
                 return plainText.slice(0, 150) + (plainText.length > 150 ? '...' : '');
             })(),
             image: imagePath,
             author: data.author || 'Anonymous',
-            // authorImage removed as requested
             date: data.date ? new Date(data.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }) : 'Unknown',
+            dateRaw: data.date ? new Date(data.date).toISOString() : null,
             category: data.category || 'Uncategorized',
-
             tags: data.tags || [],
             path: normalizePath(relativePath)
         };
@@ -104,97 +114,205 @@ function generateConfig() {
         if (post.category !== 'Uncategorized') {
             categories.add(post.category);
         }
+        post.tags.forEach(tag => tags.add(tag));
     });
 
     // Sort posts by date (newest first)
-    posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+    posts.sort((a, b) => new Date(b.dateRaw || 0) - new Date(a.dateRaw || 0));
 
-    // Read existing config to preserve static fields
+    // Read existing old config to preserve static fields
     let currentConfig = {};
-    if (fs.existsSync(CONFIG_PATH)) {
-        currentConfig = JSON.parse(fs.readFileSync(CONFIG_PATH, 'utf8'));
+    if (fs.existsSync(OLD_CONFIG_PATH)) {
+        currentConfig = JSON.parse(fs.readFileSync(OLD_CONFIG_PATH, 'utf8'));
     }
 
-    // Default Home Config if missing
-    const homeConfig = currentConfig.home || {
-        categories: [],
-        limit: 10
+    // ========== 1. SITE.JSON ==========
+    const siteConfig = {
+        siteTitle: currentConfig.siteTitle || "EXPLog",
+        logo: currentConfig.logo || "assets/logo.png",
+        description: currentConfig.description || "A lightweight file-based CMS",
+        author: currentConfig.author || "EXPVN",
+        language: currentConfig.language || "vi",
+        postsPerPage: POSTS_PER_PAGE
     };
+    fs.writeFileSync(
+        path.join(CONFIG_DIR, 'site.json'),
+        JSON.stringify(siteConfig, null, 2)
+    );
+    console.log('Generated: config/site.json');
 
-    // Hero Slider Logic: Scan assets/banner
+    // ========== 2. HERO.JSON ==========
+    // Read existing hero config file if exists
+    const heroConfigPath = path.join(CONFIG_DIR, 'hero.json');
+    let existingHero = {};
+    if (fs.existsSync(heroConfigPath)) {
+        existingHero = JSON.parse(fs.readFileSync(heroConfigPath, 'utf8'));
+    } else if (currentConfig.hero) {
+        existingHero = currentConfig.hero;
+    }
+
+    // Scan banner directory for images
     const bannerDir = path.join(__dirname, '../assets/banner');
-    let heroImages = [];
+    let bannerImages = [];
     if (fs.existsSync(bannerDir)) {
-        heroImages = fs.readdirSync(bannerDir)
+        bannerImages = fs.readdirSync(bannerDir)
             .filter(f => /\.(jpg|jpeg|png|webp|gif)$/i.test(f))
             .map(f => `assets/banner/${f}`);
     }
 
-    // Preserve existing hero or use default
-    const heroConfig = currentConfig.hero || {
-        enabled: true,
-        title: "Welcome to EXPLog",
-        image: "",
-        category: "Featured",
-        date: new Date().toLocaleDateString(),
-        link: ""
+    // Build hero config - slides is the main source of images/links
+    const heroConfig = {
+        enabled: existingHero.enabled !== undefined ? existingHero.enabled : true,
+        title: existingHero.title || "Welcome to EXPLog",
+        category: existingHero.category || "Featured",
+        author: existingHero.author || "Anonymous",
+        date: existingHero.date || new Date().toLocaleDateString(),
+        // Use existing slides or generate from banner images
+        slides: existingHero.slides || bannerImages.map(img => ({
+            image: img,
+            link: "/"
+        }))
     };
 
-    // Attach slider images if found
-    if (heroImages.length > 0) {
-        heroConfig.images = heroImages.map(img => img.startsWith('http') ? img : '/' + img);
-        // Use first image as main fallback
-        heroConfig.image = heroConfig.images[0];
-    }
+    fs.writeFileSync(
+        heroConfigPath,
+        JSON.stringify(heroConfig, null, 2)
+    );
+    console.log('Generated: config/hero.json');
 
-    // Ensure hero.image has leading slash
-    if (heroConfig.image && !heroConfig.image.startsWith('http') && !heroConfig.image.startsWith('/')) {
-        heroConfig.image = '/' + heroConfig.image;
-    }
+    // ========== 3. HOME.JSON ==========
+    const homeConfig = currentConfig.home || {
+        categories: [],
+        limit: 6
+    };
+    fs.writeFileSync(
+        path.join(CONFIG_DIR, 'home.json'),
+        JSON.stringify(homeConfig, null, 2)
+    );
+    console.log('Generated: config/home.json');
 
-    // Remove stale authorImage if present
-    delete heroConfig.authorImage;
-
-    // Preserve enabled flag if it exists
-    if (currentConfig.hero && typeof currentConfig.hero.enabled !== 'undefined') {
-        heroConfig.enabled = currentConfig.hero.enabled;
-    }
-
-    // Generate Menu (Use existing or default if empty)
+    // ========== 4. MENU.JSON ==========
     let menu = currentConfig.menu;
     if (!menu || menu.length === 0) {
-        menu = [
-            ...Array.from(categories).map(cat => ({
-                title: cat.toUpperCase(),
-                path: `category/${cat}`
-            }))
-        ];
+        menu = Array.from(categories).map(cat => ({
+            title: cat.toUpperCase(),
+            path: `category/${cat}`
+        }));
+    }
+    fs.writeFileSync(
+        path.join(CONFIG_DIR, 'menu.json'),
+        JSON.stringify(menu, null, 2)
+    );
+    console.log('Generated: config/menu.json');
+
+    // ========== 5. CATEGORIES.JSON ==========
+    const categoriesData = Array.from(categories).map(cat => ({
+        name: cat,
+        slug: cat.toLowerCase(),
+        count: posts.filter(p => p.category === cat).length
+    }));
+    fs.writeFileSync(
+        path.join(CONFIG_DIR, 'categories.json'),
+        JSON.stringify(categoriesData, null, 2)
+    );
+    console.log('Generated: config/categories.json');
+
+    // ========== 6. TAGS.JSON ==========
+    const tagsData = Array.from(tags).map(tag => ({
+        name: tag,
+        slug: tag.toLowerCase(),
+        count: posts.filter(p => p.tags.includes(tag)).length
+    }));
+    fs.writeFileSync(
+        path.join(CONFIG_DIR, 'tags.json'),
+        JSON.stringify(tagsData, null, 2)
+    );
+    console.log('Generated: config/tags.json');
+
+    // ========== 7. POSTS-INDEX.JSON (lightweight) ==========
+    const postsIndex = posts.map(p => ({
+        id: p.id,
+        title: p.title,
+        slug: p.slug,
+        date: p.date,
+        category: p.category,
+        image: p.image
+    }));
+    fs.writeFileSync(
+        path.join(CONFIG_DIR, 'posts-index.json'),
+        JSON.stringify(postsIndex, null, 2)
+    );
+    console.log('Generated: config/posts-index.json');
+
+    // ========== 8. POSTS/PAGE-X.JSON (paginated full data) ==========
+    const postsDir = path.join(CONFIG_DIR, 'posts');
+    // Clear old post pages
+    const oldFiles = fs.readdirSync(postsDir);
+    oldFiles.forEach(f => fs.unlinkSync(path.join(postsDir, f)));
+
+    const totalPages = Math.ceil(posts.length / POSTS_PER_PAGE);
+    for (let page = 1; page <= totalPages; page++) {
+        const startIdx = (page - 1) * POSTS_PER_PAGE;
+        const endIdx = startIdx + POSTS_PER_PAGE;
+        const pagePosts = posts.slice(startIdx, endIdx);
+
+        const pageData = {
+            page: page,
+            totalPages: totalPages,
+            totalPosts: posts.length,
+            postsPerPage: POSTS_PER_PAGE,
+            posts: pagePosts
+        };
+
+        fs.writeFileSync(
+            path.join(postsDir, `page-${page}.json`),
+            JSON.stringify(pageData, null, 2)
+        );
+        console.log(`Generated: config/posts/page-${page}.json (${pagePosts.length} posts)`);
     }
 
-    // Ensure menu paths have leading slash
-    menu = menu.map(item => ({
-        ...item,
-        path: item.path.startsWith('/') ? item.path.slice(1) : item.path // Normalize to NO leading slash for config, handled in app
-        // Actually, let's stick to what app.js expects.
-        // APP EXPECTS: <a href="/${item.path}">
-        // So item.path should NOT have a leading slash if we use the template `/${item.path}`.
-        // Wait, if item.path is `category/blog`, then href is `/category/blog`. This is correct.
-        // If item.path is `/category/blog`, then href is `//category/blog`.
-        // So let's ensure they DO NOT have a leading slash.
-    }));
-
-    const newConfig = {
-        ...currentConfig,
-        siteTitle: currentConfig.siteTitle || "EXPLog",
-        logo: currentConfig.logo || "assets/logo.png",
-        hero: heroConfig,
-        home: homeConfig, // Preserve/Set Home Config
-        posts: posts,
-        menu: menu
+    // ========== 9. PAGINATION.JSON ==========
+    const paginationConfig = {
+        totalPosts: posts.length,
+        totalPages: totalPages,
+        postsPerPage: POSTS_PER_PAGE
     };
+    fs.writeFileSync(
+        path.join(CONFIG_DIR, 'pagination.json'),
+        JSON.stringify(paginationConfig, null, 2)
+    );
+    console.log('Generated: config/pagination.json');
 
-    fs.writeFileSync(CONFIG_PATH, JSON.stringify(newConfig, null, 2));
-    console.log(`Successfully generated config with ${posts.length} posts and ${categories.size} categories.`);
+    // ========== 10. CATEGORIES/{CATEGORY}.JSON (category-specific posts) ==========
+    const categoriesDir = path.join(CONFIG_DIR, 'categories');
+    if (!fs.existsSync(categoriesDir)) {
+        fs.mkdirSync(categoriesDir, { recursive: true });
+    }
+    // Clear old category files
+    const oldCatFiles = fs.readdirSync(categoriesDir);
+    oldCatFiles.forEach(f => fs.unlinkSync(path.join(categoriesDir, f)));
+
+    Array.from(categories).forEach(cat => {
+        const catSlug = cat.toLowerCase().replace(/\s+/g, '-');
+        const catPosts = posts.filter(p => p.category === cat);
+
+        const catData = {
+            category: cat,
+            slug: catSlug,
+            totalPosts: catPosts.length,
+            posts: catPosts
+        };
+
+        fs.writeFileSync(
+            path.join(categoriesDir, `${catSlug}.json`),
+            JSON.stringify(catData, null, 2)
+        );
+        console.log(`Generated: config/categories/${catSlug}.json (${catPosts.length} posts)`);
+    });
+
+    console.log(`\n✅ Successfully generated config with ${posts.length} posts across ${totalPages} pages.`);
+    console.log(`   Categories: ${categories.size}, Tags: ${tags.size}`);
 }
 
 generateConfig();
+

@@ -1,0 +1,6 @@
+{
+    "title": "Space Survival",
+    "description": "A Unity WebGL space survival game",
+    "type": "webgl",
+    "background": "#000000"
+}

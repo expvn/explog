@@ -1,0 +1,8 @@
+{
+  "siteTitle": "EXPLog",
+  "logo": "assets/logo.png",
+  "description": "A lightweight file-based CMS",
+  "author": "EXPVN",
+  "language": "vi",
+  "postsPerPage": 20
+}

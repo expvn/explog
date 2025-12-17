@@ -2,12 +2,12 @@
     "outputDirectory": ".",
     "rewrites": [
         {
-            "source": "/exp-:page*",
-            "destination": "/content/pages/exp-:page*/index.html"
+            "source": "/content/pages/:type*/:path*",
+            "destination": "/content/pages/:type*/:path*"
         },
         {
-            "source": "/content/pages/:path*",
-            "destination": "/content/pages/:path*"
+            "source": "/pages/:page*",
+            "destination": "/index.html"
         },
         {
             "source": "/(.*)",

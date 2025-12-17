@@ -1,5 +1,15 @@
 const appState = {
-    config: null,
+    config: {
+        site: null,
+        hero: null,
+        home: null,
+        menu: null,
+        pagination: null,
+        postsIndex: null,
+        categories: null,
+        tags: null
+    },
+    loadedPostPages: {}, // Cache for loaded post pages
     currentPath: null
 };
 
@@ -25,10 +35,95 @@ async function init() {
 }
 
 async function loadConfig() {
-    // Use absolute path to ensure config loads correctly from any URL
-    const res = await fetch('/config.json');
-    appState.config = await res.json();
+    // Load essential config files in parallel
+    const [site, hero, home, menu, pagination, postsIndex, categories, tags] = await Promise.all([
+        fetch('/config/site.json').then(r => r.json()),
+        fetch('/config/hero.json').then(r => r.json()),
+        fetch('/config/home.json').then(r => r.json()),
+        fetch('/config/menu.json').then(r => r.json()),
+        fetch('/config/pagination.json').then(r => r.json()),
+        fetch('/config/posts-index.json').then(r => r.json()),
+        fetch('/config/categories.json').then(r => r.json()),
+        fetch('/config/tags.json').then(r => r.json())
+    ]);
+
+    appState.config = { site, hero, home, menu, pagination, postsIndex, categories, tags };
+    appState.loadedCategories = {}; // Cache for category posts
+    appState.currentPage = 1;
+
+    // Only load page 1 for initial homepage render
+    await loadPostsPage(1);
+
     renderNavBar();
+}
+
+// Load a specific page of posts (lazy loading)
+async function loadPostsPage(pageNum) {
+    if (appState.loadedPostPages[pageNum]) {
+        return appState.loadedPostPages[pageNum];
+    }
+
+    try {
+        const res = await fetch(`/config/posts/page-${pageNum}.json`);
+        if (!res.ok) return null;
+        const data = await res.json();
+        appState.loadedPostPages[pageNum] = data;
+        return data;
+    } catch (e) {
+        console.error(`Failed to load posts page ${pageNum}:`, e);
+        return null;
+    }
+}
+
+// Get all loaded posts (flattened from all loaded pages)
+function getAllLoadedPosts() {
+    const posts = [];
+    Object.values(appState.loadedPostPages).forEach(page => {
+        if (page && page.posts) {
+            posts.push(...page.posts);
+        }
+    });
+    return posts;
+}
+
+// Find a post by slug (loads more pages if needed)
+async function findPostBySlug(slug) {
+    // First check already loaded posts
+    for (const page of Object.values(appState.loadedPostPages)) {
+        if (page && page.posts) {
+            const post = page.posts.find(p => p.slug === slug);
+            if (post) return post;
+        }
+    }
+
+    // If not found, search in index and load the right page
+    const index = appState.config.postsIndex.findIndex(p => p.slug === slug);
+    if (index === -1) return null;
+
+    const pageNum = Math.floor(index / appState.config.pagination.postsPerPage) + 1;
+    const pageData = await loadPostsPage(pageNum);
+    if (pageData && pageData.posts) {
+        return pageData.posts.find(p => p.slug === slug);
+    }
+    return null;
+}
+
+// Load category-specific posts (lazy loading)
+async function loadCategoryPosts(categorySlug) {
+    if (appState.loadedCategories[categorySlug]) {
+        return appState.loadedCategories[categorySlug];
+    }
+
+    try {
+        const res = await fetch(`/config/categories/${categorySlug}.json`);
+        if (!res.ok) return null;
+        const data = await res.json();
+        appState.loadedCategories[categorySlug] = data;
+        return data;
+    } catch (e) {
+        console.error(`Failed to load category ${categorySlug}:`, e);
+        return null;
+    }
 }
 
 function renderNavBar() {
@@ -44,11 +139,8 @@ function renderNavBar() {
     `).join('');
 }
 
-function renderHome(categoryFilter = null) {
-    const { hero, posts, home } = appState.config;
-
-    // Filter Logic
-    let displayPosts = [...posts]; // Copy array
+function renderHome(categoryFilter = null, pageNum = 1) {
+    const { hero, home, pagination, postsIndex } = appState.config;
     let isHome = categoryFilter === null;
 
     if (isHome) {
@@ -57,40 +149,116 @@ function renderHome(categoryFilter = null) {
         els.heroSection.classList.remove('hidden');
         renderHero(hero);
 
-        // 1. Filter by Home Config Categories (if defined and not empty)
+        const limit = (home && home.limit) || 6;
+        const postsPerPage = 12; // Max posts per page before pagination
+
+        // Calculate which posts to show based on limit and page
+        let allFilteredPostsIndex = [...postsIndex];
+
+        // Apply home categories filter if defined
         if (home && home.categories && home.categories.length > 0) {
-            displayPosts = displayPosts.filter(p => home.categories.includes(p.category));
+            allFilteredPostsIndex = allFilteredPostsIndex.filter(p => home.categories.includes(p.category));
         }
 
-        // 2. Limit number of posts
-        if (home && home.limit) {
-            displayPosts = displayPosts.slice(0, home.limit);
+        // Total posts to consider (capped by limit)
+        const totalPosts = Math.min(limit, allFilteredPostsIndex.length);
+        const needsPagination = limit > postsPerPage && totalPosts > postsPerPage;
+
+        if (needsPagination) {
+            // Pagination mode: show postsPerPage posts per page
+            const totalPages = Math.ceil(totalPosts / postsPerPage);
+            const startIdx = (pageNum - 1) * postsPerPage;
+            const endIdx = Math.min(startIdx + postsPerPage, totalPosts);
+
+            // Get posts for this page from loaded pages
+            const postsToShow = [];
+            for (let i = startIdx; i < endIdx; i++) {
+                const postMeta = allFilteredPostsIndex[i];
+                // Find full post data from loaded pages
+                for (const page of Object.values(appState.loadedPostPages)) {
+                    if (page && page.posts) {
+                        const found = page.posts.find(p => p.slug === postMeta.slug);
+                        if (found) {
+                            postsToShow.push(found);
+                            break;
+                        }
+                    }
+                }
+            }
+
+            renderPostsGrid(postsToShow);
+
+            if (totalPages > 1) {
+                renderPagination(pageNum, totalPages, null);
+            }
+        } else {
+            // No pagination: show up to limit posts
+            const pageData = appState.loadedPostPages[1];
+            if (!pageData) {
+                els.blogGrid.innerHTML = '<p style="grid-column: 1/-1; text-align: center;">Loading...</p>';
+                return;
+            }
+
+            let displayPosts = [...pageData.posts];
+
+            // Apply home categories filter
+            if (home && home.categories && home.categories.length > 0) {
+                displayPosts = displayPosts.filter(p => home.categories.includes(p.category));
+            }
+
+            // Apply limit
+            displayPosts = displayPosts.slice(0, limit);
+
+            renderPostsGrid(displayPosts);
+
+            // Clear pagination
+            const paginationContainer = document.getElementById('pagination-container');
+            if (paginationContainer) {
+                paginationContainer.innerHTML = '';
+            }
         }
 
     } else {
-        // CATEGORY PAGE LOGIC
-        // Filter by specific category
-        // Case-insensitive comparison for category
-        displayPosts = displayPosts.filter(p => p.category.toLowerCase() === categoryFilter.toLowerCase());
+        // CATEGORY PAGE LOGIC - use lazy loaded category data
+        els.heroSection.classList.add('hidden');
         els.sectionHeader.textContent = `${categoryFilter.replace(/^./, c => c.toUpperCase())} Posts`;
 
-        // Hide hero on category pages
-        els.heroSection.classList.add('hidden');
-    }
+        // Load category posts if not already loaded
+        const catSlug = categoryFilter.toLowerCase().replace(/\s+/g, '-');
+        const catData = appState.loadedCategories[catSlug];
 
-    // Render Grid
+        if (!catData) {
+            els.blogGrid.innerHTML = '<p style="grid-column: 1/-1; text-align: center;">Loading...</p>';
+            return;
+        }
+
+        const postsPerPage = 12; // Posts per page for category
+        const totalPages = Math.ceil(catData.posts.length / postsPerPage);
+        const startIdx = (pageNum - 1) * postsPerPage;
+        const displayPosts = catData.posts.slice(startIdx, startIdx + postsPerPage);
+
+        renderPostsGrid(displayPosts);
+
+        // Render pagination if needed
+        if (totalPages > 1) {
+            renderPagination(pageNum, totalPages, categoryFilter);
+        }
+    }
+}
+
+// Render posts grid (extracted for reuse)
+function renderPostsGrid(displayPosts) {
     if (displayPosts.length === 0) {
         els.blogGrid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: var(--text-secondary);">No posts found.</p>';
         return;
     }
 
     els.blogGrid.innerHTML = displayPosts.map(post => {
-        // Extract slug from path: posts/slug/index.md -> posts/slug
         const slug = post.path.split('/').slice(0, 2).join('/');
         return `
         <a href="/${slug}" class="post-card">
             <div class="card-image-wrapper">
-                <img src="${post.image.startsWith('http') ? post.image : '/' + post.image}" alt="${post.title}" class="card-image">
+                <img src="${post.image.startsWith('http') ? post.image : '/' + post.image}" alt="${post.title}" class="card-image" loading="lazy">
             </div>
             <div class="post-content">
                 <div class="post-meta-top" style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; font-size: 0.85rem; color: var(--text-secondary); font-weight: 500;">
@@ -107,9 +275,81 @@ function renderHome(categoryFilter = null) {
     `}).join('');
 }
 
+// Render pagination UI
+function renderPagination(currentPage, totalPages, categoryFilter) {
+    let paginationContainer = document.getElementById('pagination-container');
+    if (!paginationContainer) {
+        paginationContainer = document.createElement('div');
+        paginationContainer.id = 'pagination-container';
+        els.blogGrid.parentNode.insertBefore(paginationContainer, els.blogGrid.nextSibling);
+    }
+
+    const maxVisiblePages = 5;
+    let startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
+    let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
+
+    if (endPage - startPage < maxVisiblePages - 1) {
+        startPage = Math.max(1, endPage - maxVisiblePages + 1);
+    }
+
+    const categoryParam = categoryFilter ? `'${categoryFilter}'` : 'null';
+
+    let paginationHtml = `
+        <div class="pagination" style="display: flex; justify-content: center; align-items: center; gap: 0.5rem; margin: 2rem 0; flex-wrap: wrap;">
+            ${currentPage > 1 ? `
+                <button onclick="goToPage(${currentPage - 1}, ${categoryParam})" class="page-btn" style="padding: 0.5rem 1rem; border: 1px solid var(--border); background: var(--bg-secondary); border-radius: 8px; cursor: pointer;">
+                    ← Prev
+                </button>
+            ` : ''}
+            
+            ${startPage > 1 ? `
+                <button onclick="goToPage(1, ${categoryParam})" class="page-btn" style="padding: 0.5rem 0.75rem; border: 1px solid var(--border); background: var(--bg-secondary); border-radius: 8px; cursor: pointer;">1</button>
+                ${startPage > 2 ? '<span style="padding: 0 0.5rem;">...</span>' : ''}
+            ` : ''}
+            
+            ${Array.from({ length: endPage - startPage + 1 }, (_, i) => startPage + i).map(page => `
+                <button onclick="goToPage(${page}, ${categoryParam})" class="page-btn ${page === currentPage ? 'active' : ''}" style="padding: 0.5rem 0.75rem; border: 1px solid ${page === currentPage ? 'var(--primary)' : 'var(--border)'}; background: ${page === currentPage ? 'var(--primary)' : 'var(--bg-secondary)'}; color: ${page === currentPage ? 'white' : 'inherit'}; border-radius: 8px; cursor: pointer; font-weight: ${page === currentPage ? '600' : '400'};">
+                    ${page}
+                </button>
+            `).join('')}
+            
+            ${endPage < totalPages ? `
+                ${endPage < totalPages - 1 ? '<span style="padding: 0 0.5rem;">...</span>' : ''}
+                <button onclick="goToPage(${totalPages}, ${categoryParam})" class="page-btn" style="padding: 0.5rem 0.75rem; border: 1px solid var(--border); background: var(--bg-secondary); border-radius: 8px; cursor: pointer;">${totalPages}</button>
+            ` : ''}
+            
+            ${currentPage < totalPages ? `
+                <button onclick="goToPage(${currentPage + 1}, ${categoryParam})" class="page-btn" style="padding: 0.5rem 1rem; border: 1px solid var(--border); background: var(--bg-secondary); border-radius: 8px; cursor: pointer;">
+                    Next →
+                </button>
+            ` : ''}
+        </div>
+    `;
+
+    paginationContainer.innerHTML = paginationHtml;
+}
+
+// Global function to handle page navigation
+window.goToPage = async function (pageNum, categoryFilter) {
+    if (categoryFilter === null) {
+        // Homepage pagination - load the page if not loaded
+        if (!appState.loadedPostPages[pageNum]) {
+            await loadPostsPage(pageNum);
+        }
+        appState.currentPage = pageNum;
+        showHome();
+        renderHome(null, pageNum);
+    } else {
+        // Category pagination - just re-render with new page
+        showHome();
+        renderHome(categoryFilter, pageNum);
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
 // Render posts filtered by tag
 function renderPostsByTag(tagFilter) {
-    const { posts } = appState.config;
+    const posts = getAllLoadedPosts();
 
     // Filter posts that have this tag
     const displayPosts = posts.filter(p =>
@@ -278,18 +518,31 @@ async function handleRoute() {
     const path = window.location.pathname.slice(1); // Remove leading slash
     const parts = path.split('/');
 
+    // Clear pagination when navigating
+    const paginationContainer = document.getElementById('pagination-container');
+    if (paginationContainer) {
+        paginationContainer.innerHTML = '';
+    }
+
     // 1. Home
     if (path === '' || path === 'index.html') {
         showHome();
-        renderHome(null);
+        renderHome(null, appState.currentPage || 1);
         return;
     }
 
     // 2. Category: category/Game
     if (parts[0] === 'category') {
         const category = decodeURIComponent(parts[1]);
+        const catSlug = category.toLowerCase().replace(/\s+/g, '-');
+
+        // Lazy load category data
+        if (!appState.loadedCategories[catSlug]) {
+            await loadCategoryPosts(catSlug);
+        }
+
         showHome();
-        renderHome(category);
+        renderHome(category, 1);
         return;
     }
 
@@ -326,25 +579,27 @@ async function handleRoute() {
         return;
     }
 
-    // 5. Direct page access: /page-name/ -> content/pages/page-name/index.html
-    // Pages starting with 'exp-' are standalone (redirect to full HTML page)
-    // Other pages are embedded in the article container
+    // 5a. Standalone pages: /pages/page-name -> load in fullscreen iframe (keeps URL short)
+    if (parts[0] === 'pages' && parts[1]) {
+        const pageName = parts[1].replace(/\/$/, '');
+        const standaloneResult = await checkStandalonePage(pageName);
+        if (standaloneResult.exists) {
+            loadStandalonePage(standaloneResult.path, pageName);
+            return;
+        }
+    }
+
+    // 5b. Embedded pages: /page-name -> content/pages/Embedded/page-name/index.html
     const pageName = parts[0].replace(/\/$/, ''); // Remove trailing slash if any
 
     if (pageName && !pageName.includes('.')) {
-        // [FIX] Optimistic redirect for standalone pages to bypass SPA routing issues
-        if (pageName.startsWith('exp-')) {
-            window.location.href = `/content/pages/${pageName}/index.html`;
-            return;
-        }
+        // Check Embedded directory (embed in article container)
+        const embeddedResult = await checkEmbeddedPage(pageName);
+        console.log('[DEBUG] Embedded page exists:', embeddedResult.exists);
 
-        const pageResult = await checkPageExists(pageName);
-        console.log('[DEBUG] Page exists:', pageResult.exists);
-
-        if (pageResult.exists) {
-            // Embed in article container
+        if (embeddedResult.exists) {
             showArticle();
-            await loadStaticPage(pageName, pageResult.path);
+            await loadStaticPage(pageName, embeddedResult.path);
             return;
         }
     }
@@ -372,12 +627,29 @@ function showArticle() {
     window.scrollTo(0, 0);
 }
 
-// Check if a page exists in content/pages
-async function checkPageExists(pageName) {
+// Check if a standalone page exists in content/pages/Standalone
+async function checkStandalonePage(pageName) {
+    try {
+        const url = `/content/pages/Standalone/${pageName}/index.html`;
+        console.log(`[DEBUG] Checking Standalone: ${url}`);
+        const res = await fetch(url, { method: 'HEAD', cache: 'no-store' });
+
+        if (res.ok) {
+            return { exists: true, path: url };
+        }
+        return { exists: false };
+    } catch (e) {
+        console.error('[DEBUG] Standalone check error:', e);
+        return { exists: false };
+    }
+}
+
+// Check if an embedded page exists in content/pages/Embedded
+async function checkEmbeddedPage(pageName) {
     try {
         // 1. Try index.html
-        let url = `/content/pages/${pageName}/index.html`;
-        console.log(`[DEBUG] Fetching: ${url}`);
+        let url = `/content/pages/Embedded/${pageName}/index.html`;
+        console.log(`[DEBUG] Checking Embedded: ${url}`);
         let res = await fetch(url, { method: 'GET', cache: 'no-store' });
 
         if (res.ok) {
@@ -389,7 +661,7 @@ async function checkPageExists(pageName) {
         }
 
         // 2. Try view.html (fallback for embedded pages to avoid serving issues)
-        url = `/content/pages/${pageName}/view.html`;
+        url = `/content/pages/Embedded/${pageName}/view.html`;
         console.log(`[DEBUG] Fetching: ${url}`);
         res = await fetch(url, { method: 'GET', cache: 'no-store' });
         console.log(`[DEBUG] Status: ${res.status}`);
@@ -407,14 +679,12 @@ async function checkPageExists(pageName) {
         }
 
         // 3. Try page.txt (final fallback to bypass server HTML interception)
-        // We use .txt extension but content is HTML
-        url = `/content/pages/${pageName}/page.txt`;
+        url = `/content/pages/Embedded/${pageName}/page.txt`;
         console.log(`[DEBUG] Fetching: ${url}`);
         res = await fetch(url, { method: 'GET', cache: 'no-store' });
 
         if (res.ok) {
             let text = await res.text();
-            // .txt files shouldn't be intercepted, but good to check
             if (!text.includes('id="app"') || !text.includes('app.js')) {
                 return { exists: true, path: url, isIndex: false };
             }
@@ -422,50 +692,225 @@ async function checkPageExists(pageName) {
 
         return { exists: false };
     } catch (e) {
-        console.error('[DEBUG] Fetch error:', e);
+        console.error('[DEBUG] Embedded check error:', e);
         return { exists: false };
     }
 }
 
-async function loadStaticPage(pageName, customPath = null) {
-    els.markdownContent.innerHTML = '<div class="loading">Loading...</div>';
-
-    // Attempt to fetch content/pages/{pageName}/index.html OR content/pages/{pageName}/index.md
-    // Requirements say: content/pages folder. "domain/page/tên-page (tên page là tên folder chứa page đó)"
-    // We assume index.html inside that folder, or custom path if provided
-    const pagePath = customPath || `/content/pages/${pageName}/index.html`;
-
+// Fetch page metadata from page.json
+async function fetchPageMetadata(baseDir) {
     try {
-        const res = await fetch(pagePath);
-        if (!res.ok) throw new Error("Page not found");
-        const html = await res.text();
-        els.markdownContent.innerHTML = html;
-
-        // Execute scripts found in the HTML
-        const scripts = els.markdownContent.querySelectorAll('script');
-        scripts.forEach(oldScript => {
-            const newScript = document.createElement('script');
-            Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
-            newScript.appendChild(document.createTextNode(oldScript.innerHTML));
-            oldScript.parentNode.replaceChild(newScript, oldScript);
-        });
+        const res = await fetch(`${baseDir}/page.json`, { cache: 'no-store' });
+        if (res.ok) {
+            return await res.json();
+        }
     } catch (e) {
-        console.error(e);
-        els.markdownContent.innerHTML = `
-            <div style="text-align:center; padding: 4rem;">
-                <h1>404 Page Not Found</h1>
-                <p>Could not load page: ${pageName}</p>
-            </div>`;
+        console.log('[DEBUG] No page.json found, using defaults');
     }
+    return null;
 }
+
+// Load standalone page in fullscreen iframe (keeps URL short)
+async function loadStandalonePage(pagePath, pageName) {
+    // Fetch metadata
+    const baseDir = pagePath.replace('/index.html', '');
+    const metadata = await fetchPageMetadata(baseDir) || {};
+
+    const title = metadata.title || pageName;
+    const bgColor = metadata.background || '#000';
+
+    // Hide everything and show fullscreen iframe
+    els.homeView.classList.add('hidden');
+    els.articleView.classList.add('hidden');
+
+    // Create or reuse standalone container
+    let standaloneContainer = document.getElementById('standalone-container');
+    if (!standaloneContainer) {
+        standaloneContainer = document.createElement('div');
+        standaloneContainer.id = 'standalone-container';
+        els.app.appendChild(standaloneContainer);
+    }
+
+    standaloneContainer.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 9999;
+        background: ${bgColor};
+    `;
+
+    standaloneContainer.innerHTML = `
+        <div style="
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            right: 15px;
+            z-index: 10001;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        ">
+            <span style="
+                color: white;
+                font-size: 1.1rem;
+                font-weight: 600;
+                text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            ">${title}</span>
+            <button onclick="closeStandalonePage()" style="
+                background: rgba(255,255,255,0.9);
+                border: none;
+                border-radius: 50%;
+                width: 40px;
+                height: 40px;
+                cursor: pointer;
+                font-size: 20px;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            ">✕</button>
+        </div>
+        <iframe src="${pagePath}" style="
+            width: 100%;
+            height: 100%;
+            border: none;
+        " allowfullscreen></iframe>
+    `;
+    standaloneContainer.classList.remove('hidden');
+
+    // Update page title
+    document.title = `${title} | ${appState.config.site?.siteTitle || 'EXPVN'}`;
+}
+
+// Close standalone page and return to previous view
+window.closeStandalonePage = function () {
+    const standaloneContainer = document.getElementById('standalone-container');
+    if (standaloneContainer) {
+        standaloneContainer.classList.add('hidden');
+        standaloneContainer.innerHTML = '';
+    }
+    window.history.back();
+}
+
+// Load embedded page with metadata support
+async function loadStaticPage(pageName, customPath = null) {
+    const baseDir = `/content/pages/Embedded/${pageName}`;
+    const pagePath = customPath || `${baseDir}/index.html`;
+
+    // Fetch metadata
+    const metadata = await fetchPageMetadata(baseDir) || {};
+
+    const title = metadata.title;
+    const description = metadata.description || '';
+    const height = metadata.height || '80vh';
+    const width = metadata.width || '100%';  // Custom width support
+    const type = metadata.type || 'static'; // static | webgl | form | video
+    const bgColor = metadata.background || 'transparent';
+    const fullWidth = metadata.fullWidth || false; // Break out of container
+
+    // Embed mode: 'inject' (HTML injection) or 'iframe' (isolated iframe)
+    // Default: 'inject' for static, 'iframe' for webgl/video/form
+    const embedMode = metadata.embed || (type === 'static' ? 'inject' : 'iframe');
+
+    // Build header section
+    let headerHtml = '';
+    if (title || description) {
+        headerHtml = `
+            <div class="embedded-page-header" style="margin-bottom: 1.5rem;">
+                ${title ? `<h1 style="margin: 0 0 0.5rem 0; font-size: 1.8rem; color: var(--text-primary);">${title}</h1>` : ''}
+                ${description ? `<p style="margin: 0; color: var(--text-secondary);">${description}</p>` : ''}
+                ${type !== 'static' ? `<span style="display: inline-block; margin-top: 0.5rem; padding: 0.25rem 0.75rem; background: var(--primary); color: white; border-radius: 20px; font-size: 0.8rem; text-transform: uppercase;">${type}</span>` : ''}
+            </div>
+        `;
+    }
+
+    // Choose embed method based on metadata
+    if (embedMode === 'inject') {
+        // HTML Injection mode - for simple static pages
+        try {
+            const res = await fetch(pagePath);
+            if (!res.ok) throw new Error("Page not found");
+            const html = await res.text();
+
+            els.markdownContent.innerHTML = `
+                ${headerHtml}
+                <div class="embedded-page-content" style="background: ${bgColor}; border-radius: 12px; overflow: hidden;">
+                    ${html}
+                </div>
+            `;
+
+            // Execute scripts found in the HTML
+            const scripts = els.markdownContent.querySelectorAll('script');
+            scripts.forEach(oldScript => {
+                const newScript = document.createElement('script');
+                Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
+                newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+                oldScript.parentNode.replaceChild(newScript, oldScript);
+            });
+        } catch (e) {
+            console.error(e);
+            els.markdownContent.innerHTML = `
+                ${headerHtml}
+                <div style="text-align:center; padding: 4rem;">
+                    <h1>404 Page Not Found</h1>
+                    <p>Could not load page: ${pageName}</p>
+                </div>`;
+        }
+    } else {
+        // Iframe mode - for WebGL, complex scripts, forms
+        // fullWidth: break out of container to full viewport width
+        const containerStyle = fullWidth ? `
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+            min-height: ${height};
+            position: relative;
+            overflow: hidden;
+            background: ${bgColor};
+        ` : `
+            width: ${width};
+            min-height: ${height};
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            background: ${bgColor};
+            margin: 0 auto;
+        `;
+
+        els.markdownContent.innerHTML = `
+            ${headerHtml}
+            <div class="embedded-page-container" style="${containerStyle}">
+                <iframe 
+                    src="${pagePath}" 
+                    style="
+                        width: 100%;
+                        height: ${height};
+                        border: none;
+                        display: block;
+                    "
+                    allowfullscreen
+                ></iframe>
+            </div>
+        `;
+    }
+
+    // Update page title
+    document.title = `${title} | ${appState.config.site?.siteTitle || 'EXPVN'}`;
+}
+
 
 async function loadContent(path) {
     els.markdownContent.innerHTML = '<div class="loading">Loading...</div>';
 
     // Find Post Metadata & Index from Config
-    const posts = appState.config.posts;
+    const posts = getAllLoadedPosts();
     const postIndex = posts.findIndex(p => p.path === path);
-    const post = posts[postIndex];
+    let post = posts[postIndex];
+
+    // If post not found in loaded pages, try to find by slug
+    if (!post) {
+        const slug = path.replace('posts/', '').replace('/index.md', '');
+        post = await findPostBySlug(slug);
+    }
 
     if (!post) {
         els.markdownContent.innerHTML = `
@@ -476,11 +921,13 @@ async function loadContent(path) {
         return;
     }
 
-    // Prev/Next Logic
-    const nextPost = postIndex > 0 ? posts[postIndex - 1] : null;
-    const prevPost = postIndex < posts.length - 1 ? posts[postIndex + 1] : null;
+    // Use postsIndex for prev/next navigation (lightweight)
+    const postsIndex = appState.config.postsIndex;
+    const indexPos = postsIndex.findIndex(p => p.slug === post.slug);
+    const nextPostMeta = indexPos > 0 ? postsIndex[indexPos - 1] : null;
+    const prevPostMeta = indexPos < postsIndex.length - 1 ? postsIndex[indexPos + 1] : null;
 
-    // Related Posts
+    // Related Posts from same category
     const relatedPosts = posts
         .filter(p => p.category === post.category && p.id !== post.id)
         .slice(0, 3);
@@ -621,17 +1068,17 @@ async function loadContent(path) {
         const navSection = `
             <hr class="article-divider" style="margin-top: 4rem;">
             <div class="article-navigation" style="display: flex; justify-content: space-between; gap: 1rem; margin-top: 2rem;">
-                ${nextPost ? `
-                    <a href="${getSlug(nextPost.path)}" class="nav-btn prev">
+                ${nextPostMeta ? `
+                    <a href="/posts/${nextPostMeta.slug}" class="nav-btn prev">
                         <span class="nav-label">Newer Post</span>
-                        <span class="nav-title">${nextPost.title}</span>
+                        <span class="nav-title">${nextPostMeta.title}</span>
                     </a>
                 ` : '<div style="flex:1"></div>'}
                 
-                ${prevPost ? `
-                    <a href="${getSlug(prevPost.path)}" class="nav-btn next" style="text-align: right; margin-left: auto;">
+                ${prevPostMeta ? `
+                    <a href="/posts/${prevPostMeta.slug}" class="nav-btn next" style="text-align: right; margin-left: auto;">
                         <span class="nav-label">Older Post</span>
-                        <span class="nav-title">${prevPost.title}</span>
+                        <span class="nav-title">${prevPostMeta.title}</span>
                     </a>
                 ` : '<div style="flex:1"></div>'}
             </div>
@@ -681,4 +1128,129 @@ function removeFrontmatter(md) {
     return md;
 }
 
+// ==========================================================================
+// SEARCH FUNCTIONALITY
+// ==========================================================================
+
+// Toggle search overlay
+window.toggleSearch = function () {
+    const overlay = document.getElementById('search-overlay');
+    const input = document.getElementById('search-input');
+    const results = document.getElementById('search-results');
+
+    if (overlay.classList.contains('hidden')) {
+        overlay.classList.remove('hidden');
+        input.focus();
+        document.body.style.overflow = 'hidden'; // Prevent scroll
+
+        // Show initial hint
+        results.innerHTML = '<div class="search-hint">Nhập từ khóa để tìm kiếm bài viết...</div>';
+    } else {
+        overlay.classList.add('hidden');
+        input.value = '';
+        results.innerHTML = '';
+        document.body.style.overflow = ''; // Restore scroll
+    }
+};
+
+// Close search on Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        const overlay = document.getElementById('search-overlay');
+        if (overlay && !overlay.classList.contains('hidden')) {
+            toggleSearch();
+        }
+    }
+
+    // Open search with Ctrl+K or Cmd+K
+    if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+        e.preventDefault();
+        toggleSearch();
+    }
+});
+
+// Close search when clicking outside
+document.addEventListener('click', (e) => {
+    const overlay = document.getElementById('search-overlay');
+    if (e.target === overlay) {
+        toggleSearch();
+    }
+});
+
+// Perform search
+function performSearch(query) {
+    const results = document.getElementById('search-results');
+
+    if (!query || query.trim().length < 2) {
+        results.innerHTML = '<div class="search-hint">Nhập ít nhất 2 ký tự để tìm kiếm...</div>';
+        return;
+    }
+
+    const searchTerm = query.toLowerCase().trim();
+    const postsIndex = appState.config.postsIndex;
+
+    // Search in title and category
+    const matches = postsIndex.filter(post =>
+        post.title.toLowerCase().includes(searchTerm) ||
+        post.category.toLowerCase().includes(searchTerm)
+    ).slice(0, 10); // Limit to 10 results
+
+    if (matches.length === 0) {
+        results.innerHTML = `
+            <div class="search-no-results">
+                <ion-icon name="search-outline" style="font-size: 3rem; opacity: 0.3;"></ion-icon>
+                <p>Không tìm thấy kết quả cho "${query}"</p>
+            </div>
+        `;
+        return;
+    }
+
+    results.innerHTML = matches.map(post => `
+        <a href="/posts/${post.slug}" class="search-result-item" onclick="toggleSearch()">
+            <img src="${post.image.startsWith('http') ? post.image : '/' + post.image}" 
+                 alt="${post.title}" 
+                 class="search-result-image"
+                 onerror="this.src='/assets/logo.png'">
+            <div class="search-result-content">
+                <h4 class="search-result-title">${highlightMatch(post.title, searchTerm)}</h4>
+                <div class="search-result-meta">
+                    <span class="search-result-category">${post.category}</span>
+                    <span> • ${post.date}</span>
+                </div>
+            </div>
+        </a>
+    `).join('');
+}
+
+// Highlight matched text
+function highlightMatch(text, term) {
+    const regex = new RegExp(`(${term})`, 'gi');
+    return text.replace(regex, '<mark style="background: var(--sky-400); color: white; padding: 0 2px; border-radius: 2px;">$1</mark>');
+}
+
+// Debounce function to limit search calls
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+// Initialize search input listener
+document.addEventListener('DOMContentLoaded', () => {
+    const searchInput = document.getElementById('search-input');
+    if (searchInput) {
+        const debouncedSearch = debounce(performSearch, 300);
+        searchInput.addEventListener('input', (e) => {
+            debouncedSearch(e.target.value);
+        });
+    }
+});
+
 init();
+

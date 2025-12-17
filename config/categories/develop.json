@@ -1,0 +1,325 @@
+{
+  "category": "develop",
+  "slug": "develop",
+  "totalPosts": 18,
+  "posts": [
+    {
+      "id": "17659411340740.6068268296808853",
+      "title": "[PYTHON CẤP TỐC #9] Lập trình hướng đối tượng (OOP) trong Python",
+      "slug": "python-cap-toc-9-lap-trinh-huong-doi-tuong-oop-trong-python",
+      "summary": "**1\\. Lớp và Đối tượng** - Để tạo một lớp trong Python, bạn sử dụng từ khóa `class` và sau đó là tên lớp. Ví dụ: - Để tạo một đối tượng từ lớp, bạn sử...",
+      "image": "content/posts/python-cap-toc-9-lap-trinh-huong-doi-tuong-oop-trong-python/images/Python-la-gi.png",
+      "author": "Anonymous",
+      "date": "26 Jun 2023",
+      "dateRaw": "2023-06-26T02:00:00.000Z",
+      "category": "develop",
+      "tags": [
+        "expvn",
+        "huong-doi-tuong-trong-python",
+        "lap-trinh-python",
+        "python-co-ban"
+      ],
+      "path": "posts/python-cap-toc-9-lap-trinh-huong-doi-tuong-oop-trong-python/index.md"
+    },
+    {
+      "id": "17659411340750.7319053203441145",
+      "title": "[PYTHON CẤP TỐC #8] Hàm và cách định nghĩa hàm trong Python",
+      "slug": "python-cap-toc-8-ham-va-cach-dinh-nghia-ham-trong-python",
+      "summary": "Trong bài này, EXPVN sẽ hướng dẫn bạn về hàm và cách định nghĩa hàm nhé. **1\\. Định nghĩa hàm** Để định nghĩa một hàm trong Python, bạn sử dụng từ khó...",
+      "image": "content/posts/python-cap-toc-8-ham-va-cach-dinh-nghia-ham-trong-python/images/Python-la-gi.png",
+      "author": "Anonymous",
+      "date": "26 Jun 2023",
+      "dateRaw": "2023-06-26T02:00:00.000Z",
+      "category": "develop",
+      "tags": [
+        "dinh-nghia-ham",
+        "expvn",
+        "ham-trong-python",
+        "hoc-python",
+        "python-co-ban"
+      ],
+      "path": "posts/python-cap-toc-8-ham-va-cach-dinh-nghia-ham-trong-python/index.md"
+    },
+    {
+      "id": "17659411340760.9428877613502413",
+      "title": "[PYTHON CẤP TỐC #7] Danh sách và cách xử lý danh sách trong Python",
+      "slug": "python-cap-toc-7-danh-sach-va-cach-xu-ly-danh-sach-trong-python",
+      "summary": "Trong bài này, EXPVN sẽ hướng dẫn các bạn về các danh sách và cách xử lý danh sách trong Python, bao gồm các ví dụ ngắn gọn và dễ hiểu: **1\\. Khởi tạo...",
+      "image": "content/posts/python-cap-toc-7-danh-sach-va-cach-xu-ly-danh-sach-trong-python/images/Python-la-gi.png",
+      "author": "Anonymous",
+      "date": "26 Jun 2023",
+      "dateRaw": "2023-06-26T02:00:00.000Z",
+      "category": "develop",
+      "tags": [
+        "array",
+        "danh-sach",
+        "expvn",
+        "list",
+        "python",
+        "python-co-ban"
+      ],
+      "path": "posts/python-cap-toc-7-danh-sach-va-cach-xu-ly-danh-sach-trong-python/index.md"
+    },
+    {
+      "id": "17659411340780.07531945103111737",
+      "title": "[PYTHON CẤP TỐC #6] Chuỗi và xử lý chuỗi trong Python",
+      "slug": "python-cap-toc-6-chuoi-va-xu-ly-chuoi-trong-python",
+      "summary": "Chuỗi (string) là một loại dữ liệu rất quan trọng trong Python, cho phép bạn làm việc với văn bản và thông tin liên quan đến văn bản. Trong phần này, ...",
+      "image": "content/posts/python-cap-toc-6-chuoi-va-xu-ly-chuoi-trong-python/images/Python-la-gi.png",
+      "author": "Anonymous",
+      "date": "26 Jun 2023",
+      "dateRaw": "2023-06-26T02:00:00.000Z",
+      "category": "develop",
+      "tags": [
+        "chuoi",
+        "expvn",
+        "python",
+        "python-co-ban",
+        "xu-ly-chuoi"
+      ],
+      "path": "posts/python-cap-toc-6-chuoi-va-xu-ly-chuoi-trong-python/index.md"
+    },
+    {
+      "id": "17659411340800.4715933327444418",
+      "title": "[PYTHON CẤP TỐC #5] Vòng lặp trong Python",
+      "slug": "python-cap-toc-5-vong-lap-trong-python",
+      "summary": "Trong Python, chúng ta sử dụng các vòng lặp để lặp lại một khối mã nhiều lần. Dưới đây là hướng dẫn chi tiết về các loại vòng lặp trong Python và ví d...",
+      "image": "content/posts/python-cap-toc-5-vong-lap-trong-python/images/Python-la-gi.png",
+      "author": "Anonymous",
+      "date": "26 Jun 2023",
+      "dateRaw": "2023-06-26T02:00:00.000Z",
+      "category": "develop",
+      "tags": [
+        "expvn",
+        "python",
+        "python-co-ban",
+        "vong-lap"
+      ],
+      "path": "posts/python-cap-toc-5-vong-lap-trong-python/index.md"
+    },
+    {
+      "id": "17659411340840.5383004894914112",
+      "title": "[PYTHON CẤP TỐC #15] Bài tập ứng dụng",
+      "slug": "python-cap-toc-15-bai-tap-ung-dung",
+      "summary": "Dưới đây là 10 bài tập thực hành Python cơ bản, có tính ứng dụng thực tế và mức độ khó từ đơn giản đến phức tạp. Bạn có thể thử giải và kiểm tra đáp á...",
+      "image": "content/posts/python-cap-toc-15-bai-tap-ung-dung/images/Python-la-gi.png",
+      "author": "Anonymous",
+      "date": "26 Jun 2023",
+      "dateRaw": "2023-06-26T02:00:00.000Z",
+      "category": "develop",
+      "tags": [
+        "bai-tap-python",
+        "bai-tap-ung-dung-python-co-ban",
+        "expvn",
+        "python-cap-toc"
+      ],
+      "path": "posts/python-cap-toc-15-bai-tap-ung-dung/index.md"
+    },
+    {
+      "id": "17659411340850.0336347332874517",
+      "title": "[PYTHON CẤP TỐC #14] Các thư viện thường dùng",
+      "slug": "python-cap-toc-14-cac-thu-vien-thuong-dung",
+      "summary": "1\\. **Thư viện `math`** - Mô tả: Thư viện `math` cung cấp các hàm và phép toán số học. - Ví dụ: **2\\. Thư viện `random`** - Mô tả: Thư viện `random` c...",
+      "image": "content/posts/python-cap-toc-14-cac-thu-vien-thuong-dung/images/Python-la-gi.png",
+      "author": "Anonymous",
+      "date": "26 Jun 2023",
+      "dateRaw": "2023-06-26T02:00:00.000Z",
+      "category": "develop",
+      "tags": [
+        "expvn",
+        "python-cap-toc",
+        "thu-vien-python"
+      ],
+      "path": "posts/python-cap-toc-14-cac-thu-vien-thuong-dung/index.md"
+    },
+    {
+      "id": "17659411340860.8841015561601809",
+      "title": "[PYTHON CẤP TỐC #13] Thư viện trong Python",
+      "slug": "python-cap-toc-13-thu-vien-trong-python",
+      "summary": "Trước tiên, bạn cần tìm kiếm thư viện phù hợp với nhu cầu của mình. Có nhiều nguồn tài nguyên để tìm kiếm thư viện, bao gồm trang chủ PyPI (Python Pac...",
+      "image": "content/posts/python-cap-toc-13-thu-vien-trong-python/images/Python-la-gi.png",
+      "author": "Anonymous",
+      "date": "26 Jun 2023",
+      "dateRaw": "2023-06-26T02:00:00.000Z",
+      "category": "develop",
+      "tags": [
+        "expvn",
+        "mot-so-thu-vien-python",
+        "python-cap-toc",
+        "thu-vien-trong-python"
+      ],
+      "path": "posts/python-cap-toc-13-thu-vien-trong-python/index.md"
+    },
+    {
+      "id": "17659411340880.4082680355277808",
+      "title": "[PYTHON CẤP TỐC #12] Đọc và ghi tập tin trong Python",
+      "slug": "python-cap-toc-12-doc-va-ghi-tap-tin-trong-python",
+      "summary": "**1\\. Đọc tập tin** - Mở tập tin: Bạn có thể sử dụng hàm `open()` để mở một tập tin trong chế độ đọc. Ví dụ: - Đọc nội dung tập tin: Bạn có thể sử dụn...",
+      "image": "content/posts/python-cap-toc-12-doc-va-ghi-tap-tin-trong-python/images/Python-la-gi.png",
+      "author": "Anonymous",
+      "date": "26 Jun 2023",
+      "dateRaw": "2023-06-26T02:00:00.000Z",
+      "category": "develop",
+      "tags": [
+        "doc-va-ghi",
+        "expvn",
+        "hoc-python",
+        "mo-file-trong-python",
+        "python-co-ban"
+      ],
+      "path": "posts/python-cap-toc-12-doc-va-ghi-tap-tin-trong-python/index.md"
+    },
+    {
+      "id": "17659411340890.37858401715242984",
+      "title": "[PYTHON CẤP TỐC #11] Xử lý ngoại lệ trong Python",
+      "slug": "python-cap-toc-11-xu-ly-ngoai-le-trong-python",
+      "summary": "Xử lý ngoại lệ trong Python OOP là quá trình xử lý các tình huống bất thường xảy ra trong chương trình. Điều này giúp bạn kiểm soát và xử lý các lỗi v...",
+      "image": "content/posts/python-cap-toc-11-xu-ly-ngoai-le-trong-python/images/Python-la-gi.png",
+      "author": "Anonymous",
+      "date": "26 Jun 2023",
+      "dateRaw": "2023-06-26T02:00:00.000Z",
+      "category": "develop",
+      "tags": [
+        "expvn",
+        "hoc-python",
+        "python-co-ban",
+        "xu-ly-ngoai-le"
+      ],
+      "path": "posts/python-cap-toc-11-xu-ly-ngoai-le-trong-python/index.md"
+    },
+    {
+      "id": "17659411340900.9395465817810521",
+      "title": "[PYTHON CẤP TỐC #10] Phạm vi truy cập thuộc tính và phương thức trong Python OOP",
+      "slug": "python-cap-toc-10-pham-vi-truy-cap-thuoc-tinh-va-phuong-thuc-trong-python-oop",
+      "summary": "Trong lập trình hướng đối tượng (OOP) trong Python, phạm vi truy cập thuộc tính và phương thức quyết định việc truy cập và sử dụng chúng từ bên trong ...",
+      "image": "content/posts/python-cap-toc-10-pham-vi-truy-cap-thuoc-tinh-va-phuong-thuc-trong-python-oop/images/Python-la-gi.png",
+      "author": "Anonymous",
+      "date": "26 Jun 2023",
+      "dateRaw": "2023-06-26T02:00:00.000Z",
+      "category": "develop",
+      "tags": [
+        "expvn",
+        "hoc-python",
+        "pham-vi-truy-cap-thuoc-tinh-va-phuong-thuc-trong-python",
+        "python-co-ban"
+      ],
+      "path": "posts/python-cap-toc-10-pham-vi-truy-cap-thuoc-tinh-va-phuong-thuc-trong-python-oop/index.md"
+    },
+    {
+      "id": "17659411340680.0542693572049624",
+      "title": "Regular Expression: Các ký tự, ký hiệu, ví dụ đơn giản và bài tập",
+      "slug": "regular-expression-cac-ky-tu-ky-hieu-vi-du-don-gian-va-bai-tap",
+      "summary": "Danh sách các từ khóa và ký hiệu trong Regex: **1\\. Ký hiệu cơ bản** `.`: Khớp với bất kỳ ký tự nào trừ ký tự xuống dòng. Ví dụ: `\"a.b\"` khớp với \"aab...",
+      "image": "content/posts/regular-expression-cac-ky-tu-ky-hieu-vi-du-don-gian-va-bai-tap/images/coderpad-regex-the-complete-guide.jpg",
+      "author": "Anonymous",
+      "date": "25 Jun 2023",
+      "dateRaw": "2023-06-25T02:00:00.000Z",
+      "category": "develop",
+      "tags": [
+        "regex",
+        "regular-expression"
+      ],
+      "path": "posts/regular-expression-cac-ky-tu-ky-hieu-vi-du-don-gian-va-bai-tap/index.md"
+    },
+    {
+      "id": "17659411340810.37521672806989026",
+      "title": "[PYTHON CẤP TỐC #4] Câu lệnh rẽ nhánh trong Python (if, elseif, else)",
+      "slug": "python-cap-toc-4-cau-lenh-re-nhanh-trong-python-if-elseif-else",
+      "summary": "Trong Python, điều kiện và rẽ nhánh được thực hiện bằng cách sử dụng câu lệnh `if`, `elif` và `else`. Dưới đây là hướng dẫn chi tiết về các điều kiện ...",
+      "image": "content/posts/python-cap-toc-4-cau-lenh-re-nhanh-trong-python-if-elseif-else/images/Python-la-gi.png",
+      "author": "Anonymous",
+      "date": "25 Jun 2023",
+      "dateRaw": "2023-06-25T02:00:00.000Z",
+      "category": "develop",
+      "tags": [
+        "cau-lenh-re-nhanh",
+        "else",
+        "elseif",
+        "hoc-python-co-ban",
+        "if",
+        "python"
+      ],
+      "path": "posts/python-cap-toc-4-cau-lenh-re-nhanh-trong-python-if-elseif-else/index.md"
+    },
+    {
+      "id": "17659411340820.33505002290208075",
+      "title": "[PYTHON CẤP TỐC #3] Các toán tử",
+      "slug": "python-cap-toc-3-cac-toan-tu",
+      "summary": "Dưới đây là một hướng dẫn chi tiết về các toán tử trong Python cùng với ví dụ ngắn gọn và dễ hiểu cho mỗi toán tử: **1\\. Toán tử số học:** - Toán tử c...",
+      "image": "content/posts/python-cap-toc-3-cac-toan-tu/images/Python-la-gi.png",
+      "author": "Anonymous",
+      "date": "25 Jun 2023",
+      "dateRaw": "2023-06-25T02:00:00.000Z",
+      "category": "develop",
+      "tags": [
+        "cac-toan-tu-trong-python",
+        "python",
+        "python-co-ban"
+      ],
+      "path": "posts/python-cap-toc-3-cac-toan-tu/index.md"
+    },
+    {
+      "id": "17659411340830.08958913532234347",
+      "title": "[PYTHON CẤP TỐC #2] Các kiểu dữ liệu và cách gán kiểu dữ liệu trong Python",
+      "slug": "python-cap-toc-2-cac-kieu-du-lieu-trong-python",
+      "summary": "**1\\. Các kiểu dữ liệu** Python hỗ trợ nhiều kiểu dữ liệu khác nhau, bao gồm các kiểu dữ liệu số học, chuỗi, danh sách, bộ, tập hợp và boolean. Dưới đ...",
+      "image": "content/posts/python-cap-toc-2-cac-kieu-du-lieu-trong-python/images/image-15-1024x619.png",
+      "author": "Anonymous",
+      "date": "14 Jun 2023",
+      "dateRaw": "2023-06-14T02:00:00.000Z",
+      "category": "develop",
+      "tags": [
+        "expvn-python",
+        "kieu-du-lieu-trong-python",
+        "python"
+      ],
+      "path": "posts/python-cap-toc-2-cac-kieu-du-lieu-trong-python/index.md"
+    },
+    {
+      "id": "17659411340910.7111870229653929",
+      "title": "[PYTHON CẤP TỐC #1] - Cài đặt: Python & Visual Studio Code",
+      "slug": "python-cap-toc-1-cai-dat-python-visual-studio-code",
+      "summary": "EXPVN xin giới thiệu tới các bạn series học Python cơ bản cho EXPVN tự thực hiện, trong series này chúng ta lần lượt tìm hiểu các mục sau: 1. Cài đặt ...",
+      "image": "content/posts/python-cap-toc-1-cai-dat-python-visual-studio-code/images/image-1.png",
+      "author": "Anonymous",
+      "date": "13 Jun 2023",
+      "dateRaw": "2023-06-13T02:00:00.000Z",
+      "category": "develop",
+      "tags": [],
+      "path": "posts/python-cap-toc-1-cai-dat-python-visual-studio-code/index.md"
+    },
+    {
+      "id": "17659411340930.9402550516859253",
+      "title": "PHP Web Server cho Raspberry Pi",
+      "slug": "php-web-server-cho-raspberry-pi",
+      "summary": "Nếu bạn đang sở hữu một máy tính Raspberry Pi và đang học PHP hoặc WordPress. Hãy biến chiếc Raspberry Pi của bạn thành một PHP Web Server. Rất đơn gi...",
+      "image": "content/posts/php-web-server-cho-raspberry-pi/images/php-web-server-cho-rasberry-1.png",
+      "author": "Anonymous",
+      "date": "2 Feb 2021",
+      "dateRaw": "2021-02-02T02:00:00.000Z",
+      "category": "develop",
+      "tags": [
+        "raspberry",
+        "raspberry-pi"
+      ],
+      "path": "posts/php-web-server-cho-raspberry-pi/index.md"
+    },
+    {
+      "id": "17659411341210.18239688182154534",
+      "title": "Các lệnh cơ bản của Raspbian",
+      "slug": "cac-lenh-co-ban-cua-raspbian",
+      "summary": "Nếu đang sở hữu một máy tính raspberry có cài hệ điều hành Raspbian. Hẳn sẽ có lúc bạn cần tìm các lệnh cơ bản của Raspbian để phục vụ dự án của mình....",
+      "image": "content/posts/cac-lenh-co-ban-cua-raspbian/images/cac-cau-lenh-co-ban-cua-raspbian-raspberry.jpeg",
+      "author": "Anonymous",
+      "date": "2 Feb 2021",
+      "dateRaw": "2021-02-02T02:00:00.000Z",
+      "category": "develop",
+      "tags": [
+        "rasbian",
+        "raspberry",
+        "raspberry-pi"
+      ],
+      "path": "posts/cac-lenh-co-ban-cua-raspbian/index.md"
+    }
+  ]
+}

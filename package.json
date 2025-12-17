@@ -4,7 +4,7 @@
     "description": "Lightweight file-based CMS",
     "scripts": {
         "build": "node scripts/generate-config.js",
-        "start": "npx serve . -p 8081"
+        "start": "npx serve . -p 8081 --single"
     },
     "dependencies": {
         "glob": "^10.3.10",

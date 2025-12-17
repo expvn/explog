@@ -1,0 +1,10 @@
+{
+    "title": "Space Survival",
+    "description": "Game sinh tồn không gian",
+    "type": "webgl",
+    "embed": "iframe",
+    "height": "650px",
+    "width": "960px",
+    "fullWidth": true,
+    "background": "#ffffff"
+}
