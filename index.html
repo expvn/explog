@@ -115,6 +115,75 @@
     <!-- Bootstrap 5 JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="/app.js?v=20231213c"></script>
+
+    <!-- Service Worker Registration -->
+    <script>
+        // Register Service Worker for caching
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('[App] Service Worker registered:', registration.scope);
+
+                        // Check for updates
+                        registration.addEventListener('updatefound', () => {
+                            const newWorker = registration.installing;
+                            newWorker.addEventListener('statechange', () => {
+                                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                    // New version available
+                                    showUpdateNotification();
+                                }
+                            });
+                        });
+                    })
+                    .catch(error => {
+                        console.log('[App] Service Worker registration failed:', error);
+                    });
+            });
+
+            // Listen for controller change (new SW activated)
+            navigator.serviceWorker.addEventListener('controllerchange', () => {
+                console.log('[App] New Service Worker activated');
+            });
+        }
+
+        // Show update notification
+        function showUpdateNotification() {
+            const toast = document.createElement('div');
+            toast.className = 'update-toast';
+            toast.innerHTML = `
+                <span>🔄 Có bản cập nhật mới!</span>
+                <button onclick="refreshApp()">Cập nhật</button>
+                <button onclick="this.parentElement.remove()" style="background: transparent; color: inherit;">✕</button>
+            `;
+            document.body.appendChild(toast);
+        }
+
+        // Refresh app with new version
+        function refreshApp() {
+            if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
+                navigator.serviceWorker.controller.postMessage({ type: 'SKIP_WAITING' });
+            }
+            window.location.reload(true);
+        }
+
+        // Clear cache utility (for debugging)
+        window.clearAppCache = async function () {
+            if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
+                return new Promise((resolve) => {
+                    const messageChannel = new MessageChannel();
+                    messageChannel.port1.onmessage = (event) => {
+                        console.log('[App] Cache cleared:', event.data);
+                        resolve(event.data);
+                    };
+                    navigator.serviceWorker.controller.postMessage(
+                        { type: 'CLEAR_CACHE' },
+                        [messageChannel.port2]
+                    );
+                });
+            }
+        };
+    </script>
 </body>
 
 </html>
