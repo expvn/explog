@@ -5,7 +5,7 @@
   "postsPerPage": 20,
   "posts": [
     {
-      "id": "17659488356060.8636507121638166",
+      "id": "17659493952950.08534515265599263",
       "title": "[GIT/GITHUB CẤP TỐC #2] – GIT BASH: CÁC CÂU LỆNH CƠ BẢN",
       "slug": "git-github-cap-toc-2-cac-cau-lenh-co-ban",
       "summary": "**Bước 1: Thiết lập thông tin cá nhân** Sau khi cài đặt, hãy cấu hình thông tin cá nhân của bạn. Chạy các lệnh sau trong dòng lệnh, thay thế thông tin...",
@@ -18,7 +18,7 @@
       "path": "posts/git-github-cap-toc-2-cac-cau-lenh-co-ban/index.md"
     },
     {
-      "id": "17659488356060.0033624465473680587",
+      "id": "17659493952960.7859337127562754",
       "title": "[GIT/GITHUB CẤP TỐC #1] - GIỚI THIỆU VỀ GIT/GITHUB",
       "slug": "git-github-cap-toc-1-gioi-thieu-ve-git-github",
       "summary": "Chào các bạn, Trong bài giới thiệu này, chúng ta sẽ khám phá một công cụ hữu ích và phổ biến trong lĩnh vực phát triển phần mềm - Git và GitHub. **Git...",
@@ -31,7 +31,7 @@
       "path": "posts/git-github-cap-toc-1-gioi-thieu-ve-git-github/index.md"
     },
     {
-      "id": "17659488355900.8510485193758626",
+      "id": "17659493952850.8482022245526336",
       "title": "[PYTHON CẤP TỐC #9] Lập trình hướng đối tượng (OOP) trong Python",
       "slug": "python-cap-toc-9-lap-trinh-huong-doi-tuong-oop-trong-python",
       "summary": "**1\\. Lớp và Đối tượng** - Để tạo một lớp trong Python, bạn sử dụng từ khóa `class` và sau đó là tên lớp. Ví dụ: - Để tạo một đối tượng từ lớp, bạn sử...",
@@ -49,7 +49,7 @@
       "path": "posts/python-cap-toc-9-lap-trinh-huong-doi-tuong-oop-trong-python/index.md"
     },
     {
-      "id": "17659488355910.8423589838698946",
+      "id": "17659493952850.5602601724487759",
       "title": "[PYTHON CẤP TỐC #8] Hàm và cách định nghĩa hàm trong Python",
       "slug": "python-cap-toc-8-ham-va-cach-dinh-nghia-ham-trong-python",
       "summary": "Trong bài này, EXPVN sẽ hướng dẫn bạn về hàm và cách định nghĩa hàm nhé. **1\\. Định nghĩa hàm** Để định nghĩa một hàm trong Python, bạn sử dụng từ khó...",
@@ -68,7 +68,7 @@
       "path": "posts/python-cap-toc-8-ham-va-cach-dinh-nghia-ham-trong-python/index.md"
     },
     {
-      "id": "17659488355920.6440152724475047",
+      "id": "17659493952860.39634599686581407",
       "title": "[PYTHON CẤP TỐC #7] Danh sách và cách xử lý danh sách trong Python",
       "slug": "python-cap-toc-7-danh-sach-va-cach-xu-ly-danh-sach-trong-python",
       "summary": "Trong bài này, EXPVN sẽ hướng dẫn các bạn về các danh sách và cách xử lý danh sách trong Python, bao gồm các ví dụ ngắn gọn và dễ hiểu: **1\\. Khởi tạo...",
@@ -88,7 +88,7 @@
       "path": "posts/python-cap-toc-7-danh-sach-va-cach-xu-ly-danh-sach-trong-python/index.md"
     },
     {
-      "id": "17659488355920.9786109374781468",
+      "id": "17659493952860.7698817472216231",
       "title": "[PYTHON CẤP TỐC #6] Chuỗi và xử lý chuỗi trong Python",
       "slug": "python-cap-toc-6-chuoi-va-xu-ly-chuoi-trong-python",
       "summary": "Chuỗi (string) là một loại dữ liệu rất quan trọng trong Python, cho phép bạn làm việc với văn bản và thông tin liên quan đến văn bản. Trong phần này, ...",
@@ -107,7 +107,7 @@
       "path": "posts/python-cap-toc-6-chuoi-va-xu-ly-chuoi-trong-python/index.md"
     },
     {
-      "id": "17659488355930.15698986798864012",
+      "id": "17659493952870.7849840412762952",
       "title": "[PYTHON CẤP TỐC #5] Vòng lặp trong Python",
       "slug": "python-cap-toc-5-vong-lap-trong-python",
       "summary": "Trong Python, chúng ta sử dụng các vòng lặp để lặp lại một khối mã nhiều lần. Dưới đây là hướng dẫn chi tiết về các loại vòng lặp trong Python và ví d...",
@@ -125,7 +125,7 @@
       "path": "posts/python-cap-toc-5-vong-lap-trong-python/index.md"
     },
     {
-      "id": "17659488355950.6339752169465572",
+      "id": "17659493952880.9247880508248157",
       "title": "[PYTHON CẤP TỐC #15] Bài tập ứng dụng",
       "slug": "python-cap-toc-15-bai-tap-ung-dung",
       "summary": "Dưới đây là 10 bài tập thực hành Python cơ bản, có tính ứng dụng thực tế và mức độ khó từ đơn giản đến phức tạp. Bạn có thể thử giải và kiểm tra đáp á...",
@@ -143,7 +143,7 @@
       "path": "posts/python-cap-toc-15-bai-tap-ung-dung/index.md"
     },
     {
-      "id": "17659488355950.7031230415958124",
+      "id": "17659493952890.1001336389317884",
       "title": "[PYTHON CẤP TỐC #14] Các thư viện thường dùng",
       "slug": "python-cap-toc-14-cac-thu-vien-thuong-dung",
       "summary": "1\\. **Thư viện `math`** - Mô tả: Thư viện `math` cung cấp các hàm và phép toán số học. - Ví dụ: **2\\. Thư viện `random`** - Mô tả: Thư viện `random` c...",
@@ -160,7 +160,7 @@
       "path": "posts/python-cap-toc-14-cac-thu-vien-thuong-dung/index.md"
     },
     {
-      "id": "17659488355960.6814964710600402",
+      "id": "17659493952890.5423756240741763",
       "title": "[PYTHON CẤP TỐC #13] Thư viện trong Python",
       "slug": "python-cap-toc-13-thu-vien-trong-python",
       "summary": "Trước tiên, bạn cần tìm kiếm thư viện phù hợp với nhu cầu của mình. Có nhiều nguồn tài nguyên để tìm kiếm thư viện, bao gồm trang chủ PyPI (Python Pac...",
@@ -178,7 +178,7 @@
       "path": "posts/python-cap-toc-13-thu-vien-trong-python/index.md"
     },
     {
-      "id": "17659488355970.4360600049421657",
+      "id": "17659493952890.8913884718371764",
       "title": "[PYTHON CẤP TỐC #12] Đọc và ghi tập tin trong Python",
       "slug": "python-cap-toc-12-doc-va-ghi-tap-tin-trong-python",
       "summary": "**1\\. Đọc tập tin** - Mở tập tin: Bạn có thể sử dụng hàm `open()` để mở một tập tin trong chế độ đọc. Ví dụ: - Đọc nội dung tập tin: Bạn có thể sử dụn...",
@@ -197,7 +197,7 @@
       "path": "posts/python-cap-toc-12-doc-va-ghi-tap-tin-trong-python/index.md"
     },
     {
-      "id": "17659488355970.8923486646521832",
+      "id": "17659493952900.43856204984789837",
       "title": "[PYTHON CẤP TỐC #11] Xử lý ngoại lệ trong Python",
       "slug": "python-cap-toc-11-xu-ly-ngoai-le-trong-python",
       "summary": "Xử lý ngoại lệ trong Python OOP là quá trình xử lý các tình huống bất thường xảy ra trong chương trình. Điều này giúp bạn kiểm soát và xử lý các lỗi v...",
@@ -215,7 +215,7 @@
       "path": "posts/python-cap-toc-11-xu-ly-ngoai-le-trong-python/index.md"
     },
     {
-      "id": "17659488355980.22270330172982322",
+      "id": "17659493952900.3934236693907073",
       "title": "[PYTHON CẤP TỐC #10] Phạm vi truy cập thuộc tính và phương thức trong Python OOP",
       "slug": "python-cap-toc-10-pham-vi-truy-cap-thuoc-tinh-va-phuong-thuc-trong-python-oop",
       "summary": "Trong lập trình hướng đối tượng (OOP) trong Python, phạm vi truy cập thuộc tính và phương thức quyết định việc truy cập và sử dụng chúng từ bên trong ...",
@@ -233,7 +233,7 @@
       "path": "posts/python-cap-toc-10-pham-vi-truy-cap-thuoc-tinh-va-phuong-thuc-trong-python-oop/index.md"
     },
     {
-      "id": "17659488355890.9501366264089629",
+      "id": "17659493952830.5584114876829068",
       "title": "Regular Expression: Các ký tự, ký hiệu, ví dụ đơn giản và bài tập",
       "slug": "regular-expression-cac-ky-tu-ky-hieu-vi-du-don-gian-va-bai-tap",
       "summary": "Danh sách các từ khóa và ký hiệu trong Regex: **1\\. Ký hiệu cơ bản** `.`: Khớp với bất kỳ ký tự nào trừ ký tự xuống dòng. Ví dụ: `\"a.b\"` khớp với \"aab...",
@@ -249,7 +249,7 @@
       "path": "posts/regular-expression-cac-ky-tu-ky-hieu-vi-du-don-gian-va-bai-tap/index.md"
     },
     {
-      "id": "17659488355930.9683066780359645",
+      "id": "17659493952870.8407351797652891",
       "title": "[PYTHON CẤP TỐC #4] Câu lệnh rẽ nhánh trong Python (if, elseif, else)",
       "slug": "python-cap-toc-4-cau-lenh-re-nhanh-trong-python-if-elseif-else",
       "summary": "Trong Python, điều kiện và rẽ nhánh được thực hiện bằng cách sử dụng câu lệnh `if`, `elif` và `else`. Dưới đây là hướng dẫn chi tiết về các điều kiện ...",
@@ -269,7 +269,7 @@
       "path": "posts/python-cap-toc-4-cau-lenh-re-nhanh-trong-python-if-elseif-else/index.md"
     },
     {
-      "id": "17659488355940.6953959976519404",
+      "id": "17659493952870.6898480278163384",
       "title": "[PYTHON CẤP TỐC #3] Các toán tử",
       "slug": "python-cap-toc-3-cac-toan-tu",
       "summary": "Dưới đây là một hướng dẫn chi tiết về các toán tử trong Python cùng với ví dụ ngắn gọn và dễ hiểu cho mỗi toán tử: **1\\. Toán tử số học:** - Toán tử c...",
@@ -286,7 +286,7 @@
       "path": "posts/python-cap-toc-3-cac-toan-tu/index.md"
     },
     {
-      "id": "17659488355940.5152600733849635",
+      "id": "17659493952880.17633536948398998",
       "title": "[PYTHON CẤP TỐC #2] Các kiểu dữ liệu và cách gán kiểu dữ liệu trong Python",
       "slug": "python-cap-toc-2-cac-kieu-du-lieu-trong-python",
       "summary": "**1\\. Các kiểu dữ liệu** Python hỗ trợ nhiều kiểu dữ liệu khác nhau, bao gồm các kiểu dữ liệu số học, chuỗi, danh sách, bộ, tập hợp và boolean. Dưới đ...",
@@ -303,7 +303,7 @@
       "path": "posts/python-cap-toc-2-cac-kieu-du-lieu-trong-python/index.md"
     },
     {
-      "id": "17659488355980.9679558476063462",
+      "id": "17659493952900.9989557169782757",
       "title": "[PYTHON CẤP TỐC #1] - Cài đặt: Python & Visual Studio Code",
       "slug": "python-cap-toc-1-cai-dat-python-visual-studio-code",
       "summary": "EXPVN xin giới thiệu tới các bạn series học Python cơ bản cho EXPVN tự thực hiện, trong series này chúng ta lần lượt tìm hiểu các mục sau: 1. Cài đặt ...",
@@ -316,7 +316,7 @@
       "path": "posts/python-cap-toc-1-cai-dat-python-visual-studio-code/index.md"
     },
     {
-      "id": "17659488356090.2591207892762071",
+      "id": "17659493952980.15912688031226307",
       "title": "EXPVN Shop",
       "slug": "expvn-shop",
       "summary": "**Bạn hãy bấm vào nền tảng mua sắm mà bạn quen thuộc để ủng hộ EXPVN nhé!** $1 $1 $1 $1 $1",
@@ -329,7 +329,7 @@
       "path": "posts/expvn-shop/index.md"
     },
     {
-      "id": "17659488356010.14155535380018958",
+      "id": "17659493952930.1587668957516878",
       "title": "[PC] EXPVN Youtube Downloader - Tải hàng loạt Youtube (mp3, mp4)",
       "slug": "pc-expvn-youtube-downloader-tai-hang-loat-youtube-mp3-mp4",
       "summary": "**EXPVN YOUTUBE DOWNLOADER** là ứng dụng đơn giản không sử dụng giao diện và chạy với chế độ dòng lệnh. EXPVN Youtube Downloader được EXPVN phát triển...",

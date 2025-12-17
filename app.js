@@ -13,6 +13,248 @@ const appState = {
     currentPath: null
 };
 
+// ============= SEO MANAGER =============
+const SEO = {
+    baseUrl: 'https://expvn.com',
+    defaultImage: '/assets/logo.png',
+
+    // Update all meta tags for a page
+    updateMeta(options) {
+        const {
+            title,
+            description,
+            image,
+            url,
+            type = 'website',
+            author,
+            publishedTime,
+            modifiedTime,
+            category,
+            tags = []
+        } = options;
+
+        const fullUrl = url ? `${this.baseUrl}${url}` : this.baseUrl;
+        const fullImage = image ? (image.startsWith('http') ? image : `${this.baseUrl}/${image.replace(/^\//, '')}`) : `${this.baseUrl}${this.defaultImage}`;
+        const siteName = appState.config?.site?.siteTitle || 'EXPVN';
+        const fullTitle = title ? `${title} | ${siteName}` : siteName;
+
+        // Update document title
+        document.title = fullTitle;
+
+        // Update primary meta tags
+        this.setMeta('name', 'title', fullTitle);
+        this.setMeta('name', 'description', description || '');
+        this.setMeta('name', 'author', author || 'EXPVN');
+
+        // Update canonical URL
+        this.setLink('canonical', fullUrl);
+
+        // Update Open Graph tags
+        this.setMeta('property', 'og:type', type === 'post' ? 'article' : 'website');
+        this.setMeta('property', 'og:url', fullUrl);
+        this.setMeta('property', 'og:title', fullTitle);
+        this.setMeta('property', 'og:description', description || '');
+        this.setMeta('property', 'og:image', fullImage);
+        this.setMeta('property', 'og:site_name', siteName);
+
+        // Update Twitter Cards
+        this.setMeta('name', 'twitter:url', fullUrl);
+        this.setMeta('name', 'twitter:title', fullTitle);
+        this.setMeta('name', 'twitter:description', description || '');
+        this.setMeta('name', 'twitter:image', fullImage);
+
+        // Update article-specific meta tags
+        if (type === 'post') {
+            if (publishedTime) {
+                this.setMeta('property', 'article:published_time', publishedTime);
+            }
+            if (modifiedTime) {
+                this.setMeta('property', 'article:modified_time', modifiedTime);
+            }
+            if (category) {
+                this.setMeta('property', 'article:section', category);
+            }
+            if (tags.length > 0) {
+                // Remove old article:tag meta tags
+                document.querySelectorAll('meta[property="article:tag"]').forEach(el => el.remove());
+                // Add new ones
+                tags.forEach(tag => {
+                    const meta = document.createElement('meta');
+                    meta.setAttribute('property', 'article:tag');
+                    meta.setAttribute('content', tag);
+                    document.head.appendChild(meta);
+                });
+            }
+        }
+
+        // Update JSON-LD structured data
+        this.updateStructuredData(options);
+    },
+
+    // Set or update a meta tag
+    setMeta(attrType, attrName, content) {
+        let meta = document.querySelector(`meta[${attrType}="${attrName}"]`);
+        if (!meta) {
+            meta = document.createElement('meta');
+            meta.setAttribute(attrType, attrName);
+            document.head.appendChild(meta);
+        }
+        meta.setAttribute('content', content);
+    },
+
+    // Set or update a link tag
+    setLink(rel, href) {
+        let link = document.querySelector(`link[rel="${rel}"]`);
+        if (!link) {
+            link = document.createElement('link');
+            link.setAttribute('rel', rel);
+            document.head.appendChild(link);
+        }
+        link.setAttribute('href', href);
+    },
+
+    // Update JSON-LD structured data
+    updateStructuredData(options) {
+        const {
+            title,
+            description,
+            image,
+            url,
+            type = 'website',
+            author,
+            publishedTime,
+            category
+        } = options;
+
+        const fullUrl = url ? `${this.baseUrl}${url}` : this.baseUrl;
+        const fullImage = image ? (image.startsWith('http') ? image : `${this.baseUrl}/${image.replace(/^\//, '')}`) : `${this.baseUrl}${this.defaultImage}`;
+        const siteName = appState.config?.site?.siteTitle || 'EXPVN';
+
+        let structuredData;
+
+        if (type === 'post') {
+            // Article schema
+            structuredData = {
+                "@context": "https://schema.org",
+                "@type": "Article",
+                "headline": title,
+                "description": description || '',
+                "image": fullImage,
+                "url": fullUrl,
+                "datePublished": publishedTime || new Date().toISOString(),
+                "author": {
+                    "@type": "Person",
+                    "name": author || "EXPVN"
+                },
+                "publisher": {
+                    "@type": "Organization",
+                    "name": siteName,
+                    "logo": {
+                        "@type": "ImageObject",
+                        "url": `${this.baseUrl}${this.defaultImage}`
+                    }
+                },
+                "mainEntityOfPage": {
+                    "@type": "WebPage",
+                    "@id": fullUrl
+                }
+            };
+            if (category) {
+                structuredData.articleSection = category;
+            }
+        } else if (type === 'category') {
+            // Collection page schema
+            structuredData = {
+                "@context": "https://schema.org",
+                "@type": "CollectionPage",
+                "name": title,
+                "description": description || '',
+                "url": fullUrl,
+                "isPartOf": {
+                    "@type": "WebSite",
+                    "name": siteName,
+                    "url": this.baseUrl
+                }
+            };
+        } else {
+            // Default website schema
+            structuredData = {
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                "name": siteName,
+                "url": this.baseUrl,
+                "description": description || appState.config?.site?.description || '',
+                "publisher": {
+                    "@type": "Organization",
+                    "name": siteName,
+                    "logo": {
+                        "@type": "ImageObject",
+                        "url": `${this.baseUrl}${this.defaultImage}`
+                    }
+                }
+            };
+        }
+
+        // Update or create script tag
+        let script = document.getElementById('structured-data');
+        if (!script) {
+            script = document.createElement('script');
+            script.type = 'application/ld+json';
+            script.id = 'structured-data';
+            document.head.appendChild(script);
+        }
+        script.textContent = JSON.stringify(structuredData, null, 2);
+    },
+
+    // Reset to default homepage SEO
+    resetToDefault() {
+        const site = appState.config?.site || {};
+        this.updateMeta({
+            title: null,
+            description: site.description || 'Blog chia sẻ kiến thức về Game, Công nghệ, Lập trình',
+            url: '/',
+            type: 'website'
+        });
+    },
+
+    // Update SEO for a post
+    updateForPost(post) {
+        this.updateMeta({
+            title: post.title,
+            description: post.summary || '',
+            image: post.image,
+            url: `/posts/${post.slug}`,
+            type: 'post',
+            author: post.author,
+            publishedTime: post.dateRaw,
+            category: post.category,
+            tags: post.tags || []
+        });
+    },
+
+    // Update SEO for a category page
+    updateForCategory(categoryName) {
+        this.updateMeta({
+            title: `${categoryName} - Danh mục bài viết`,
+            description: `Tất cả bài viết trong danh mục ${categoryName}`,
+            url: `/category/${categoryName.toLowerCase()}`,
+            type: 'category',
+            category: categoryName
+        });
+    },
+
+    // Update SEO for a tag page
+    updateForTag(tagName) {
+        this.updateMeta({
+            title: `#${tagName} - Bài viết theo tag`,
+            description: `Tất cả bài viết có tag ${tagName}`,
+            url: `/tag/${encodeURIComponent(tagName)}`,
+            type: 'category'
+        });
+    }
+};
+
+
 const els = {
     app: document.getElementById('app'),
     homeView: document.getElementById('home-view'),
@@ -526,6 +768,7 @@ async function handleRoute() {
 
     // 1. Home
     if (path === '' || path === 'index.html') {
+        SEO.resetToDefault();
         showHome();
         renderHome(null, appState.currentPage || 1);
         return;
@@ -541,6 +784,7 @@ async function handleRoute() {
             await loadCategoryPosts(catSlug);
         }
 
+        SEO.updateForCategory(category);
         showHome();
         renderHome(category, 1);
         return;
@@ -549,6 +793,7 @@ async function handleRoute() {
     // 2b. Tag: tag/tag-name
     if (parts[0] === 'tag') {
         const tag = decodeURIComponent(parts[1]);
+        SEO.updateForTag(tag);
         showHome();
         renderPostsByTag(tag);
         return;
@@ -920,6 +1165,9 @@ async function loadContent(path) {
             </div>`;
         return;
     }
+
+    // Update SEO for this post
+    SEO.updateForPost(post);
 
     // Use postsIndex for prev/next navigation (lightweight)
     const postsIndex = appState.config.postsIndex;

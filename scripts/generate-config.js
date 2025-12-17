@@ -312,6 +312,143 @@ function generateConfig() {
 
     console.log(`\n✅ Successfully generated config with ${posts.length} posts across ${totalPages} pages.`);
     console.log(`   Categories: ${categories.size}, Tags: ${tags.size}`);
+
+    // ========== 11. SITEMAP.XML ==========
+    generateSitemap(posts, categories);
+
+    // ========== 12. ROBOTS.TXT ==========
+    generateRobotsTxt();
+}
+
+// Generate sitemap.xml for SEO
+function generateSitemap(posts, categories) {
+    const BASE_URL = 'https://expvn.com';
+    const today = new Date().toISOString().split('T')[0];
+
+    let sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+    <!-- Homepage -->
+    <url>
+        <loc>${BASE_URL}/</loc>
+        <lastmod>${today}</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1.0</priority>
+    </url>
+`;
+
+    // Add category pages
+    Array.from(categories).forEach(cat => {
+        const catSlug = cat.toLowerCase().replace(/\s+/g, '-');
+        sitemap += `
+    <url>
+        <loc>${BASE_URL}/category/${catSlug}</loc>
+        <lastmod>${today}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>`;
+    });
+
+    // Add individual posts
+    posts.forEach(post => {
+        const postDate = post.dateRaw ? post.dateRaw.split('T')[0] : today;
+        const imageUrl = post.image ?
+            (post.image.startsWith('http') ? post.image : `${BASE_URL}/${post.image}`) : '';
+
+        sitemap += `
+    <url>
+        <loc>${BASE_URL}/posts/${post.slug}</loc>
+        <lastmod>${postDate}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>${imageUrl ? `
+        <image:image>
+            <image:loc>${imageUrl}</image:loc>
+            <image:title>${escapeXml(post.title)}</image:title>
+        </image:image>` : ''}
+    </url>`;
+    });
+
+    // Scan for static pages (Embedded/Standalone)
+    const pagesDir = path.join(__dirname, '../content/pages');
+    if (fs.existsSync(pagesDir)) {
+        // Embedded pages
+        const embeddedDir = path.join(pagesDir, 'Embedded');
+        if (fs.existsSync(embeddedDir)) {
+            fs.readdirSync(embeddedDir).forEach(pageName => {
+                const pageDir = path.join(embeddedDir, pageName);
+                if (fs.statSync(pageDir).isDirectory()) {
+                    sitemap += `
+    <url>
+        <loc>${BASE_URL}/${pageName}</loc>
+        <lastmod>${today}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>`;
+                }
+            });
+        }
+
+        // Standalone pages
+        const standaloneDir = path.join(pagesDir, 'Standalone');
+        if (fs.existsSync(standaloneDir)) {
+            fs.readdirSync(standaloneDir).forEach(pageName => {
+                const pageDir = path.join(standaloneDir, pageName);
+                if (fs.statSync(pageDir).isDirectory()) {
+                    sitemap += `
+    <url>
+        <loc>${BASE_URL}/pages/${pageName}</loc>
+        <lastmod>${today}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>`;
+                }
+            });
+        }
+    }
+
+    sitemap += `
+</urlset>`;
+
+    const sitemapPath = path.join(__dirname, '../sitemap.xml');
+    fs.writeFileSync(sitemapPath, sitemap);
+    console.log('Generated: sitemap.xml');
+}
+
+// Generate robots.txt
+function generateRobotsTxt() {
+    const BASE_URL = 'https://expvn.com';
+
+    const robotsTxt = `# Robots.txt for ${BASE_URL}
+# Generated automatically by EXPVN CMS
+
+User-agent: *
+Allow: /
+
+# Disallow admin/config directories
+Disallow: /config/
+Disallow: /scripts/
+Disallow: /node_modules/
+
+# Sitemap location
+Sitemap: ${BASE_URL}/sitemap.xml
+
+# Crawl delay (optional, be nice to bots)
+Crawl-delay: 1
+`;
+
+    const robotsPath = path.join(__dirname, '../robots.txt');
+    fs.writeFileSync(robotsPath, robotsTxt);
+    console.log('Generated: robots.txt');
+}
+
+// Escape special XML characters
+function escapeXml(str) {
+    return str
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&apos;');
 }
 
 generateConfig();
