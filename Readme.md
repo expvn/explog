@@ -1,135 +1,407 @@
-# Hướng dẫn Sử dụng & Phát triển EXPLog CMS
+# EXPLog CMS
 
-> [!INFO] Giới thiệu
-> Đây là tài liệu hướng dẫn chi tiết dành cho **EXPLog CMS** - một hệ thống quản lý nội dung dạng file (File-based), không cần Database, siêu nhẹ và dễ tùy biến.
+<div align="center">
 
-## 1. Cấu trúc Dự án & Chuyên môn
+![EXPLog CMS](assets/logo.png)
 
-Hiểu rõ từng file giúp bạn làm chủ hệ thống:
+**Lightweight File-based CMS - Không cần Database, Siêu nhẹ, Dễ tùy biến**
 
-- **`content/posts/`**: **Kho nội dung**. Chứa các file Markdown (`.md`).
-    - Hỗ trợ thư mục con (VD: `posts/tech/review.md`).
-- **`assets/`**: **Kho tài nguyên**. Chứa ảnh, logo.
-    - `assets/banner/`: Chứa ảnh slide trang chủ.
-- **`scripts/generate-config.js`**: **Bộ xử lý trung tâm**.
-    - Script này quét toàn bộ file `.md`, đọc metadata, tạo menu từ category.
-    - Xuất ra file `config.json`.
-- **`config.json`**: **Database tĩnh**.
-    - Frontend đọc file này để hiển thị bài viết.
-- **`app.js`**: **Frontend Controller (SPA)**.
-    - Quản lý Routing (chuyển trang).
-    - Render HTML từ dữ liệu JSON.
-- **`index.html`**: **Giao diện chính**.
-- **`style.css`**: **Giao diện & Style**.
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start)
+
+</div>
 
 ---
 
-## 2. Quy trình Phát triển (Localhost)
+## 🌟 Giới thiệu
 
-Để chạy dự án và viết bài trên máy tính cá nhân:
+**EXPLog CMS** là hệ thống quản lý nội dung dạng file (File-based CMS) được thiết kế cho các blog cá nhân, portfolio, và website giới thiệu sản phẩm. Không cần database, hosting đơn giản, deploy miễn phí trên Vercel/Netlify.
 
-1.  **Cài đặt** (chỉ làm lần đầu):
-    ```bash
-    npm install
-    ```
-2.  **Chế độ làm việc**:
-    - **Bước 1**: Viết bài hoặc sửa code.
-    - **Bước 2**: Build lại dữ liệu.
-        ```bash
-        npm run build
-        ```
-    - **Bước 3**: Xem thử (Preview).
-        ```bash
-        npm start
-        ```
-    *(Mở trình duyệt tại `http://127.0.0.1:8081`)*
+### Tại sao chọn EXPLog?
+
+| Ưu điểm | Mô tả |
+|---------|-------|
+| 🚀 **Siêu nhanh** | Static site + Service Worker caching, load gần như tức thì |
+| 💰 **Miễn phí hosting** | Deploy miễn phí trên Vercel, Netlify, GitHub Pages |
+| 📝 **Markdown** | Viết bài bằng Markdown với syntax highlighting |
+| 🔍 **SEO tối ưu** | Meta tags động, sitemap.xml, robots.txt tự động |
+| 📱 **Responsive** | Giao diện đẹp trên mọi thiết bị |
+| ⚡ **Không database** | Nội dung lưu dạng file, dễ backup và migrate |
 
 ---
 
-## 3. Quản trị Giao diện (UI/UX)
+## ✨ Tính năng
 
-### Thay đổi Màu sắc & Font
-- Mở file `style.css`.
-- Chỉnh sửa các biến CSS (CSS Variables) ở đầu file (`:root`):
-    ```css
-    :root {
-        --primary: #1DA1F2; /* Màu chủ đạo */
-        --bg: #FBFDFF;      /* Màu nền */
-    }
-    ```
+### 📰 Quản lý Bài viết
+- Viết bài bằng **Markdown** với frontmatter YAML
+- Tự động tạo **summary** từ nội dung nếu không khai báo
+- Phân loại theo **Category** và **Tags**
+- **Pagination** với lazy loading (tải trang theo yêu cầu)
+- **Related posts** hiển thị bài viết cùng category
+- **Navigation** (Newer/Older) giữa các bài viết
 
-### Chỉnh sửa Bố cục (Layout)
-- **Header/Footer**: Sửa trực tiếp trong `index.html`.
-- **Lưới bài viết (Grid)**: Sửa hàm `renderHome()` trong `app.js`.
-- **Chi tiết bài viết**: Sửa hàm `loadContent()` trong `app.js`.
-- **Giao diện bài viết (Markdown)**: Sửa class `.markdown-body` trong `style.css`.
+### 🖼️ Hình ảnh & Media
+- **Image lightbox**: Click vào ảnh để xem fullscreen với zoom
+  - Zoom bằng scroll wheel / pinch-to-zoom (mobile)
+  - Pan/drag khi đã zoom
+  - Double-click để toggle zoom 100%/200%
+  - Keyboard: `+/-` zoom, `0` reset, `Esc` đóng
+- **Video embedding**: Tự động nhúng YouTube và file video (.mp4, .webm)
+- **Hero slider**: Trang chủ với banner slideshow tự động
 
----
+### 💻 Code & Developer
+- **Syntax highlighting** với highlight.js
+- **Copy button** với feedback animation ("✓ Copied!")
+- Hỗ trợ 180+ ngôn ngữ lập trình
 
-## 4. Quản trị Nội dung (CMS)
+### 🔍 Tìm kiếm
+- **Real-time search** với highlight kết quả
+- Tìm kiếm theo tiêu đề và nội dung
+- Debounce để tối ưu performance
 
-### Thêm Bài Viết Mới
-1.  Tạo file `.md` mới trong `content/posts/`. Ví dụ: `content/posts/my-story.md`.
-2.  Thêm **Frontmatter** vào đầu file:
-    ```yaml
-    ---
-    title: "Tiêu đề bài viết"
-    date: "2025-12-12"
-    category: "Life"
-    image: "assets/hero.png"
-    summary: "Mô tả ngắn gọn về bài viết..."
-    ---
-    Nội dung bài viết bắt đầu tại đây...
-    ```
-3.  Chạy `npm run build` để cập nhật.
+### 📄 Static Pages
+- **Embedded pages**: Trang tĩnh hiển thị trong layout chính
+- **Standalone pages**: Trang độc lập (games, landing pages)
+- Hỗ trợ WebGL, forms, và ứng dụng tương tác
 
-### Thêm Hình ảnh
-- **Cách 1 (Khuyên dùng)**: Để ảnh cùng thư mục với file `.md` (nếu để mỗi bài 1 thư mục).
-- **Cách 2**: Để ảnh vào `assets/` rồi dẫn link `assets/ten-anh.png`.
+### 🔎 SEO & Performance
+- **Dynamic meta tags**: Title, description cập nhật theo từng trang
+- **Open Graph**: Tối ưu chia sẻ Facebook/LinkedIn
+- **Twitter Cards**: Tối ưu chia sẻ Twitter
+- **JSON-LD**: Structured data cho Google
+- **Sitemap.xml**: Tự động tạo với tất cả URLs
+- **Robots.txt**: Hướng dẫn bot tìm kiếm
+- **Service Worker**: Cache offline, tải nhanh hơn
 
----
-
-## 5. Quản trị Menu & Trang
-
-Hệ thống tự động tạo Menu dựa trên **Category**.
-
-- **Thêm Menu mới**: Chỉ cần đặt `category: "Tên-Mới"` trong bài viết. Khi build, menu sẽ tự hiện.
-- **Tùy biến nâng cao**:
-    - Mở `scripts/generate-config.js`.
-    - Tìm đoạn `const menu = ...` để thêm các link cố định (VD: Link sang Web khác, Link giới thiệu tĩnh).
+### 🎨 Giao diện
+- **Bootstrap 5** responsive framework
+- **CSS Variables** dễ tùy biến màu sắc
+- **Dark mode ready** (có thể mở rộng)
+- **Ionicons** icon library
 
 ---
 
-## 6. Cấu hình Trang Chủ
+## 📁 Cấu trúc Dự án
 
-Mặc định trang chủ hiện tất cả bài mới nhất.
+```
+explog/
+├── content/
+│   ├── posts/              # Bài viết Markdown
+│   │   └── ten-bai-viet/
+│   │       ├── index.md    # Nội dung bài viết
+│   │       └── images/     # Hình ảnh của bài
+│   └── pages/              # Trang tĩnh
+│       ├── Embedded/       # Trang nhúng trong layout
+│       └── Standalone/     # Trang độc lập
+├── assets/
+│   ├── logo.png            # Logo website
+│   └── banner/             # Ảnh slider trang chủ
+├── config/                 # Config tự động tạo bởi build
+│   ├── site.json           # Thông tin website
+│   ├── hero.json           # Cấu hình slider
+│   ├── menu.json           # Menu navigation
+│   ├── categories.json     # Danh sách category
+│   ├── tags.json           # Danh sách tags
+│   ├── posts-index.json    # Index tất cả bài viết
+│   └── posts/              # Chi tiết bài viết phân trang
+├── scripts/
+│   └── generate-config.js  # Script build config
+├── app.js                  # Frontend SPA logic
+├── style.css               # Stylesheet
+├── sw.js                   # Service Worker (caching)
+├── index.html              # Entry point
+├── sitemap.xml             # Sitemap tự động
+├── robots.txt              # Robots.txt tự động
+├── vercel.json             # Cấu hình Vercel
+└── serve.json              # Cấu hình local server
+```
 
-### Lọc bài viết hiển thị
-Sửa file `config.json` (hoặc sửa cứng trong `generate-config.js`):
+---
+
+## 🚀 Bắt đầu
+
+### Yêu cầu
+- [Node.js](https://nodejs.org/) v16+ 
+- npm hoặc yarn
+
+### Cài đặt
+
+```bash
+# Clone repository
+git clone https://github.com/your-username/explog.git
+cd explog
+
+# Cài đặt dependencies
+npm install
+
+# Build config
+npm run build
+
+# Chạy local server
+npm start
+```
+
+Mở trình duyệt tại `http://localhost:8081`
+
+---
+
+## ✍️ Viết Bài
+
+### Tạo bài viết mới
+
+1. Tạo thư mục trong `content/posts/`:
+```
+content/posts/ten-bai-viet/
+├── index.md
+└── images/
+    └── cover.jpg
+```
+
+2. Thêm frontmatter vào `index.md`:
+```yaml
+---
+title: "Tiêu đề bài viết"
+date: "2025-12-17"
+category: "Blog"
+tags: ["tag1", "tag2"]
+author: "Tên tác giả"
+image: "images/cover.jpg"
+summary: "Mô tả ngắn về bài viết..."
+---
+
+# Nội dung bài viết
+
+Bắt đầu viết nội dung ở đây...
+```
+
+3. Build lại config:
+```bash
+npm run build
+```
+
+### Nhúng Media
+
+**Hình ảnh** (click để xem fullscreen):
+```markdown
+![Mô tả ảnh](images/my-image.jpg)
+```
+
+**Video YouTube**:
+```markdown
+[Xem video](https://youtube.com/watch?v=VIDEO_ID)
+```
+
+**Video file**:
+```markdown
+[Xem video](video.mp4)
+```
+
+---
+
+## ⚙️ Cấu hình
+
+### Thông tin Website (`config/site.json`)
 ```json
-"home": {
-  "categories": ["Tech", "Design"], 
-  "limit": 6
+{
+  "siteTitle": "Tên Website",
+  "logo": "assets/logo.png",
+  "description": "Mô tả website",
+  "author": "Tên tác giả",
+  "language": "vi",
+  "postsPerPage": 20
 }
 ```
 
-### Chinh sửa Slider (Hero Banner)
-- Copy ảnh vào thư mục `assets/banner/`.
-- Chạy `npm run build`.
-- Hệ thống tự động nhận diện và tạo slider từ các ảnh trong đó.
+### Trang chủ (`config/home.json`)
+```json
+{
+  "categories": ["Blog", "Tech"],  // Lọc category hiển thị
+  "limit": 12                       // Số bài tối đa
+}
+```
+
+### Hero Slider (`config/hero.json`)
+```json
+{
+  "enabled": true,
+  "slides": [
+    { "image": "assets/banner/slide1.jpg", "link": "/posts/bai-viet-1" },
+    { "image": "assets/banner/slide2.jpg", "link": "/posts/bai-viet-2" }
+  ]
+}
+```
+
+### Menu (`config/menu.json`)
+```json
+[
+  { "title": "BLOG", "path": "category/blog" },
+  { "title": "GAME", "path": "category/game" },
+  { "title": "ABOUT", "path": "page/about" }
+]
+```
 
 ---
 
-## 7. Deploy (Vercel)
+## 🌐 Deploy
 
-Dự án này là **Static Site**, cực kỳ dễ deploy.
+### Vercel (Khuyên dùng)
 
-1.  Đẩy code lên **GitHub**.
-2.  Kết nối với **Vercel**.
-3.  Cấu hình Build:
-    - **Build Command**: `npm run build`
-    - **Output Directory**: `.` (Root)
-4.  Nhấn **Deploy**.
+1. **Push code lên GitHub**
 
-> [!TIP] Mẹo
-> Mỗi khi bạn viết bài xong và push lên GitHub, Vercel sẽ tự động chạy lệnh build để cập nhật bài viết mới lên website của bạn ngay lập tức.
+2. **Kết nối Vercel**:
+   - Đăng nhập [vercel.com](https://vercel.com)
+   - Import repository từ GitHub
+
+3. **Cấu hình**:
+   | Setting | Value |
+   |---------|-------|
+   | Build Command | `npm run build` |
+   | Output Directory | `.` |
+   | Install Command | `npm install` |
+
+4. **Deploy** → Website sẽ tự động cập nhật mỗi khi push code
+
+### Netlify
+
+1. **Kết nối repository**:
+   - Đăng nhập [netlify.com](https://netlify.com)
+   - New site from Git → Chọn repo
+
+2. **Cấu hình**:
+   | Setting | Value |
+   |---------|-------|
+   | Build command | `npm run build` |
+   | Publish directory | `.` |
+
+3. **Tạo `_redirects` file** (trong root):
+   ```
+   /*    /index.html   200
+   ```
+
+### GitHub Pages
+
+1. **Tạo branch `gh-pages`**:
+   ```bash
+   npm run build
+   git add -A
+   git commit -m "Build"
+   git subtree push --prefix . origin gh-pages
+   ```
+
+2. **Cấu hình GitHub**:
+   - Settings → Pages → Source: `gh-pages` branch
+
+3. **Lưu ý**: Cần tạo file `404.html` copy từ `index.html` để SPA routing hoạt động
+
+### Self-hosted (VPS/Server)
+
+1. **Upload files** lên server
+
+2. **Nginx config**:
+   ```nginx
+   server {
+       listen 80;
+       server_name yourdomain.com;
+       root /var/www/explog;
+       index index.html;
+
+       location / {
+           try_files $uri $uri/ /index.html;
+       }
+
+       location /content/ {
+           try_files $uri =404;
+       }
+   }
+   ```
+
+3. **Apache config** (`.htaccess`):
+   ```apache
+   RewriteEngine On
+   RewriteBase /
+   RewriteRule ^content/ - [L]
+   RewriteCond %{REQUEST_FILENAME} !-f
+   RewriteCond %{REQUEST_FILENAME} !-d
+   RewriteRule . /index.html [L]
+   ```
+
+---
+
+## 🎨 Tùy biến Giao diện
+
+### Thay đổi Màu sắc
+
+Mở `style.css` và chỉnh sửa CSS Variables:
+
+```css
+:root {
+    --sky-600: #1DA1F2;        /* Màu primary */
+    --sky-400: #66C3FF;        /* Màu primary light */
+    --hotpink-700: #E11D74;    /* Màu accent */
+    --bg: #FBFDFF;             /* Màu nền */
+    --card: #FFFFFF;           /* Màu card */
+    --muted: #6B7280;          /* Màu text phụ */
+    --border: #E6EEF8;         /* Màu border */
+    --radius-base: 14px;       /* Bo góc */
+    --container: 1180px;       /* Độ rộng container */
+}
+```
+
+### Thay đổi SEO Domain
+
+Mở `app.js` và tìm:
+```javascript
+const SEO = {
+    baseUrl: 'https://expvn.com',  // ← Đổi thành domain của bạn
+    ...
+}
+```
+
+Mở `scripts/generate-config.js` và tìm:
+```javascript
+const BASE_URL = 'https://expvn.com';  // ← Đổi thành domain của bạn
+```
+
+---
+
+## 📋 Scripts
+
+| Command | Mô tả |
+|---------|-------|
+| `npm install` | Cài đặt dependencies |
+| `npm run build` | Build config từ content |
+| `npm start` | Chạy local server port 8081 |
+
+---
+
+## 🔧 Tech Stack
+
+- **Frontend**: Vanilla JavaScript (SPA)
+- **Styling**: CSS3 + Bootstrap 5
+- **Markdown**: marked.js + DOMPurify
+- **Syntax Highlighting**: highlight.js
+- **Copy**: clipboard.js
+- **Icons**: Ionicons
+- **Build**: Node.js + gray-matter + glob
+
+---
+
+## 📄 License
+
+MIT License - Sử dụng tự do cho mục đích cá nhân và thương mại.
+
+---
+
+## 🤝 Contributing
+
+Pull requests are welcome! Vui lòng tạo issue trước khi gửi PR lớn.
+
+---
+
+<div align="center">
+
+**Made with ❤️ by EXPVN**
+
+[Website](https://expvn.com) • [GitHub](https://github.com/expvn)
+
+</div>
