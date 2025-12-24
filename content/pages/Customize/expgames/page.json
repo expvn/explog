@@ -1,0 +1,33 @@
+{
+    "title": "EXPGAMES",
+    "description": "Các game do EXPVN phát triển",
+    "type": "customize",
+    "embed": "inject",
+    "background": "#ffffff",
+    "content": [
+        {
+            "cover": "content/pages/Customize/expgames/cover1.jpg",
+            "title": "Space Survival",
+            "description": "Sinh tồn trong không gian và tiêu diệt quái vật",
+            "path": "content/pages/Embedded/test-webgl/"
+        },
+        {
+            "cover": "content/pages/Customize/expgames/cover2.jpg",
+            "title": "Test WebGL",
+            "description": "Test WebGL",
+            "path": "content/pages/Embedded/test-webgl/"
+        },
+        {
+            "cover": "content/pages/Customize/expgames/cover3.jpg",
+            "title": "Test ABCDEF",
+            "description": "Đây là 1 game test",
+            "path": "content/pages/Embedded/test-webgl/"
+        },
+        {
+            "cover": "content/pages/Customize/expgames/cover4.jpg",
+            "title": "Game Game Game Game",
+            "description": "Chơi game, chơi game thôi, abcdef",
+            "path": "content/pages/Embedded/test-webgl/"
+        }
+    ]
+}

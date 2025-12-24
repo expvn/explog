@@ -828,7 +828,7 @@ async function handleRoute() {
         return;
     }
 
-    // 3. Page: page/about-us
+    // 3. Page: page/about-us (legacy static pages from /content/pages/)
     if (parts[0] === 'page') {
         showArticle();
         const pageName = parts[1];
@@ -853,29 +853,53 @@ async function handleRoute() {
         return;
     }
 
-    // 5a. Standalone pages: /pages/page-name -> load in fullscreen iframe (keeps URL short)
-    if (parts[0] === 'pages' && parts[1]) {
+    // 5. Customize pages: /c/page-name -> category-like grid layout
+    if (parts[0] === 'c' && parts[1]) {
+        const pageName = parts[1].replace(/\/$/, '');
+        showHome();
+        await loadCustomizePage(pageName);
+        return;
+    }
+
+    // 6. Embedded pages: /e/page-name -> content/pages/Embedded/page-name/
+    if (parts[0] === 'e' && parts[1]) {
+        const pageName = parts[1].replace(/\/$/, '');
+        const embeddedResult = await checkEmbeddedPage(pageName);
+        if (embeddedResult.exists) {
+            showArticle();
+            await loadStaticPage(pageName, embeddedResult.path);
+            return;
+        }
+        // 404 for embedded page not found
+        showArticle();
+        els.markdownContent.innerHTML = `
+            <div style="text-align:center; padding: 4rem;">
+                <h1>Page Not Found</h1>
+                <p>Embedded page <strong>${pageName}</strong> could not be found.</p>
+                <p><a href="/" style="color: var(--primary); text-decoration: underline;">Return to Home</a></p>
+            </div>
+        `;
+        return;
+    }
+
+    // 7. Standalone pages: /s/page-name -> fullscreen iframe
+    if (parts[0] === 's' && parts[1]) {
         const pageName = parts[1].replace(/\/$/, '');
         const standaloneResult = await checkStandalonePage(pageName);
         if (standaloneResult.exists) {
             loadStandalonePage(standaloneResult.path, pageName);
             return;
         }
-    }
-
-    // 5b. Embedded pages: /page-name -> content/pages/Embedded/page-name/index.html
-    const pageName = parts[0].replace(/\/$/, ''); // Remove trailing slash if any
-
-    if (pageName && !pageName.includes('.')) {
-        // Check Embedded directory (embed in article container)
-        const embeddedResult = await checkEmbeddedPage(pageName);
-        console.log('[DEBUG] Embedded page exists:', embeddedResult.exists);
-
-        if (embeddedResult.exists) {
-            showArticle();
-            await loadStaticPage(pageName, embeddedResult.path);
-            return;
-        }
+        // 404 for standalone page not found
+        showArticle();
+        els.markdownContent.innerHTML = `
+            <div style="text-align:center; padding: 4rem;">
+                <h1>Page Not Found</h1>
+                <p>Standalone page <strong>${pageName}</strong> could not be found.</p>
+                <p><a href="/" style="color: var(--primary); text-decoration: underline;">Return to Home</a></p>
+            </div>
+        `;
+        return;
     }
 
     // 404 Error handling (don't overwrite app.innerHTML as it destroys views)
@@ -970,6 +994,173 @@ async function checkEmbeddedPage(pageName) {
         return { exists: false };
     }
 }
+
+// Check if a customize page exists in content/pages/Customize
+async function checkCustomizePage(pageName) {
+    try {
+        const url = `/content/pages/Customize/${pageName}/page.json`;
+        console.log(`[DEBUG] Checking Customize: ${url}`);
+        const res = await fetch(url, { method: 'HEAD', cache: 'no-store' });
+
+        if (res.ok) {
+            return { exists: true, baseDir: `/content/pages/Customize/${pageName}` };
+        }
+        return { exists: false };
+    } catch (e) {
+        console.error('[DEBUG] Customize check error:', e);
+        return { exists: false };
+    }
+}
+
+// Load and render Customize page (category-like grid layout with pagination)
+async function loadCustomizePage(pageName, pageNum = 1) {
+    const baseDir = `/content/pages/Customize/${pageName}`;
+
+    // Fetch page.json configuration
+    const metadata = await fetchPageMetadata(baseDir);
+    if (!metadata) {
+        // 404 error - page not found
+        showArticle();
+        els.markdownContent.innerHTML = `
+            <div style="text-align:center; padding: 4rem;">
+                <h1>Page Not Found</h1>
+                <p>Customize page <strong>${pageName}</strong> could not be found.</p>
+                <p><a href="/" style="color: var(--primary); text-decoration: underline;">Return to Home</a></p>
+            </div>
+        `;
+        return;
+    }
+
+    // Hide hero section
+    els.heroSection.classList.add('hidden');
+
+    // Update header
+    els.sectionHeader.textContent = metadata.title || pageName;
+
+    // Get items from content array
+    const allItems = metadata.content || [];
+    const itemsPerPage = 12; // Same as category pages
+    const totalPages = Math.ceil(allItems.length / itemsPerPage);
+    const startIdx = (pageNum - 1) * itemsPerPage;
+    const displayItems = allItems.slice(startIdx, startIdx + itemsPerPage);
+
+    // Render grid cards (similar to category posts)
+    if (displayItems.length === 0) {
+        els.blogGrid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: var(--text-secondary);">No items found.</p>';
+    } else {
+        els.blogGrid.innerHTML = displayItems.map(item => {
+            // Determine the correct link for the item
+            let itemLink = item.path || '#';
+            // If path points to a page in Embedded folder, convert to /e/pagename format
+            if (itemLink.includes('content/pages/Embedded/')) {
+                const match = itemLink.match(/content\/pages\/Embedded\/([^/]+)/);
+                if (match) {
+                    itemLink = `/e/${match[1]}`;
+                }
+            }
+            // If path points to a page in Standalone folder, convert to /s/pagename format
+            else if (itemLink.includes('content/pages/Standalone/')) {
+                const match = itemLink.match(/content\/pages\/Standalone\/([^/]+)/);
+                if (match) {
+                    itemLink = `/s/${match[1]}`;
+                }
+            }
+
+            return `
+            <a href="${itemLink}" class="post-card">
+                <div class="card-image-wrapper">
+                    <img src="/${item.cover}" alt="${item.title}" class="card-image" loading="lazy">
+                </div>
+                <div class="post-content">
+                    <h3 class="post-title">
+                        ${item.title}
+                        <ion-icon name="arrow-up-outline" class="arrow-icon" style="transform: rotate(45deg)"></ion-icon>
+                    </h3>
+                    <p class="post-summary">${item.description || ''}</p>
+                </div>
+            </a>
+        `}).join('');
+    }
+
+    // Render pagination if needed
+    if (totalPages > 1) {
+        renderCustomizePagination(pageNum, totalPages, pageName);
+    } else {
+        // Clear pagination if only one page
+        const paginationContainer = document.getElementById('pagination-container');
+        if (paginationContainer) {
+            paginationContainer.innerHTML = '';
+        }
+    }
+
+    // Update page title and SEO
+    document.title = `${metadata.title || pageName} | ${appState.config.site?.siteTitle || 'EXPVN'}`;
+
+    // Update SEO meta
+    SEO.updateMeta({
+        title: metadata.title || pageName,
+        description: metadata.description || '',
+        url: `${SEO.baseUrl()}/c/${pageName}`
+    });
+}
+
+// Render pagination for Customize pages
+function renderCustomizePagination(currentPage, totalPages, pageName) {
+    let paginationContainer = document.getElementById('pagination-container');
+    if (!paginationContainer) {
+        paginationContainer = document.createElement('div');
+        paginationContainer.id = 'pagination-container';
+        els.blogGrid.parentNode.insertBefore(paginationContainer, els.blogGrid.nextSibling);
+    }
+
+    const maxVisiblePages = 5;
+    let startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
+    let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
+
+    if (endPage - startPage < maxVisiblePages - 1) {
+        startPage = Math.max(1, endPage - maxVisiblePages + 1);
+    }
+
+    let paginationHtml = `
+        <div class="pagination" style="display: flex; justify-content: center; align-items: center; gap: 0.5rem; margin: 2rem 0; flex-wrap: wrap;">
+            ${currentPage > 1 ? `
+                <button onclick="goToCustomizePage(${currentPage - 1}, '${pageName}')" class="page-btn" style="padding: 0.5rem 1rem; border: 1px solid var(--border); background: var(--bg-secondary); border-radius: 8px; cursor: pointer;">
+                    ← Prev
+                </button>
+            ` : ''}
+            
+            ${startPage > 1 ? `
+                <button onclick="goToCustomizePage(1, '${pageName}')" class="page-btn" style="padding: 0.5rem 0.75rem; border: 1px solid var(--border); background: var(--bg-secondary); border-radius: 8px; cursor: pointer;">1</button>
+                ${startPage > 2 ? '<span style="padding: 0 0.5rem;">...</span>' : ''}
+            ` : ''}
+            
+            ${Array.from({ length: endPage - startPage + 1 }, (_, i) => startPage + i).map(page => `
+                <button onclick="goToCustomizePage(${page}, '${pageName}')" class="page-btn ${page === currentPage ? 'active' : ''}" style="padding: 0.5rem 0.75rem; border: 1px solid ${page === currentPage ? 'var(--primary)' : 'var(--border)'}; background: ${page === currentPage ? 'var(--primary)' : 'var(--bg-secondary)'}; color: ${page === currentPage ? 'white' : 'inherit'}; border-radius: 8px; cursor: pointer; font-weight: ${page === currentPage ? '600' : '400'};">
+                    ${page}
+                </button>
+            `).join('')}
+            
+            ${endPage < totalPages ? `
+                ${endPage < totalPages - 1 ? '<span style="padding: 0 0.5rem;">...</span>' : ''}
+                <button onclick="goToCustomizePage(${totalPages}, '${pageName}')" class="page-btn" style="padding: 0.5rem 0.75rem; border: 1px solid var(--border); background: var(--bg-secondary); border-radius: 8px; cursor: pointer;">${totalPages}</button>
+            ` : ''}
+            
+            ${currentPage < totalPages ? `
+                <button onclick="goToCustomizePage(${currentPage + 1}, '${pageName}')" class="page-btn" style="padding: 0.5rem 1rem; border: 1px solid var(--border); background: var(--bg-secondary); border-radius: 8px; cursor: pointer;">
+                    Next →
+                </button>
+            ` : ''}
+        </div>
+    `;
+
+    paginationContainer.innerHTML = paginationHtml;
+}
+
+// Global function for Customize page navigation
+window.goToCustomizePage = function (pageNum, pageName) {
+    loadCustomizePage(pageName, pageNum);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+};
 
 // Fetch page metadata from page.json
 async function fetchPageMetadata(baseDir) {

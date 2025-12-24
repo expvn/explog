@@ -3,6 +3,34 @@
         {
             "source": "/content/**",
             "destination": "/content/$1"
+        },
+        {
+            "source": "/c/**",
+            "destination": "/index.html"
+        },
+        {
+            "source": "/e/**",
+            "destination": "/index.html"
+        },
+        {
+            "source": "/s/**",
+            "destination": "/index.html"
+        },
+        {
+            "source": "/category/**",
+            "destination": "/index.html"
+        },
+        {
+            "source": "/tag/**",
+            "destination": "/index.html"
+        },
+        {
+            "source": "/posts/**",
+            "destination": "/index.html"
+        },
+        {
+            "source": "/page/**",
+            "destination": "/index.html"
         }
     ],
     "redirects": [],

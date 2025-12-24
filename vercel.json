@@ -6,7 +6,15 @@
             "destination": "/content/pages/:type*/:path*"
         },
         {
-            "source": "/pages/:page*",
+            "source": "/c/:page*",
+            "destination": "/index.html"
+        },
+        {
+            "source": "/e/:page*",
+            "destination": "/index.html"
+        },
+        {
+            "source": "/s/:page*",
             "destination": "/index.html"
         },
         {
