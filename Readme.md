@@ -59,10 +59,16 @@
 - Tìm kiếm theo tiêu đề và nội dung
 - Debounce để tối ưu performance
 
-### 📄 Static Pages
-- **Embedded pages**: Trang tĩnh hiển thị trong layout chính
-- **Standalone pages**: Trang độc lập (games, landing pages)
+### 📄 Custom Pages
+
+| Loại trang | Route | Mô tả |
+|------------|-------|-------|
+| **Customize** | `/c/tên-page` | Trang có bố cục grid (giống Category) |
+| **Embedded** | `/e/tên-page` | Trang tĩnh nhúng trong layout chính |
+| **Standalone** | `/s/tên-page` | Trang độc lập fullscreen (games, apps) |
+
 - Hỗ trợ WebGL, forms, và ứng dụng tương tác
+- Mỗi page có file `page.json` để cấu hình metadata
 
 ### 🔎 SEO & Performance
 - **Dynamic meta tags**: Title, description cập nhật theo từng trang
@@ -91,8 +97,9 @@ explog/
 │   │       ├── index.md    # Nội dung bài viết
 │   │       └── images/     # Hình ảnh của bài
 │   └── pages/              # Trang tĩnh
-│       ├── Embedded/       # Trang nhúng trong layout
-│       └── Standalone/     # Trang độc lập
+│       ├── Customize/      # Trang grid layout (/c/...)
+│       ├── Embedded/       # Trang nhúng trong layout (/e/...)
+│       └── Standalone/     # Trang độc lập (/s/...)
 ├── assets/
 │   ├── logo.png            # Logo website
 │   └── banner/             # Ảnh slider trang chủ
@@ -263,6 +270,56 @@ npm run build
   { "title": "GAME", "path": "category/game" },
   { "title": "ABOUT", "path": "page/about" }
 ]
+```
+
+### Custom Pages
+
+Các trang tùy chỉnh được đặt trong `content/pages/` với 3 loại:
+
+#### Customize Pages (`/c/tên-page`)
+
+Tạo thư mục trong `content/pages/Customize/`:
+```
+content/pages/Customize/expgames/
+├── page.json          # Cấu hình trang
+├── cover1.jpg         # Hình ảnh
+├── cover2.jpg
+└── ...
+```
+
+File `page.json`:
+```json
+{
+    "title": "EXPGAMES",
+    "description": "Các game do EXPVN phát triển",
+    "type": "customize",
+    "content": [
+        {
+            "cover": "content/pages/Customize/expgames/cover1.jpg",
+            "title": "Game 1",
+            "description": "Mô tả game",
+            "path": "content/pages/Embedded/game-1/"
+        }
+    ]
+}
+```
+
+#### Embedded Pages (`/e/tên-page`)
+
+Trang nhúng trong layout chính:
+```
+content/pages/Embedded/test-page/
+├── page.json
+└── index.html (hoặc view.html)
+```
+
+#### Standalone Pages (`/s/tên-page`)
+
+Trang độc lập hiển thị fullscreen:
+```
+content/pages/Standalone/landing/
+├── page.json
+└── index.html
 ```
 
 ---
